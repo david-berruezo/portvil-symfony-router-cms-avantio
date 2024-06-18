@@ -1,0 +1,7 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portvil | Intranet | Agencias | Propietarios</title>
+{{ asset('./assets/themes/findhouse/css/login/bootstrap.min.css') }}
+{{ asset('./assets/themes/findhouse/css/login/fontawesome-all.min.css') }}
+{{ asset('./assets/themes/findhouse/css/login/iofrm-style.css') }}
+{{ asset('./assets/themes/findhouse/css/login/iofrm-theme12.css') }}

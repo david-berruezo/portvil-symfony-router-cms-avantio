@@ -1,0 +1,82 @@
+/** Css mio **/
+@media only screen and (max-width: 520px){
+    .home_adv_srch_opt {
+        margin-top: 150px;
+    }
+
+    .desktop_buscador{
+        display:none;
+    }
+
+}
+  
+#barraaceptacion {
+    display: block;
+    padding: 30px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: #ff5a5f;
+    z-index: 2000;
+    color:#fff;
+}
+
+#barraaceptacion a{ 
+    color:#fff;
+}
+
+.zona{
+    line-height:1.5em;
+    height: 1.3em;
+    overflow: hidden;
+}
+
+.titulo_apartment{
+    line-height:1.5em;
+    height: 1.3em;
+    overflow: hidden;
+}
+
+/* imagen home foto */
+.fp_meta .list-inline-item img{
+    width:50%;
+}
+
+.listado_img{
+    width:25%!important;
+}    
+
+.feat_property .thumb .img-whp{
+    max-height: 253px;
+    min-height: 253px;
+}
+
+.titulo_etiqueta_google_maps{
+    /* text-overflow: ellipsis; */
+    width: 270px;
+    max-width: 270px;
+    max-height: 21px;
+    height: 21px;
+    line-height: 20px;
+    overflow: hidden;
+    /*background-color: #ccc;*/
+}
+
+#infowindow{
+    width:230px;
+    height:350px;
+    max-height:350px;
+}
+
+.blanco{
+    background-color:#fff;
+}
+
+.logo-pisosmanresa{
+    position:relative;
+    top:-12px;
+    width:100%;
+    max-width:200px;
+}
+

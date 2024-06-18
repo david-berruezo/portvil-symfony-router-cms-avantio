@@ -1,0 +1,1793 @@
+#controllers:
+#resource: ../src/Controller/
+#type: attribute
+
+# authentication
+reset-password:
+    path: /admin23111978/reset-password
+    controller: App\Controller\Admin\ResetPasswordController::request
+
+reset-password-check-email:
+    path: /admin23111978/check-email
+    controller: App\Controller\Admin\ResetPasswordController::checkEmail
+
+reset-password-uno:
+    path: /admin23111978/reset-password/{$slug}
+    controller: App\Controller\Admin\ResetPasswordController::request
+
+login:
+    path: /admin23111978/login
+    controller: App\Controller\Admin\SecurityController::login
+
+logout:
+    path: /admin23111978/logout
+    controller: App\Controller\Admin\SecurityController::logout
+
+# register
+registration:
+    path: /admin23111978/register
+    controller: App\Controller\Admin\SecurityController::register
+
+forget:
+    path: /admin23111978/forget
+    controller: App\Controller\Admin\SecurityController::forget
+
+dashboard:
+    path: /admin23111978/dashboard
+    controller: App\Controller\Admin\DashboardController::index
+
+# propiedades portvil y avantio y todas
+# todas multiple tablas
+geo-propiedades:
+    path: /admin23111978/propiedades
+    controller: App\Controller\PropiedadController::segmentGeoNoIdioma
+
+geo-propiedades-listar:
+    path: /admin23111978/propiedades/listar
+    controller: App\Controller\PropiedadController::segmentGeoNoIdioma
+
+geo-propiedades-new:
+    path: /admin23111978/propiedades/new/{id}
+    controller: App\Controller\PropiedadController::newNoIdioma
+
+geo-propiedades-add:
+    path: /admin23111978/propiedades/add/{id}
+    controller: App\Controller\PropiedadController::add
+
+geo-propiedades-editar:
+    path: /admin23111978/propiedades/editar/{id}
+    controller: App\Controller\PropiedadController::editarNoIdioma
+
+geo-propiedades-update:
+    path: /admin23111978/propiedades/update/{id}
+    controller: App\Controller\PropiedadController::updateNoIdioma
+
+geo-propiedades-pause:
+    path: /admin23111978/propiedades/pause/{id}
+    controller: App\Controller\PropiedadController::pauseNoIdioma
+
+geo-propiedades-play:
+    path: /admin23111978/propiedades/play/{id}
+    controller: App\Controller\PropiedadController::playNoIdioma
+
+geo-propiedades-remove:
+    path: /admin23111978/propiedades/remove/{id}
+    controller: App\Controller\PropiedadController::removeNoIdioma
+
+geo-properties-idioma:
+    path: /{_locale}/admin23111978/portvil-properties
+    controller: App\Controller\PropiedadController::segmentGeoIdioma
+
+geo-properties-new-idioma:
+    path: /{_locale}/admin23111978/portvil-properties/new/{id}
+    controller: App\Controller\PropiedadController::newIdioma
+
+geo-properties-listar-idioma:
+    path: /{_locale}/admin23111978/portvil-properties/listar
+    controller: App\Controller\PropiedadController::segmentGeoIdioma
+
+geo-properties-editar-idioma:
+    path: /{_locale}/admin23111978/portvil-properties/editar/{id}
+    controller: App\Controller\PropiedadController::editarIdioma
+
+geo-properties-update-idioma:
+    path: /{_locale}/admin23111978/portvil-properties/update/{id}
+    controller: App\Controller\PropiedadController::updateIdioma
+
+geo-properties-pause-idioma:
+    path: /{_locale}/admin23111978/portvil-properties/pause/{id}
+    controller: App\Controller\PropiedadController::pauseIdioma
+
+geo-properties-play-idioma:
+    path: /{_locale}/admin23111978/portvil-properties/play/{id}
+    controller: App\Controller\PropiedadController::playIdioma
+
+geo-properties-remove-idioma:
+    path: /{_locale}/admin23111978/portvil-properties/remove/{id}
+    controller: App\Controller\PropiedadController::removeIdioma
+
+# propiedades-portvil(extra)
+geo-propiedades-extra:
+    path: /admin23111978/propiedades-extra
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propiedades-extra-listar:
+    path: /admin23111978/propiedades-extra/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propiedades-extra-new:
+    path: /admin23111978/propiedades-extra/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-propiedades-extra-add:
+    path: /admin23111978/propiedades-extra/add/{id}
+    controller: App\Controller\Admin\PageController::add
+
+geo-propiedades-extra-editar:
+    path: /admin23111978/propiedades-extra/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-propiedades-extra-update:
+    path: /admin23111978/propiedades-extra/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-propiedades-extra-pause:
+    path: /admin23111978/propiedades-extra/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-propiedades-extra-play:
+    path: /admin23111978/propiedades-extra/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-propiedades-extra-remove:
+    path: /admin23111978/propiedades-extra/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-properties-extra-idioma:
+    path: /{_locale}/admin23111978/extra-properties
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-properties-extra-new-idioma:
+    path: /{_locale}/admin23111978/extra-properties/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-properties-extra-listar-idioma:
+    path: /{_locale}/admin23111978/extra-properties/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-properties-extra-editar-idioma:
+    path: /{_locale}/admin23111978/extra-properties/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-properties-extra-update-idioma:
+    path: /{_locale}/admin23111978/extra-properties/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-properties-extra-pause-idioma:
+    path: /{_locale}/admin23111978/extra-properties/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-properties-extra-play-idioma:
+    path: /{_locale}/admin23111978/extra-properties/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-properties-extra-remove-idioma:
+    path: /{_locale}/admin23111978/extra-properties/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+# propiedades-avantio
+geo-propiedades-avantio:
+    path: /admin23111978/propiedades-avantio
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propiedades-avantio-listar:
+    path: /admin23111978/propiedades-avantio/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propiedades-avantio-new:
+    path: /admin23111978/propiedades-avantio/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-propiedades-avantio-add:
+    path: /admin23111978/propiedades-avantio/add/{id}
+    controller: App\Controller\Admin\PageController::add
+
+geo-propiedades-avantio-editar:
+    path: /admin23111978/propiedades-avantio/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-propiedades-avantio-update:
+    path: /admin23111978/propiedades-avantio/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-propiedades-avantio-pause:
+    path: /admin23111978/propiedades-avantio/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-propiedades-avantio-play:
+    path: /admin23111978/propiedades-avantio/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-propiedades-avantio-remove:
+    path: /admin23111978/propiedades-avantio/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-avantio-properties-idioma:
+    path: /{_locale}/admin23111978/avantio-properties
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-avantio-properties-new-idioma:
+    path: /{_locale}/admin23111978/avantio-properties/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-avantio-properties-listar-idioma:
+    path: /{_locale}/admin23111978/avantio-properties/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-avantio-properties-editar-idioma:
+    path: /{_locale}/admin23111978/avantio-properties/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-avantio-properties-update-idioma:
+    path: /{_locale}/admin23111978/avantio-properties/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-avantio-properties-pause-idioma:
+    path: /{_locale}/admin23111978/avantio-properties/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-avantio-properties-play-idioma:
+    path: /{_locale}/admin23111978/avantio-properties/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-avantio-properties-remove-idioma:
+    path: /{_locale}/admin23111978/avantio-properties/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+# pais
+geo-pais:
+    path:
+        es: /admin23111978/pais/listar
+        en: /{_locale}/admin23111978/country/list
+       #en/admin23111978/country/edit/1222?lang=en
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-pais-listar:
+    path:
+        es: /admin23111978/pais/listar
+        en: /{_locale}/admin23111978/country/list
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-pais-editar:
+    path:
+        es: /admin23111978/pais/editar/{id}
+        en: /{_locale}/admin23111978/country/edit/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-pais-new:
+    path:
+        es: /admin23111978/pais/nuevo/{id}
+        en: /{_locale}/admin23111978/country/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-pais-pause:
+    path:
+        es: /admin23111978/pais/pause/{id}
+        en: /{_locale}/admin23111978/country/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-pais-play:
+    path:
+        es: /admin23111978/pais/play/{id}
+        en: /{_locale}/admin23111978/country/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-pais-remove:
+    path:
+        es: /admin23111978/pais/borrar/{id}
+        en: /{_locale}/admin23111978/country/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+
+# pais API
+    #geo-api-pais:
+    #path: /api/pais
+    #methods: ['GET']
+    #controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
+
+    #geo-api-pais-listar:
+    #path: /api/pais/listar
+    #methods: ['GET']
+    #controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
+
+    #geo-api-pais-new:
+    #path: /api/pais/new/{id}
+    #methods: ['POST']
+    #controller: App\Controller\Api\PageApiController::newNoIdioma
+
+    #geo-api-pais-add:
+    #path: /api/pais/add/{id}
+    #methods: ['POST']
+    #controller: App\Controller\Api\PageApiController::add
+
+    #geo-api-pais-editar:
+    #path: /api/pais/editar/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::editarNoIdioma
+
+    #geo-api-pais-update:
+    #path: /api/pais/update/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::updateNoIdioma
+
+    #geo-api-pais-pause:
+    #path: /api/pais/pause/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::pauseNoIdioma
+
+    #geo-api-pais-play:
+    #path: /api/pais/play/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::playNoIdioma
+
+    #geo-api-pais-remove:
+    #path: /api/pais/remove/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::removeNoIdioma
+
+    #geo-api-country-idioma:
+    #path: /{_locale}/api/country
+    #methods: ['GET']
+    #controller: App\Controller\Api\PageApiController::segmentGeoIdioma
+
+    #geo-api-country-new-idioma:
+    #path: /{_locale}/api/country/new/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::newIdioma
+
+    #geo-api-country-listar-idioma:
+    #path: /{_locale}/api/country/listar
+    #methods: ['GET']
+    #controller: App\Controller\Api\PageApiController::segmentGeoIdioma
+
+    #geo-api-country-editar-idioma:
+    #path: /{_locale}/api/country/editar/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::editarIdioma
+
+    #geo-api-country-update-idioma:
+    #path: /{_locale}/api/country/update/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::updateIdioma
+
+    #geo-api-country-pause-idioma:
+    #path: /{_locale}/api/country/pause/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::pauseIdioma
+
+    #geo-api-country-play-idioma:
+    #path: /{_locale}/api/country/play/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::playIdioma
+
+    #geo-api-country-remove-idioma:
+    #path: /{_locale}/api/country/remove/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::removeIdioma
+
+
+# region
+geo-region:
+    path: /admin23111978/region
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-region-listar:
+    path: /admin23111978/region/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-region-new:
+    path: /admin23111978/region/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-region-add:
+    path: /admin23111978/region/add/{id}
+    controller: App\Controller\Admin\PageController::add
+
+geo-region-editar:
+    path: /admin23111978/region/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-region-update:
+    path: /admin23111978/region/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-region-pause:
+    path: /admin23111978/region/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-region-play:
+    path: /admin23111978/region/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-region-remove:
+    path: /admin23111978/region/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-region-idioma:
+    path: /{_locale}/admin23111978/region
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-region-listar-idioma:
+    path: /{_locale}/admin23111978/region/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-region-new-idioma:
+    path: /{_locale}/admin23111978/region/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-region-editar-idioma:
+    path: /{_locale}/admin23111978/region/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-region-update-idioma:
+    path: /{_locale}/admin23111978/region/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-region-pause-idioma:
+    path: /{_locale}/admin23111978/region/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-region-play-idioma:
+    path: /{_locale}/admin23111978/region/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-region-remove-idioma:
+    path: /{_locale}/admin23111978/region/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# ciudad
+geo-ciudad:
+    path: /admin23111978/ciudad
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-ciudad-listar:
+    path: /admin23111978/ciudad/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-ciudad-new:
+    path: /admin23111978/ciudad/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-ciudad-add:
+    path: /admin23111978/ciudad/add/{id}
+    controller: App\Controller\Admin\PageController::add
+
+geo-ciudad-editar:
+    path: /admin23111978/ciudad/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-ciudad-update:
+    path: /admin23111978/ciudad/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-ciudad-pause:
+    path: /admin23111978/ciudad/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-ciudad-play:
+    path: /admin23111978/ciudad/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-ciudad-remove:
+    path: /admin23111978/ciudad/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-ciudad-idioma:
+    path: /{_locale}/admin23111978/city
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-ciudad-listar-idioma:
+    path: /{_locale}/admin23111978/city/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-ciudad-new-idioma:
+    path: /{_locale}/admin23111978/city/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-ciudad-editar-idioma:
+    path: /{_locale}/admin23111978/city/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-ciudad-update-idioma:
+    path: /{_locale}/admin23111978/city/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-ciudad-pause-idioma:
+    path: /{_locale}/admin23111978/city/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-ciudad-play-idioma:
+    path: /{_locale}/admin23111978/city/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-ciudad-remove-idioma:
+    path: /{_locale}/admin23111978/city/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+# localidad
+geo-localidad:
+    path: /admin23111978/localidad
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-localidad-listar:
+    path: /admin23111978/localidad/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-localidad-new:
+    path: /admin23111978/localidad/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-localidad-add:
+    path: /admin23111978/localidad/add/{id}
+    controller: App\Controller\Admin\PageController::add
+
+geo-localidad-editar:
+    path: /admin23111978/localidad/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-localidad-update:
+    path: /admin23111978/localidad/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-localidad-pause:
+    path: /admin23111978/localidad/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-localidad-play:
+    path: /admin23111978/localidad/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-localidad-remove:
+    path: /admin23111978/localidad/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-localidad-idioma:
+    path: /{_locale}/admin23111978/locality
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-localidad-listar-idioma:
+    path: /{_locale}/admin23111978/locality/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-localidad-new-idioma:
+    path: /{_locale}/admin23111978/locality/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-localidad-editar-idioma:
+    path: /{_locale}/admin23111978/locality/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-localidad-update-idioma:
+    path: /{_locale}/admin23111978/locality/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-localidad-pause-idioma:
+    path: /{_locale}/admin23111978/locality/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-localidad-play-idioma:
+    path: /{_locale}/admin23111978/locality/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-localidad-remove-idioma:
+    path: /{_locale}/admin23111978/locality/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+# distrito
+geo-distrito:
+    path: /admin23111978/distrito
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-distrito-listar:
+    path: /admin23111978/distrito/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-distrito-new:
+    path: /admin23111978/distrito/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-distrito-add:
+    path: /admin23111978/distrito/add/{id}
+    controller: App\Controller\Admin\PageController::add
+
+geo-distrito-editar:
+    path: /admin23111978/distrito/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-distrito-update:
+    path: /admin23111978/distrito/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-distrito-pause:
+    path: /admin23111978/distrito/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-distrito-play:
+    path: /admin23111978/distrito/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-distrito-remove:
+    path: /admin23111978/distrito/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+
+geo-distrito-idioma:
+    path: /{_locale}/admin23111978/district
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-distrito-listar-idioma:
+    path: /{_locale}/admin23111978/district/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-distrito-new-idioma:
+    path: /{_locale}/admin23111978/district/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-distrito-editar-idioma:
+    path: /{_locale}/admin23111978/district/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-distrito-update-idioma:
+    path: /{_locale}/admin23111978/district/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-distrito-pause-idioma:
+    path: /{_locale}/admin23111978/district/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-distrito-play-idioma:
+    path: /{_locale}/admin23111978/district/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-distrito-remove-idioma:
+    path: /{_locale}/admin23111978/district/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# accion
+geo-accion:
+    path: /admin23111978/accion
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-accion-listar:
+    path: /admin23111978/accion/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-accion-new:
+    path: /admin23111978/accion/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-accion-add:
+    path: /admin23111978/accion/add/{id}
+    controller: App\Controller\Admin\PageController::add
+
+geo-accion-editar:
+    path: /admin23111978/accion/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-accion-update:
+    path: /admin23111978/accion/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-accion-pause:
+    path: /admin23111978/accion/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-accion-play:
+    path: /admin23111978/accion/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-accion-remove:
+    path: /admin23111978/accion/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-accion-idioma:
+    path: /{_locale}/action
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-accion-new-idioma:
+    path: /{_locale}/admin23111978/action/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-accion-listar-idioma:
+    path: /{_locale}/admin23111978/action/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-accion-editar-idioma:
+    path: /{_locale}/admin23111978/action/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-accion-update-idioma:
+    path: /{_locale}/admin23111978/action/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-accion-pause-idioma:
+    path: /{_locale}/admin23111978/action/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-accion-play-idioma:
+    path: /{_locale}/admin23111978/action/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-accion-remove-idioma:
+    path: /{_locale}/admin23111978/action/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+
+# agencia
+geo-agencia:
+    path: /admin23111978/agencia
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-agencia-listar:
+    path: /admin23111978/agencia/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-agencia-new:
+    path: /admin23111978/agencia/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-agencia-editar:
+    path: /admin23111978/agencia/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-agencia-update:
+    path: /admin23111978/agencia/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-agencia-pause:
+    path: /admin23111978/agencia/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-agencia-play:
+    path: /admin23111978/agencia/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-agencia-remove:
+    path: /admin23111978/agencia/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-agencia-idioma:
+    path: /{_locale}/admin23111978/agency
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-agencia-new-idioma:
+    path: /{_locale}/admin23111978/agency/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-agencia-listar-idioma:
+    path: /{_locale}/admin23111978/agency/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-agencia-editar-idioma:
+    path: /{_locale}/admin23111978/agency/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-agencia-update-idioma:
+    path: /{_locale}/admin23111978/agency/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-agencia-pause-idioma:
+    path: /{_locale}/admin23111978/agency/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-agencia-play-idioma:
+    path: /{_locale}/admin23111978/agency/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-agencia-remove-idioma:
+    path: /{_locale}/admin23111978/agency/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# tarifa
+geo-tarifa:
+    path: /admin23111978/tarifa
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-tarifa-listar:
+    path: /admin23111978/tarifa/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-tarifa-new:
+    path: /admin23111978/tarifa/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-tarifa-editar:
+    path: /admin23111978/tarifa/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-tarifa-update:
+    path: /admin23111978/tarifa/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-tarifa-pause:
+    path: /admin23111978/tarifa/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-tarifa-play:
+    path: /admin23111978/tarifa/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-tarifa-remove:
+    path: /admin23111978/tarifa/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-tarifa-idioma:
+    path: /{_locale}/admin23111978/rate
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-tarifa-new-idioma:
+    path: /{_locale}/admin23111978/rate/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-tarifa-listar-idioma:
+    path: /{_locale}/admin23111978/rate/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-tarifa-editar-idioma:
+    path: /{_locale}/admin23111978/rate/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-tarifa-update-idioma:
+    path: /{_locale}/admin23111978/rate/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-tarifa-pause-idioma:
+    path: /{_locale}/admin23111978/rate/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-tarifa-play-idioma:
+    path: /{_locale}/admin23111978/rate/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-tarifa-remove-idioma:
+    path: /{_locale}/admin23111978/rate/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# propietario
+geo-propietario:
+    path: /admin23111978/propietario
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propietario-listar:
+    path: /admin23111978/propietario/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propietario-new:
+    path: /admin23111978/propietario/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-propietario-editar:
+    path: /admin23111978/propietario/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-propietario-update:
+    path: /admin23111978/propietario/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-propietario-pause:
+    path: /admin23111978/propietario/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-propietario-play:
+    path: /admin23111978/propietario/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-propietario-remove:
+    path: /admin23111978/propietario/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-propietario-idioma:
+    path: /{_locale}/admin23111978/owner
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-propietario-new-idioma:
+    path: /{_locale}/admin23111978/owner/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-propietario-listar-idioma:
+    path: /{_locale}/admin23111978/owner/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-propietario-editar-idioma:
+    path: /{_locale}/admin23111978/owner/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-propietario-update-idioma:
+    path: /{_locale}/admin23111978/owner/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-propietario-pause-idioma:
+    path: /{_locale}/admin23111978/owner/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-propietario-play-idioma:
+    path: /{_locale}/admin23111978/owner/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-propietario-remove-idioma:
+    path: /{_locale}/admin23111978/owner/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# gobernanta
+geo-gobernanta:
+    path: /admin23111978/gobernanta
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-gobernanta-listar:
+    path: /admin23111978/gobernanta/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-gobernanta-new:
+    path: /admin23111978/gobernanta/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-gobernanta-editar:
+    path: /admin23111978/gobernanta/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-gobernanta-update:
+    path: /admin23111978/gobernanta/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-gobernanta-pause:
+    path: /admin23111978/gobernanta/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-gobernanta-play:
+    path: /admin23111978/gobernanta/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-gobernanta-remove:
+    path: /admin23111978/gobernanta/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-gobernanta-idioma:
+    path: /{_locale}/admin23111978/governess
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-gobernanta-new-idioma:
+    path: /{_locale}/admin23111978/governess/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-gobernanta-listar-idioma:
+    path: /{_locale}/admin23111978/governess/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-gobernanta-editar-idioma:
+    path: /{_locale}/admin23111978/governess/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-gobernanta-update-idioma:
+    path: /{_locale}/admin23111978/governess/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-gobernanta-pause-idioma:
+    path: /{_locale}/admin23111978/governess/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-gobernanta-play-idioma:
+    path: /{_locale}/admin23111978/governess/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-gobernanta-remove-idioma:
+    path: /{_locale}/admin23111978/governess/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+
+# limpiadora
+geo-limpiadora:
+    path: /admin23111978/limpiadora
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-limpiadora-listar:
+    path: /admin23111978/limpiadora/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-limpiadora-new:
+    path: /admin23111978/limpiadora/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-limpiadora-editar:
+    path: /admin23111978/limpiadora/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-limpiadora-update:
+    path: /admin23111978/limpiadora/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-limpiadora-pause:
+    path: /admin23111978/limpiadora/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-limpiadora-play:
+    path: /admin23111978/limpiadora/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-limpiadora-remove:
+    path: /admin23111978/limpiadora/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-limpiadora-idioma:
+    path: /{_locale}/admin23111978/cleaner
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-limpiadora-new-idioma:
+    path: /{_locale}/admin23111978/cleaner/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-limpiadora-listar-idioma:
+    path: /{_locale}/admin23111978/cleaner/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-limpiadora-editar-idioma:
+    path: /{_locale}/admin23111978/cleaner/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-limpiadora-update-idioma:
+    path: /{_locale}/admin23111978/cleaner/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-limpiadora-pause-idioma:
+    path: /{_locale}/admin23111978/cleaner/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-limpiadora-play-idioma:
+    path: /{_locale}/admin23111978/cleaner/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-limpiadora-remove-idioma:
+    path: /{_locale}/admin23111978/cleaner/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+
+# lavanderia
+geo-lavanderia:
+    path: /admin23111978/lavanderia
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-lavanderia-listar:
+    path: /admin23111978/lavanderia/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-lavanderia-new:
+    path: /admin23111978/lavanderia/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-lavanderia-editar:
+    path: /admin23111978/lavanderia/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-lavanderia-update:
+    path: /admin23111978/lavanderia/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-lavanderia-pause:
+    path: /admin23111978/lavanderia/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-lavanderia-play:
+    path: /admin23111978/lavanderia/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-lavanderia-remove:
+    path: /admin23111978/lavanderia/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-lavanderia-idioma:
+    path: /{_locale}/admin23111978/laundry
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-lavanderia-new-idioma:
+    path: /{_locale}/admin23111978/laundry/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-lavanderia-listar-idioma:
+    path: /{_locale}/admin23111978/laundry/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-lavanderia-editar-idioma:
+    path: /{_locale}/admin23111978/laundry/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-lavanderia-update-idioma:
+    path: /{_locale}/admin23111978/laundry/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-lavanderia-pause-idioma:
+    path: /{_locale}/admin23111978/laundry/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-lavanderia-play-idioma:
+    path: /{_locale}/admin23111978/laundry/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-lavanderia-remove-idioma:
+    path: /{_locale}/admin23111978/laundry/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# taxonomy
+geo-taxonomia:
+    path: /admin23111978/taxonomia
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-taxonomia-listar:
+    path: /admin23111978/taxonomia/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-taxonomia-new:
+    path: /admin23111978/taxonomia/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-taxonomia-editar:
+    path: /admin23111978/taxonomia/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-taxonomia-update:
+    path: /admin23111978/taxonomia/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-taxonomia-pause:
+    path: /admin23111978/taxonomia/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-taxonomia-play:
+    path: /admin23111978/taxonomia/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-taxonomia-remove:
+    path: /admin23111978/taxonomia/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-taxonomia-idioma:
+    path: /{_locale}/admin23111978/taxonomy
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-taxonomia-new-idioma:
+    path: /{_locale}/admin23111978/taxonomy/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-taxonomia-listar-idioma:
+    path: /{_locale}/admin23111978/taxonomy/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-taxonomia-editar-idioma:
+    path: /{_locale}/admin23111978/taxonomy/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-taxonomia-update-idioma:
+    path: /{_locale}/admin23111978/taxonomy/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-taxonomia-pause-idioma:
+    path: /{_locale}/admin23111978/taxonomy/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-taxonomia-play-idioma:
+    path: /{_locale}/admin23111978/taxonomy/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-taxonomia-remove-idioma:
+    path: /{_locale}/admin23111978/taxonomy/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# taxonomy-group
+geo-taxonomia-grupo:
+    path: /admin23111978/taxonomia-grupo
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-taxonomia-grupo-listar:
+    path: /admin23111978/taxonomia-grupo/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-taxonomia-grupo-new:
+    path: /admin23111978/taxonomia-grupo/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-taxonomia-grupo-editar:
+    path: /admin23111978/taxonomia-grupo/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-taxonomia-grupo-update:
+    path: /admin23111978/taxonomia-grupo/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-taxonomia-grupo-pause:
+    path: /admin23111978/taxonomia-grupo/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-taxonomia-grupo-play:
+    path: /admin23111978/taxonomia-grupo/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-taxonomia-grupo-remove:
+    path: /admin23111978/taxonomia-grupo/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-taxonomia-grupo-idioma:
+    path: /{_locale}/admin23111978/taxonomy-group
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-taxonomia-grupo-new-idioma:
+    path: /{_locale}/admin23111978/taxonomy-group/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-taxonomia-grupo-listar-idioma:
+    path: /{_locale}/admin23111978/taxonomy-group/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-taxonomia-grupo-editar-idioma:
+    path: /{_locale}/admin23111978/taxonomy-group/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-taxonomia-grupo-update-idioma:
+    path: /{_locale}/admin23111978/taxonomy-group/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-taxonomia-grupo-pause-idioma:
+    path: /{_locale}/admin23111978/taxonomy-group/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-taxonomia-grupo-play-idioma:
+    path: /{_locale}/admin23111978/taxonomy-group/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-taxonomia-grupo-remove-idioma:
+    path: /{_locale}/admin23111978/taxonomy-group/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# url-detalle
+geo-url-detalle:
+    path: /admin23111978/url-detalle
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-url-detalle-listar:
+    path: /admin23111978/url-detalle/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-url-detalle-new:
+    path: /admin23111978/url-detalle/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-url-detalle-add:
+    path: /admin23111978/url-detalle/add/{id}
+    controller: App\Controller\Admin\PageController::add
+
+geo-url-detalle-editar:
+    path: /admin23111978/url-detalle/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-url-detalle-update:
+    path: /admin23111978/url-detalle/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-url-detalle-pause:
+    path: /admin23111978/url-detalle/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-url-detalle-play:
+    path: /admin23111978/url-detalle/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-url-detalle-remove:
+    path: /admin23111978/url-detalle/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-url-detalle-idioma:
+    path: /{_locale}/admin23111978/url-detail
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-url-detalle-new-idioma:
+    path: /{_locale}/admin23111978/url-detail/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-url-detalle-listar-idioma:
+    path: /{_locale}/admin23111978/url-detail/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-url-detalle-editar-idioma:
+    path: /{_locale}/admin23111978/url-detail/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-url-detalle-update-idioma:
+    path: /{_locale}/admin23111978/url-detail/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-url-detalle-pause-idioma:
+    path: /{_locale}/admin23111978/url-detail/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-url-detalle-play-idioma:
+    path: /{_locale}/admin23111978/url-detail/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-url-detalle-remove-idioma:
+    path: /{_locale}/admin23111978/url-detail/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# galeria principal
+geo-galeria-franquicia-principal:
+    path: /admin23111978/galeria-franquicia-principal
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-galeria-franquicia-principal-listar:
+    path: /admin23111978/galeria-franquicia-principal/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-galeria-franquicia-principal-new:
+    path: /admin23111978/galeria-franquicia-principal/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-galeria-franquicia-principal-editar:
+    path: /admin23111978/galeria-franquicia-principal/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-galeria-franquicia-principal-update:
+    path: /admin23111978/galeria-franquicia-principal/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-galeria-franquicia-principal-pause:
+    path: /admin23111978/galeria-franquicia-principal/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-galeria-franquicia-principal-play:
+    path: /admin23111978/galeria-franquicia-principal/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-galeria-franquicia-principal-remove:
+    path: /admin23111978/galeria-franquicia-principal/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-galeria-franquicia-principal-idioma:
+    path: /{_locale}/admin23111978/gallery-main
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-galeria-franquicia-principal-new-idioma:
+    path: /{_locale}/admin23111978/gallery-main/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-galeria-franquicia-principal-listar-idioma:
+    path: /{_locale}/admin23111978/gallery-main/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-galeria-franquicia-principal-editar-idioma:
+    path: /{_locale}/admin23111978/gallery-main/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-galeria-franquicia-principal-update-idioma:
+    path: /{_locale}/admin23111978/gallery-main/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-galeria-franquicia-principal-pause-idioma:
+    path: /{_locale}/admin23111978/gallery-main/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-galeria-franquicia-principal-play-idioma:
+    path: /{_locale}/admin23111978/gallery-main/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-galeria-franquicia-principal-remove-idioma:
+    path: /{_locale}/admin23111978/gallery-main/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# paginas
+geo-paginas:
+    path: /admin23111978/paginas
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-paginas-listar:
+    path: /admin23111978/paginas/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-paginas-new:
+    path: /admin23111978/paginas/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-paginas-editar:
+    path: /admin23111978/paginas/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-paginas-update:
+    path: /admin23111978/paginas/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-paginas-pause:
+    path: /admin23111978/paginas/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-paginas-play:
+    path: /admin23111978/paginas/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-paginas-remove:
+    path: /admin23111978/paginas/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-paginas-idioma:
+    path: /{_locale}/admin23111978/pages
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-paginas-new-idioma:
+    path: /{_locale}/admin23111978/pages/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-paginas-listar-idioma:
+    path: /{_locale}/admin23111978/pages/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-paginas-editar-idioma:
+    path: /{_locale}/admin23111978/pages/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-paginas-update-idioma:
+    path: /{_locale}/admin23111978/pages/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-paginas-pause-idioma:
+    path: /{_locale}/admin23111978/pages/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-paginas-play-idioma:
+    path: /{_locale}/admin23111978/pages/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-paginas-remove-idioma:
+    path: /{_locale}/admin23111978/pages/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# socios
+geo-socios:
+    path: /admin23111978/socios
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-socios-listar:
+    path: /admin23111978/socios/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-socios-new:
+    path: /admin23111978/socios/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-socios-editar:
+    path: /admin23111978/socios/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-socios-update:
+    path: /admin23111978/socios/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-socios-pause:
+    path: /admin23111978/socios/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-socios-play:
+    path: /admin23111978/socios/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-socios-remove:
+    path: /admin23111978/socios/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-socios-idioma:
+    path: /{_locale}/admin23111978/partners
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-socios-new-idioma:
+    path: /{_locale}/admin23111978/partners/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-socios-listar-idioma:
+    path: /{_locale}/admin23111978/partners/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-socios-editar-idioma:
+    path: /{_locale}/admin23111978/partners/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-socios-update-idioma:
+    path: /{_locale}/admin23111978/partners/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-socios-pause-idioma:
+    path: /{_locale}/admin23111978/partners/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-socios-play-idioma:
+    path: /{_locale}/admin23111978/partners/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-socios-remove-idioma:
+    path: /{_locale}/admin23111978/partners/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# featured-properties
+geo-propiedades-destacadas:
+    path: /admin23111978/propiedades-destacadas
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propiedades-destacadas-listar:
+    path: /admin23111978/propiedades-destacadas/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propiedades-destacadas-new:
+    path: /admin23111978/propiedades-destacadas/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-propiedades-destacadas-editar:
+    path: /admin23111978/propiedades-destacadas/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-propiedades-destacadas-update:
+    path: /admin23111978/propiedades-destacadas/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-propiedades-destacadas-pause:
+    path: /admin23111978/propiedades-destacadas/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-propiedades-destacadas-play:
+    path: /admin23111978/propiedades-destacadas/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-propiedades-destacadas-remove:
+    path: /admin23111978/propiedades-destacadas/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-propiedades-destacadas-idioma:
+    path: /{_locale}/admin23111978/featured-properties
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-propiedades-destacadas-new-idioma:
+    path: /{_locale}/admin23111978/featured-properties/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-propiedades-destacadas-listar-idioma:
+    path: /{_locale}/admin23111978/featured-properties/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-propiedades-destacadas-editar-idioma:
+    path: /{_locale}/admin23111978/featured-properties/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-propiedades-destacadas-update-idioma:
+    path: /{_locale}/admin23111978/featured-properties/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-propiedades-destacadas-pause-idioma:
+    path: /{_locale}/admin23111978/featured-properties/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-propiedades-destacadas-play-idioma:
+    path: /{_locale}/admin23111978/featured-properties/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-propiedades-destacadas-remove-idioma:
+    path: /{_locale}/admin23111978/featured-properties/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+# propietarios
+geo-propietarios:
+    path: /admin23111978/propietario
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propietarios-listar:
+    path: /admin23111978/propietario/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-propietarios-new:
+    path: /admin23111978/propietario/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-propietarios-editar:
+    path: /admin23111978/propietario/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-propietarios-update:
+    path: /admin23111978/propietario/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-propietarios-pause:
+    path: /admin23111978/propietario/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-propietarios-play:
+    path: /admin23111978/propietario/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-propietarios-remove:
+    path: /admin23111978/propietario/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+geo-propietarios-idioma:
+    path: /{_locale}/action
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-propietarios-new-idioma:
+    path: /{_locale}/admin23111978/owner/new/{id}
+    controller: App\Controller\Admin\PageController::newIdioma
+
+geo-propietarios-listar-idioma:
+    path: /{_locale}/admin23111978/owner/listar
+    controller: App\Controller\Admin\PageController::segmentGeoIdioma
+
+geo-propietarios-editar-idioma:
+    path: /{_locale}/admin23111978/owner/editar/{id}
+    controller: App\Controller\Admin\PageController::editarIdioma
+
+geo-propietarios-update-idioma:
+    path: /{_locale}/admin23111978/owner/update/{id}
+    controller: App\Controller\Admin\PageController::updateIdioma
+
+geo-propietarios-pause-idioma:
+    path: /{_locale}/admin23111978/owner/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseIdioma
+
+geo-propietarios-play-idioma:
+    path: /{_locale}/admin23111978/owner/play/{id}
+    controller: App\Controller\Admin\PageController::playIdioma
+
+geo-propietarios-remove-idioma:
+    path: /{_locale}/admin23111978/owner/remove/{id}
+    controller: App\Controller\Admin\PageController::removeIdioma
+
+
+
+# gallery-blog
+geo-galeria-blog:
+    path: /admin23111978/galeria-blog
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-galeria-blog-listar:
+    path: /admin23111978/galeria-blog/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-galeria-blog-new:
+    path: /admin23111978/galeria-blog/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-galeria-blog-editar:
+    path: /admin23111978/galeria-blog/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-galeria-blog-update:
+    path: /admin23111978/galeria-blog/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-galeria-blog-pause:
+    path: /admin23111978/galeria-blog/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-galeria-blog-play:
+    path: /admin23111978/galeria-blog/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-galeria-blog-remove:
+    path: /admin23111978/galeria-blog/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+
+# language
+geo-language:
+    path: /admin23111978/language
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-language-listar:
+    path: /admin23111978/language/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-language-new:
+    path: /admin23111978/language/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-language-editar:
+    path: /admin23111978/language/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-language-update:
+    path: /admin23111978/language/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-language-pause:
+    path: /admin23111978/language/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-language-play:
+    path: /admin23111978/language/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-language-remove:
+    path: /admin23111978/language/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+
+# permisos
+geo-permisos:
+    path: /admin23111978/permisos
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-permisos-listar:
+    path: /admin23111978/permisos/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-permisos-new:
+    path: /admin23111978/permisos/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-permisos-editar:
+    path: /admin23111978/permisos/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-permisos-update:
+    path: /admin23111978/permisos/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-permisos-pause:
+    path: /admin23111978/permisos/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-permisos-play:
+    path: /admin23111978/permisos/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-permisos-remove:
+    path: /admin23111978/permisos/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+
+# preferences
+geo-preferencias:
+    path: /admin23111978/preferencias
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-preferencias-listar:
+    path: /admin23111978/preferencias/listar
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-preferencias-new:
+    path: /admin23111978/preferencias/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-preferencias-editar:
+    path: /admin23111978/preferencias/editar/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-preferencias-update:
+    path: /admin23111978/preferencias/update/{id}
+    controller: App\Controller\Admin\PageController::updateNoIdioma
+
+geo-preferencias-pause:
+    path: /admin23111978/preferencias/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-preferencias-play:
+    path: /admin23111978/preferencias/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-preferencias-remove:
+    path: /admin23111978/preferencias/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma

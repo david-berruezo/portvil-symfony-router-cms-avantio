@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="194px" height="118px" viewBox="0 0 194 118" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>CreditCard-Default</title>
+    <defs>
+        <linearGradient x1="96.6958432%" y1="33.8963719%" x2="35.7498018%" y2="59.0857609%" id="linearGradient-1">
+            <stop stop-color="#0073A4" offset="0%"></stop>
+            <stop stop-color="#4BD1D0" offset="56.7699535%"></stop>
+            <stop stop-color="#00BAB8" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Tarjetas-Gateways" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Branding-Gateways-CreditCard" transform="translate(-2097.000000, -659.000000)" fill="url(#linearGradient-1)">
+            <g id="CreditCard-Default" transform="translate(2097.000000, 659.000000)">
+                <g id="Gateways-v2-Copy-2">
+                    <g id="virtal-card-copy-5">
+                        <path d="M3.656664,0 L189.692597,0 C191.712117,-8.15068972e-16 193.349261,1.63714424 193.349261,3.656664 L193.349261,113.869358 C193.349261,115.888877 191.712117,117.526022 189.692597,117.526022 L3.656664,117.526022 C1.63714424,117.526022 5.57639036e-15,115.888877 0,113.869358 L0,3.656664 C1.96769369e-16,1.63714424 1.63714424,5.70005028e-15 3.656664,0 Z" id="Rectangle-Copy"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

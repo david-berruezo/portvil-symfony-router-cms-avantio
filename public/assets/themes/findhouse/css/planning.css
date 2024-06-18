@@ -1,0 +1,111 @@
+/* @import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,700"); */
+html, body {height: 100%}
+*, ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#calendar {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0; padding: 0;
+    height: 100%;
+    font-family: 'Quicksand', helvetica, sans-serif;
+}
+
+#calendar ol.names-of-weekdays {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#calendar ol.names-of-weekdays li { /* .dayName */
+    width: calc(1/7 * 100%);
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+#calendar ol.list-of-days {
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 1 0;
+}
+
+#calendar ol.list-of-days li {
+    width: calc(1/7 * 100%);
+    position: relative;
+    box-shadow: inset -1px 1px 0px 0px #e6e6e6;
+    color: #808080;
+    overflow-y: hidden;
+}
+
+.dayInThisMonth:nth-child(7n-6), /* 1st day of week */
+.dayInThisMonth:nth-child(7n) { /* 7th day of week */
+    /*     background-color: pink; */
+}
+
+.dayInPreviousMonth,
+.dayInNextMonth {
+    background-color: #f7f7f7;;
+}
+
+#calendar ol.list-of-days li > span {
+    font-size: 12px;
+}
+
+.event {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: white;
+    overflow: hidden;
+    font-size: 12px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.event span {
+    white-space: nowrap;
+    margin-left: 6px;
+}
+
+.event.firstEvent {
+    border-top-left-radius: 10px; /* todo: use % */
+    border-bottom-left-radius: 10px;
+}
+.event.lastEvent {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.event .icon {
+    width: 1em;
+    height: 1em;
+    flex-shrink: 0;
+    margin-left: 6px;
+    stroke-width: 0;
+    fill: currentColor;
+}
+
+.event:not(.firstEvent) > *,
+.event:not(.firstEvent)::before {
+    display: none;
+}
+
+.event.overflowing {
+    visibility: hidden;
+}
+
+.more-btn {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #ccc;
+    border-radius: 12px;
+}

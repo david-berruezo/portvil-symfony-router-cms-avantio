@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% set idioma = app.session.get("lang_id") %}
+{% set slug_lang = app.session.get("slug_lang") %}
+
+{% block title %}Hello GeoController!{% endblock %}
+
+{% block body %}
+    {% set url = data["pages_1"~idioma].getTextSlug() ? app.request.getBaseURL() ~ slug_lang ~ data["pages_1"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ data["pages_1"~idioma].getAutoSlug() %}
+    {{ url }}
+{% endblock %}

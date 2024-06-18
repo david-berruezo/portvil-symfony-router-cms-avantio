@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>{% include 'layouts/general/layout_head.html.twig' %}</head>
+<body>
+    <div class="wrapper">
+        <div class="preloader"></div>
+        <!-- menu and menu mobile -->
+        {% include 'layouts/dashboard/layout_menu_franquiciado.html.twig' %}
+        {% include 'layouts/dashboard/layout_menu_mobile_franquiciado.html.twig' %}
+        <!-- scripts body -->
+        {% include 'layouts/dashboard/layout_body_scripts.html.twig' %}
+        <!--body -->
+        {% block body %}{% endblock %}
+
+         <!-- dynamic blocks header -->
+        {#% if (data["bloques_header"]) %#}
+            {#% for key,value in data["bloques_header"] %#}
+                {#% include value %#}
+            {#% endfor %#}
+        {#% endif %#}
+
+        <!-- content blocks -->
+        {% block content %}{% endblock %}
+
+        <!--dynamic blocks footer -->
+        {#% if (data["sections"]) %#}
+            {#% for key,value in data["sections"] %#}
+                {#% include value %#}
+            {#% endfor %#}
+        {#% endif %#}
+
+        <!-- footer -->
+        <footer>{% include 'layouts/dashboard/layout_footer.html.twig' %}</footer>
+</body>
+</html>

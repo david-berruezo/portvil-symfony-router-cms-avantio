@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+
+<script>
+window.onload = function(){
+    let formulario = document.querySelector("#formulario_pais_id");
+    formulario.onsubmit = function(){
+        return validar(formulario);
+    };
+    console.log("cargado"+formulario);
+}
+
+function validar(formulario){
+    let nuevo_pais_textarea_desciption = document.querySelector("#nuevo_pais_textarea_desciption");
+    if (nuevo_pais_textarea_desciption.value == ""){
+        console.log("Enviamos false nuevo_pais_textarea_desciption es blanco");
+        return false;    
+    }else{
+        return true;
+    }
+}
+</script>
+
+<h1>Contact us</h1>
+<p>This is a simple contact form</p>
+{#, 'onSubmit':'return validar();' #}
+{{ form_start(form, {'action': path('formulario-incrustado-coleccion-lista-nuevo-pais'), 'method': 'POST', 'attr':{'id':'formulario_pais_id' , 'name':'formulario_pais' } })  }}
+{{ form_errors(form) }}
+{{ form_help(form) }}
+{{ form_rest(form) }}
+{{ form_end(form) }}
+
+{% for message in app.flashes('success') %}
+<div class="alert alert-success">
+    {{ message }}
+</div>
+{% endfor %}
+
+{% endblock %}

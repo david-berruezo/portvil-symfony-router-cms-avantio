@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>{% include 'layouts/general/layout_head.html.twig' %}</head>
+    <body>
+        <header>{% include 'layouts/general/layout_header.html.twig' %}</header>
+        {% block body %}{% endblock %}
+        {% if (data["sections"]) %}
+            {% for key,value in data["sections"] %}
+                {% include value %}
+            {% endfor %}
+        {% endif %}
+        <footer>{% include 'layouts/general/layout_footer.html.twig' %}</footer>
+    </body>
+</html>

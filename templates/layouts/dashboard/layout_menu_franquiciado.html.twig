@@ -1,0 +1,108 @@
+<!-- idioma -->
+{% set idioma = app.session.get("lang_id") %}
+{% set idioma_string = app.session.get("lang") %}
+{% set slug_lang = app.session.get("slug_lang") %}
+<style>
+    .header-nav{
+        /* background-color:#000!important; */
+        background-color:#1d293e!important
+    }
+    a.navbar_brand{
+        margin-top:0px!important;
+    }
+    .sub-menu{
+        z-index:999!important;
+    }
+</style>
+<!-- Main Header Nav -->
+<!-- <header class="header-nav menu_style_home_one style2 menu-fixed main-menu"> -->
+<header class="header-nav menu_style_home_one style2 navbar-scrolltofixed stricky main-menu">
+    <div class="container-fluid p0">
+        <nav>
+            <!-- Menu Toggle btn-->
+            <div class="menu-toggle">
+                <img class="nav_logo_img img-fluid" src="{{ app.request.getBaseURL() }}/assets/themes/findhouse/images/logo.png" alt="header-logo.png">
+                <button type="button" id="menu-btn">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            {% set url = data["pages_1"~idioma].getTextSlug() ? app.request.getBaseURL() ~ slug_lang ~ data["pages_1"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ data["pages_1"~idioma].getAutoSlug() %}
+            <a href="{{ url }}" class="navbar_brand float-left dn-smd">
+                <img class="logo1 img-fluid" src="{{ app.request.getBaseURL() }}/assets/themes/findhouse/images/logo.png" alt="header-logo.png">
+                <img class="logo2 img-fluid" src="{{ app.request.getBaseURL() }}/assets/themes/findhouse/images/logo.png" alt="header-logo2.png">
+                <span></span>
+            </a>
+            <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
+                    {% set url = data["pages_1"~idioma].getTextSlug() ? app.request.getBaseURL() ~ slug_lang ~ data["pages_1"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ data["pages_1"~idioma].getAutoSlug() %}
+                    <li><a href="{{url}}">{{'menu_inicio'|trans|capitalize}}</a></li>
+                    <li>
+                        <a href="#"><span class="title">{{'theme_taxonomy_geographic_language_fields_customitzation_dynamic_geo'|trans}}</span></a>
+                        <ul>
+                            {% set url = data["pages_39"~idioma].getTextSlug() ? app.request.getBaseURL() ~ slug_lang ~ "admin23111978/" ~ data["pages_39"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ "admin23111978/" ~ data["pages_39"~idioma].getAutoSlug() %}
+                            {% set url= path('geo-pais-listar') %}
+                            {% set titulo = data["pages_39"~idioma].getTextTitle() %}
+                            <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
+                            {% set url = data["pages_40"~idioma].getTextSlug() ? app.request.getBaseURL() ~ "/admin23111978" ~ data["pages_40"~idioma].getTextSlug() : app.request.getBaseURL() ~ "/" ~ slug_lang ~ data["pages_40"~idioma].getAutoSlug() %}
+                            {% set titulo = data["pages_40"~idioma].getTextTitle() %}
+                            <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
+                            {% set url = data["pages_41"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_41"~idioma].getTextSlug() : app.request.getBaseURL() ~ "/" ~ slug_lang ~ data["pages_41"~idioma].getAutoSlug() %}
+                            {% set titulo = data["pages_41"~idioma].getTextTitle() %}
+                            <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
+                            {% set url = data["pages_42"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_42"~idioma].getTextSlug() : app.request.getBaseURL() ~ "/" ~ slug_lang ~ data["pages_42"~idioma].getAutoSlug() %}
+                            {% set titulo = data["pages_42"~idioma].getTextTitle() %}
+                            <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
+                            {% set url = data["pages_43"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_43"~idioma].getTextSlug() : app.request.getBaseURL() ~ "/" ~ slug_lang ~ data["pages_43"~idioma].getAutoSlug() %}
+                            {% set titulo = data["pages_43"~idioma].getTextTitle() %}
+                            <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#"><span class="title">{{'theme_dashbaord_titulo_propiedades'|trans}}</span></a>
+                        <ul>
+                            {% set url = data["pages_62"~idioma].getTextSlug() ? app.request.getBaseURL() ~ slug_lang ~ data["pages_62"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ data["pages_62"~idioma].getAutoSlug() %}
+                            {% set titulo = data["pages_62"~idioma].getTextTitle() %}
+                            <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
+                        </ul>
+                    </li>
+
+                    {% set url = app.request.getBaseURL() ~ "/" ~ "logout" %}
+                    <li><a href="{{url}}">{{'menu_salir'|trans|capitalize}}</a></li>
+                    {# { dump(data.pages_all) }} #}
+                    <li>
+                        <a href="#">{{idioma_string}}</a>
+                        <ul>
+                        {% for key, value in data.pages_all %}
+                            {% set url = key != "es" ? app.request.getBaseURL() ~ "/" ~ key : app.request.getBaseURL() %}
+                            {% if(value.text_slug != "") %}
+                                {% set url = url ~ "/" ~ value.text_slug %}
+                            {% elseif (value.text_slug == "") %}
+                                {% set url = url ~ "/" ~ value.auto_slug  %}
+                            {% endif %}
+                            <li><a href="{{url}}">{{key}}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+
+                </ul>
+        </nav>
+   </div>
+</header>
+
+{#{dump(data.pages_all)}#}
+{#{dump(data.pages_all.en)}#}
+{#{data.pages_all.en.auto_slug}#}
+{#{data.pages_all.en.text_slug}#}
+{#{for dato in data}#}
+
+{% for key, value in data.pages_all %}
+    {#% set url = key != "es" ? app.request.getBaseURL() ~ "/" ~ key : app.request.getBaseURL() %#}
+    {#{dump(value)}#}
+    {#{value.text_slug}#}
+    {#{value.auto_slug}#}
+    {#% url ~ value.text_slug ? value.text_slug : value.auto_slug  %#}
+    {#direccion web{{url}}#}
+{% endfor %}

@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GeoController!{% endblock %}
+
+{% block body %}
+
+    <style>
+    .btn-danger {
+        color: #fff;
+        background-color: #1d293e;
+        border-color: #1d293e;
+    }
+
+    .btn-warning {
+        color: #212529;
+        background-color: #ffc107;
+        border-color: #ffc107;
+        margin-left:5px;
+    }
+    </style>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-md-12"><br></div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="panel panel-default my_dashboard_review">
+
+                        <div class="panel-heading">
+                            <i class="fa fa-book fa-fw"></i> 
+                        </div>  
+
+                        <div class="panel-body">
+                        
+                            {{ form_start(form) }}    
+                            <input type="hidden" id="{{nombre_objeto}}__token" name="{{nombre_objeto}}[_token]" value="{{ csrf_token('geocountry') }}">
+                            <!--
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {#{ data[0].getId() }#}
+                                    {#{dump(data[0])}#}
+                                    {% for method in methods %}
+                                        {#{ method.name }#}
+                                        <br>
+                                    {% endfor %}
+                                    <br><br>
+                                    {% for property in properties %}
+                                        {#{ property.name }#}
+                                        <br>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            -->
+                            <div class="row">
+                                {# { dump(data[0]) }} #}
+                                <!-- properties reflection -->
+                                {#% set metodo = methods[counter_property].name %#}
+                                {#% set vector_metodo = attribute(data[0], metodo) %#}
+                                {# vector_metodo #}
+                                {% set nombre_objeto_sin_dynamic = nombre_objeto %}
+                                {% set nombre_objeto_sin_dynamic =  nombre_objeto_sin_dynamic|replace({'dynamic_' : ''}) %}
+                                {% set counter_property = 0 %}
+                                {% for property in properties %}
+                                    {% set nombre_propiedad = property.name %}    
+                                    <!-- hidden --> 
+                                    {% if 'id' in property.name %}
+                                        <input class="form-control" type="hidden" id="{{nombre_objeto}}_{{property.name}}" name="{{nombre_objeto}}[{{property.name}}]" value="{{ attribute(data[0], nombre_propiedad) }}">
+                                    {% endif %}
+
+                                    {% if 'language' in property.name %}
+                                        <input class="form-control" type="hidden" id="{{nombre_objeto}}_{{property.name}}" name="{{nombre_objeto}}[{{property.name}}]" value="{{ attribute(data[0], nombre_propiedad) }}">
+                                    {% endif %}
+                                    
+                                    {% if 'status' in property.name %}
+                                        <input class="form-control" type="hidden" id="{{nombre_objeto}}_{{property.name}}" name="{{nombre_objeto}}[{{property.name}}]" value="{{ attribute(data[0], nombre_propiedad) }}">
+                                    {% endif %}
+                                    
+                                    {% if 'position' in property.name %}
+                                        <input class="form-control" type="hidden" id="{{nombre_objeto}}_{{property.name}}" name="{{nombre_objeto}}[{{property.name}}]" value="{{ attribute(data[0], nombre_propiedad) }}">
+                                    {% endif %}
+                                    
+                                    {% if 'updateAt' in property.name %}
+                                        <!--
+                                        <input type="hidden" id="{{nombre_objeto}}_{{property.name}}" name="{{nombre_objeto}}[{{property.name}}]" value="{#{ attribute(data[0], nombre_propiedad).format("Y-m-d") }#}">
+                                        -->    
+                                    {% endif %}
+                                   
+                                    <!-- text -->
+                                    {% if 'text' in property.name and 'textarea' not in property.name %}
+                                        {#{ property.name }#}
+                                        <div class="col-lg-4">  
+                                            <div class="form-group">
+                                                <label for="label">{{ ("theme_"~nombre_objeto_sin_dynamic~"_"~nombres_columnas[counter_property])|trans|raw }}</label>
+                                                <input class="form-control" type="text" id="{{nombre_objeto}}_{{property.name}}" name="{{nombre_objeto}}[{{property.name}}]" value="{{ attribute(data[0], nombre_propiedad) }}">
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                    <!-- dynamic -->
+                                    {% if 'dynamic' in property.name and 'dynamicGeodistrict' not in property.name and 'dynamicGeolocality' not in property.name %}
+                                    <div class="col-lg-4">
+                                        <div class="form-group">
+                                            <label for="label">{{ ("theme_"~nombre_objeto_sin_dynamic~"_"~nombres_columnas[counter_property])|trans|raw }}</label>
+                                            {% set nombre_coleccion = property.name %}
+                                            {{ form_row(form[nombre_coleccion]) }}                    
+                                        </div>
+                                    </div>        
+                                    {% endif %}
+                                    <!-- textarea -->
+                                    {% if 'textarea' in property.name %}
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="label">{{ ("theme_"~nombre_objeto_sin_dynamic~"_"~nombres_columnas[counter_property])|trans|raw }}</label>
+                                            {% set nombre_coleccion = property.name %}
+                                            <textarea id="{{nombre_objeto}}_{{property.name}}" name="{{nombre_objeto}}[{{property.name}}]">{{ attribute(data[0], nombre_propiedad) }}</textarea>
+                                            {#{ form_row(form[nombre_coleccion]) }#}                    
+                                        </div>
+                                    </div>        
+                                    {% endif %}
+                                    <!-- counter -->
+                                    {% set counter_property = counter_property + 1 %}
+                                {% endfor %}    
+                            </div>
+                            {{ form_row(form.submit) }}
+                        {{ form_end(form, {render_rest : false}) }}
+                   </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        
+        $(function(){
+            $("textarea").each(function(){
+                let editor = CKEDITOR.replace($(this).attr("id"));
+                //console.log("encontrado"+$(this).attr("id"));
+            });    
+        });
+
+        
+    </script>
+
+{% endblock %}

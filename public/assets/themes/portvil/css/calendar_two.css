@@ -1,0 +1,293 @@
+/*
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+body {
+    background: #78accd;
+    color: #333333;
+    font-size: 1.5rem;
+}
+
+ul {
+    list-style: none;
+}
+*/
+
+.card {
+    background: #ffffff;
+    /*width: 90%;*/
+    width:100%;
+    max-width: 40rem;
+    /*min-height: 30rem;*/
+    min-height: 17rem;
+    min-width:13rem
+    margin: 5rem auto;
+    display: grid;
+    /* grid-template-rows: 8rem auto 10rem; */
+    grid-template-rows: auto auto auto;
+    box-shadow: 0 1rem 2.5rem #1b405e;
+    /* nuevas */
+    float:left;
+    margin-right:3%;
+    margin-bottom:10%;
+}
+
+.celda{
+    margin-top:20px;
+}
+
+.card__header, .card__footer {
+    padding: 0 1.25rem;
+    color: #7d8994;
+    display: flex;
+    /*justify-content: space-between;*/
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.card__header{
+    /*background:#0095da;*/
+    background:#3e4c66;
+    /*background:rgb(0,149,218);*/
+}
+
+.card__header h3{
+    color:#fff;
+}
+
+.card__body {
+    /* padding: 1.5rem 2rem; */
+    padding: .5rem 0rem;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    /* nueva */
+    /* height:80px; */
+    height:60px;
+}
+.card__body--days {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+.card__body--days li {
+    flex: 1;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: #7d8994;
+    margin: 0 1px;
+    background:#eee;
+}
+.card__body--dates {
+    display: grid;
+    gap: 3px;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    text-align: center;
+}
+.card__body--dates li {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+    position: relative;
+}
+.card__body--dates li.prev,
+.card__body--dates li.next {
+    color: #ccc;
+}
+.card__body--dates li.active {
+    background: #de6e46;
+    color: #ffffff;
+    border-radius: 50%;
+}
+.card__body--dates li.circle {
+    border: 2px solid;
+    /*border-radius: 50%;*/
+}
+.card__body--dates li.circle span {
+    position: absolute;
+    top: -0.75rem;
+    right: -0.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1.2rem;
+    color: #ffffff;
+    border-radius: 50%;
+}
+
+/* colors */
+.card__body--dates .circle.orange {
+    border-color: #de6e46;
+    border:1px solid #3e4c66;
+}
+.card__body--dates .circle.orange span {
+    background: #de6e46;
+}
+.card__body--dates .circle.purple {
+    border-color: #ae5989;
+    border:1px solid #3e4c66;
+}
+.card__body--dates .circle.purple span {
+    background: #ae5989;
+}
+
+.card__body--dates .circle.green {
+    border-color: #51ce57;
+    background: yellowgreen;
+    border:1px solid #3e4c66;
+}
+
+.card__body--dates .circle.green span {
+    background: #51ce57;
+}
+
+.card__body--dates .circle.white-green {
+    border-color: #51ce57;
+    background: yellowgreen;
+    border:1px solid #3e4c66;
+}
+
+.card__body--dates .circle.white-green span {
+    background: #51ce57;
+}
+
+.card__body--dates .circle.blue {
+    border-color: #3CF;
+    background: #3CF;
+    border:1px solid #3e4c66;
+}
+.card__body--dates .circle.blue span {
+    background: #3CF;
+}
+
+.card__body--dates .circle.red {
+    border-color: #ce5151;
+    background: red;
+    color:#fff;
+    border:1px solid #333;
+}
+.card__body--dates .circle.red span {
+    background: #ce5151;
+}
+
+.card__body--dates .circle.white {
+    border-color: #fff;
+    background: #fff;
+    border:1px solid #eee;
+}
+.card__body--dates .circle.white span {
+    background: #fff;
+
+}
+
+.card__body--dates .circle.naranja {
+    border-color: rgb(255, 153, 51);
+    background: rgb(255, 153, 51);
+    border:1px solid #999;
+}
+.card__body--dates .circle.naranja span {
+    background: rgb(255, 153, 51);
+}
+
+/* avantio estados */
+.card__body--dates .circle.avantio-bloqueado {
+    border-color: rgb(153, 0, 0);
+    background: rgb(153, 0, 0);
+    border:1px solid #999;
+    color:#fff;
+}
+.card__body--dates .circle.avantio-bloqueado span {
+    background: rgb(153, 0, 0);
+    color:#fff;
+}
+
+.card__body--dates .circle.avantio-prereserva {
+    border-color: rgb(41, 134, 204);
+    background: rgb(41, 134, 204);
+    border:1px solid #999;
+    color:#fff;
+}
+.card__body--dates .circle.avantio-prereserva span {
+    background: rgb(41, 134, 204);
+    color:#fff;
+}
+
+.card__body--dates .circle.avantio-confirmada {
+    border-color: rgb(255, 128, 128);
+    background: rgb(255, 128, 128);
+    border:1px solid #999;
+    color:#fff;
+}
+.card__body--dates .circle.avantio-confirmada span {
+    background: rgb(255, 128, 128);
+    color:#fff;
+}
+
+.card__body--dates .circle.avantio-pagada {
+    border-color: rgb(191, 230, 191);
+    background: rgb(191, 230, 191);
+    border:1px solid #999;
+    color:#fff;
+}
+.card__body--dates .circle.avantio-pagada span {
+    background: rgb(191, 230, 191);
+    color:#fff;
+}
+
+.card__body--dates .circle.avantio-de-propietario {
+    border-color: rgb(230, 145, 56);
+    background: rgb(230, 145, 56);
+    border:1px solid #999;
+    color:#fff;
+}
+.card__body--dates .circle.avantio-de-propietario span {
+    background: rgb(230, 145, 56);
+    color:#fff;
+}
+
+.card__body--dates .circle.avantio-cierre-de-ventas {
+    border-color: rgb(255, 128, 128);
+    background: rgb(255, 128, 128);
+    border:1px solid #999;
+    color:#fff;
+}
+.card__body--dates .circle.avantio-cierre-de-ventas span {
+    background: rgb(255, 128, 128);
+    color:#fff;
+}
+
+.card__footer {
+    color: #333333;
+    font-weight: bold;
+}
+.card__footer .add {
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #de6e46;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    padding-top: 0.25rem;
+    display: grid;
+    place-items: center;
+}
+
+@media(min-width: 1200px) and (max-width: 1405px){
+    .card{
+        /*width:120%;*/
+        width:100%;
+    }
+}

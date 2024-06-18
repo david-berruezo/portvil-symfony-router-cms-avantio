@@ -1,0 +1,140 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- ponemos esta linia para las imageenes de ainmmobles -->
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<!-- <meta name="robots" content="<?php //echo $page->text_meta_robots; ?>"> -->
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="title" content="">
+<!-- google site verification https://2automocion.com -->
+<meta name="google-site-verification" content="k2paz_QsvYCeBP-ED14d61IDFdxefgpY3VF8eTNq850" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+<!-- css file -->
+<link rel="stylesheet" href="{{ asset('assets/themes/findhouse/css/bootstrap.min.css') }}" />
+<link rel="stylesheet" href="{{ asset('assets/themes/findhouse/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/themes/portvil/css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/themes/findhouse/css/select2.css') }}">
+<!-- Responsive stylesheet -->
+<link rel="stylesheet" href="{{ asset('assets/themes/findhouse/css/responsive.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/themes/findhouse/css/jquery.dataTables.min.css') }}">
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"> -->
+<link rel="stylesheet" href="{{ asset('assets/themes/sbadmin2/flags/flags.css') }}">
+<!-- <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/themes/portvil/css/calendar_one.css"> -->
+<!-- No show when page is propietarios or agencias, accordion not work -->
+<link rel="stylesheet" href="{{ asset('assets/themes/findhouse/css/inspinia.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/themes/portvil/css/calendar_two.css') }}">
+
+<!--
+<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/themes/findhouse/css/planning.css">
+-->
+<!-- Title -->
+<!-- Favicon -->
+<title>{% block title %}Welcome!{% endblock %}</title>
+<!-- Favicon -->
+<!--
+<link href="<?php echo base_url(); ?>assets/images/favicon-hshv.png" rel="shortcut icon" type="image/png" />
+<link href="<?php echo base_url(); ?>assets/images/favicon-hshv.png" rel="icon" type="image/png"/>
+-->
+<!--
+<?php if ($_SERVER['REQUEST_URI'] != "https://www.tiendapisosenmanresa.com.com" && $_SERVER['REQUEST_URI'] != "https://www.tiendapisosenmanresa.com/" && $_SERVER['REQUEST_URI'] != "https://tiendapisosenmanresa.com." && $_SERVER['REQUEST_URI'] != "https://tiendapisosenmanresa.com/" ) {?>
+    <link href="https://www.tiendapisosenmanresa.com<?php echo $_SERVER['REQUEST_URI']; ?>" rel="canonical" />
+    <link href="https://www.tiendapisosenmanresa.com<?php echo $_SERVER['REQUEST_URI']; ?>" hreflang="<?php //echo $this->session->userdata('site_lang'); ?>" rel="alternate" />
+<?php }else{ ?>
+    <link href="https://www.tiendapisosenmanresa.com" rel="canonical" />
+    <link href="https://www.tiendapisosenmanresa.com" hreflang="<?php //echo $this->session->userdata('site_lang'); ?>" rel="alternate" />
+<?php } ?>
+-->
+<!-- facebook -->
+<meta property="og:locale" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:url" content="https://www.tiendapisosenmanresa.com.com" />
+<meta property="og:site_name" content="Pisosenmanresa" />
+<meta property="og:image" content="https://www.tiendapisosenmanresa.com.com//assets/themes/portvil/images/background/1.jpg" />
+<!-- twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@ManresaEn" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:title" content="" />
+<meta name="twitter:image" content="https://www.tiendapisosenmanresa.com.com//assets/themes/portvil/images/background/1.jpg" />
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!--
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdwVmyksTS6UV9w1w86_JuFSUA_8A1Haw&libraries=places" type="text/javascript"></script>
+-->
+<!-- Favicon -->
+<!--
+<link href="<?php echo base_url(); ?>assets/images/favicon-hshv.png" rel="shortcut icon" type="image/png" />
+<link href="<?php echo base_url(); ?>assets/images/favicon-hshv.png" rel="icon" type="image/png"/>
+-->
+<!-- <script type="text/javascript" src="<?php //echo base_url(); ?>/assets/themes/findhouse/js/timepicker.js"></script> -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176030520-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-176030520-1');
+</script>
+-->
+
+<!-- Facebook Pixel Code -->
+<!--
+<script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '241580053435941');
+    fbq('track', 'PageView');
+</script>
+-->
+
+<script>
+   let language = "es";
+</script>
+
+<!-- google maps and code maps -->
+<!--
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAdwVmyksTS6UV9w1w86_JuFSUA_8A1Haw&libraries=places" type="text/javascript"></script>
+<script type="text/javascript" src="<?php echo base_url(); ?>assets/themes/findhouse/js/google-maps.js"></script>
+-->
+<link rel="stylesheet" href="{{ asset('assets/themes/findhouse/js/jquery-ui-1.12.1.custom/jquery-ui-1.12.1.custom/jquery-ui.min.css') }}">
+<link rel="stylesheet" href="{{ asset('assets/themes/findhouse/js/jquery-ui-1.12.1.custom/jquery-ui-1.12.1.custom/jquery-ui.theme.css') }}">
+
+<!-- Start of  Zendesk Widget script -->
+<!-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=c81dbba7-ef72-4a6d-b4bb-7bafead0c5a9"></script> -->
+
+<!-- End of  Zendesk Widget script -->
+<!--
+<script>(function (p) {
+        var s = document.createElement('script');
+        s.src = 'https://call-widget.toky.co/toky-call-widget';
+        s.onload = function () { Toky("boot", p); };
+        document.head.appendChild(s);
+    })({"$username":"pisosenmanresa","$option":"","$position":"left","$text":"Llámanos Gratis"})
+</script>
+-->
+<noscript>
+    <!--
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id={your-pixel-id-goes-here}&ev=PageView&noscript=1"/>
+    -->
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+<!-- google ad sense -->
+<!--
+<script data-ad-client="ca-pub-7908861372708587" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+-->

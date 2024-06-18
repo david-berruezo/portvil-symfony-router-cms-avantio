@@ -1,0 +1,54 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: DAVID01
+ * Date: 20/11/2021
+ * Time: 18:13
+ */
+
+?>
+
+<!--//BLOQUE COOKIES-->
+<div id="barraaceptacion">
+    <div class="inner">
+        <?php echo lang('theme_cookies_info') ?>
+        <a href="javascript:void(0);" class="ok" onclick="PonerCookie();"><b>OK</b></a> |
+        <a href="<?php //echo base_url() . $this->session->userdata('slug_lang') . $pages[11]->text_slug; ?>" target="_blank" class="info"><?php //echo lang('theme_buscador_mas_informacion')?></a>
+    </div>
+</div>
+
+<script>
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length,c.length);
+            }
+        }
+        return "";
+    }
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+
+    if(getCookie('tiendaaviso')=="1"){
+        document.getElementById("barraaceptacion").style.display="none";
+    }
+
+    function PonerCookie(){
+        setCookie('tiendaaviso','1',365);
+        document.getElementById("barraaceptacion").style.display="none";
+    }
+</script>
+<!--//FIN BLOQUE COOKIES-->
+
+

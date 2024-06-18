@@ -1,0 +1,141 @@
+{% extends 'layouts/login/layout.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+<script>
+    window.onload = function(){
+        const element = document.querySelector("input[name='email']");
+        element.focus();
+    }
+
+    function cambiarPasswordPorText() {
+        var x = document.getElementById("inputPassword");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+</script>
+
+<style>
+
+    .logout{
+        color:#fff;
+    }
+
+    .logout:hover{
+        color:#fff;
+        text-decoration:underline;
+    }
+
+    #id_mostrar_password{
+        position:relative!important;
+        width:20px;
+        height:20px;
+        left:0px;
+        float:left;
+        cursor:pointer;
+    }
+
+    .text-mostrar-password{
+        position:relative;
+        left:10px;
+        text-align:left!important;
+        font-family:"sans-serif";
+        font-size:16px;
+        font-weight:lighter!important;
+        font-style:normal;
+    }
+
+    .mostrar-password-group{
+        margin-top:20px;
+    }
+
+
+    .alert{
+        font-size:15px;
+    }
+
+    .alert.alert-danger {
+        border:1px solid transparent;
+    }
+
+    .errors ul{
+        list-style-type:none;
+    }
+
+    #aplicacion{
+        display:none;
+    }
+
+    .website-logo-inside {
+        margin-bottom: 30px;
+    }
+
+    .form-content h3{
+        font-size:23px;
+    }
+
+</style>
+
+
+<div class="form-body">
+    <div class="row">
+        <div class="form-holder">
+            <div class="form-content">
+                <div class="form-items">
+                    <div class="website-logo-inside">
+                        <a href="{{ app.request.basePath  }}">
+                            <div class="logo">
+                                <img class="logo-size" src="{{ app.request.getBaseURL() }}/assets/themes/findhouse/images/logo.png" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <h3>{{"login_titulo"|trans }}</h3>
+                    <p>{{"login_subtitulo"|trans }}</p>
+                    <?php } ?>
+                    <div class="page-links">
+                        <a href="{{ app.request.getBaseURL() }}/admin23111978/login" class="active">Login</a>
+                        {# dump(app.user) #}
+                        {% if is_granted("ROLE") %}
+                            <a class="logout" href="{{ path('logout') }}">Logout</a>
+                        {% endif %}
+                        <!-- <a href="<?php echo base_url(); ?>/register"><?php echo lang("Text.login_registro");?></a> -->
+                    </div>
+                    <form method="post">
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus placeholder="E-mail">
+                        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+                        <!--<input class="form-control" type="password" id ="id_password" name="password" placeholder="Contraseña" required>-->
+                        <div class="form-group mostrar-password-group">
+                            <input type="checkbox" class="form-control" name="mostrar_password" id="id_mostrar_password" onclick="cambiarPasswordPorText();">
+                            <p class="text-mostrar-password">{{ "theme_login_register_password"|trans }}</p>
+                        </div>
+                        <div class="form-button">
+                            <button id="submit" type="submit" class="ibtn">Login</button>
+                            <a href="{{ app.request.getBaseURL() }}/forget">{{ "theme_login_register_olvidaste"|trans }}</a>
+                        </div>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                        {% if error %}
+                            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                        {% endif %}
+                        {% if app.user %}
+                            <div class="mb-3">
+                                You are logged in as {{ app.user.userIdentifier }},
+                            </div>
+                        {% endif %}
+                    </form>
+                    <div class="other-links">
+                        <a href="https://es-es.facebook.com/portvil/" target="_blank">Facebook</a>
+                        <a target="_blank" href="https://www.google.com/search?q=portvil&sxsrf=ALiCzsacc7IN7Uv8sgunztyyLu9Lm2Kctw%3A1651232473028&source=hp&ei=2M5rYsnlPIeFur4P6Ie0-Aw&iflsig=AJiK0e8AAAAAYmvc6WVgQkwmgAfQmrZCVMz6zrgQnZxw&ved=0ahUKEwjJsfqnmLn3AhWHgs4BHegDDc8Q4dUDCAk&uact=5&oq=portvil&gs_lcp=Cgdnd3Mtd2l6EAMyBAgjECcyBAgjECcyBAgjECcyBwgAEIAEEAoyBwgAEIAEEAoyCgguEMcBEK8BEEMyBwgAEAoQywEyCwguEIAEEMcBEK8BMgUIABCABDIHCAAQgAQQCjoHCCMQ6gIQJzoLCAAQgAQQsQMQgwE6CwguEIAEELEDEIMBOggILhCxAxCDAToRCC4QgAQQsQMQgwEQxwEQowI6BAgAEEM6CAguEIAEELEDOgUILhCABDoICAAQsQMQgwE6CwguEIAEELEDENQCUJ0FWNgKYJAMaAFwAHgAgAGDBIgB8Q6SAQkyLTEuMi4xLjGYAQCgAQGwAQo&sclient=gws-wiz">Google</a>
+                        <a target="_blank" href="http://www.portvil.com/">Website</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
