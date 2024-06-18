@@ -69,6 +69,7 @@
                         <a href="#"><span class="title">{{'theme_dashbaord_titulo_propiedades'|trans}}</span></a>
                         <ul>
                             {% set url = data["pages_62"~idioma].getTextSlug() ? app.request.getBaseURL() ~ slug_lang ~ data["pages_62"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ data["pages_62"~idioma].getAutoSlug() %}
+                            {% set url= path('geo-propiedades-avantio-listar') %}
                             {% set titulo = data["pages_62"~idioma].getTextTitle() %}
                             <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
                         </ul>
