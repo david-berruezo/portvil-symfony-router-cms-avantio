@@ -114,8 +114,8 @@ geo-pais-pause:
 
 geo-pais-play:
     path:
-        es: /admin23111978/pais/play/{id}
-        en: /{_locale}/admin23111978/country/play/{id}
+        es: /admin23111978/region/play/{id}
+        en: /{_locale}/admin23111978/region/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
 geo-pais-remove:
@@ -127,510 +127,355 @@ geo-pais-remove:
 
 # region
 geo-region:
-    path: /admin23111978/region
+    path:
+        es: /admin23111978/region/listar
+        en: /{_locale}/admin23111978/region/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-region-listar:
-    path: /admin23111978/region/listar
+    path:
+        es: /admin23111978/region/listar
+        en: /{_locale}/admin23111978/region/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-region-new:
-    path: /admin23111978/region/new/{id}
+    path:
+        es: /admin23111978/region/nuevo/{id}
+        en: /{_locale}/admin23111978/region/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
-geo-region-add:
-    path: /admin23111978/region/add/{id}
-    controller: App\Controller\Admin\PageController::add
-
 geo-region-editar:
-    path: /admin23111978/region/editar/{id}
+    path:
+        es: /admin23111978/region/editar/{id}
+        en: /{_locale}/admin23111978/region/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-region-update:
-    path: /admin23111978/region/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
 geo-region-pause:
-    path: /admin23111978/region/pause/{id}
+    path:
+        es: /admin23111978/region/pause/{id}
+        en: /{_locale}/admin23111978/region/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
 geo-region-play:
-    path: /admin23111978/region/play/{id}
+    path:
+        es: /admin23111978/region/play/{id}
+        en: /{_locale}/admin23111978/region/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
 geo-region-remove:
-    path: /admin23111978/region/remove/{id}
+    path:
+        es: /admin23111978/region/borrar/{id}
+        en: /{_locale}/admin23111978/region/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-region-idioma:
-    path: /{_locale}/admin23111978/region
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-region-listar-idioma:
-    path: /{_locale}/admin23111978/region/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-region-new-idioma:
-    path: /{_locale}/admin23111978/region/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-region-editar-idioma:
-    path: /{_locale}/admin23111978/region/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-region-update-idioma:
-    path: /{_locale}/admin23111978/region/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-region-pause-idioma:
-    path: /{_locale}/admin23111978/region/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-region-play-idioma:
-    path: /{_locale}/admin23111978/region/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-region-remove-idioma:
-    path: /{_locale}/admin23111978/region/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 
 # ciudad
 geo-ciudad:
-    path: /admin23111978/ciudad
+    path:
+        es: /admin23111978/ciudad/listar
+        en: /{_locale}/admin23111978/city/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-ciudad-listar:
-    path: /admin23111978/ciudad/listar
+    path:
+        es: /admin23111978/ciudad/listar
+        en: /{_locale}/admin23111978/city/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-ciudad-new:
-    path: /admin23111978/ciudad/new/{id}
+    path:
+        es: /admin23111978/ciudad/nuevo/{id}
+        en: /{_locale}/admin23111978/city/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
-geo-ciudad-add:
-    path: /admin23111978/ciudad/add/{id}
-    controller: App\Controller\Admin\PageController::add
-
 geo-ciudad-editar:
-    path: /admin23111978/ciudad/editar/{id}
+    path:
+        es: /admin23111978/ciudad/editar/{id}
+        en: /{_locale}/admin23111978/city/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-ciudad-update:
-    path: /admin23111978/ciudad/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
 geo-ciudad-pause:
-    path: /admin23111978/ciudad/pause/{id}
+    path:
+        es: /admin23111978/ciudad/pause/{id}
+        en: /{_locale}/admin23111978/city/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
 geo-ciudad-play:
-    path: /admin23111978/ciudad/play/{id}
+    path:
+        es: /admin23111978/ciudad/play/{id}
+        en: /{_locale}/admin23111978/city/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
 geo-ciudad-remove:
-    path: /admin23111978/ciudad/remove/{id}
+    path:
+        es: /admin23111978/ciudad/borrar/{id}
+        en: /{_locale}/admin23111978/city/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
-geo-ciudad-idioma:
-    path: /{_locale}/admin23111978/city
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-ciudad-listar-idioma:
-    path: /{_locale}/admin23111978/city/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-ciudad-new-idioma:
-    path: /{_locale}/admin23111978/city/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-ciudad-editar-idioma:
-    path: /{_locale}/admin23111978/city/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-ciudad-update-idioma:
-    path: /{_locale}/admin23111978/city/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-ciudad-pause-idioma:
-    path: /{_locale}/admin23111978/city/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-ciudad-play-idioma:
-    path: /{_locale}/admin23111978/city/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-ciudad-remove-idioma:
-    path: /{_locale}/admin23111978/city/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 # localidad
 geo-localidad:
-    path: /admin23111978/localidad
+    path:
+        es: /admin23111978/localidad/listar
+        en: /{_locale}/admin23111978/locality/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-localidad-listar:
-    path: /admin23111978/localidad/listar
+    path:
+        es: /admin23111978/localidad/listar
+        en: /{_locale}/admin23111978/locality/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-localidad-new:
-    path: /admin23111978/localidad/new/{id}
+    path:
+        es: /admin23111978/localidad/nuevo/{id}
+        en: /{_locale}/admin23111978/locality/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
-geo-localidad-add:
-    path: /admin23111978/localidad/add/{id}
-    controller: App\Controller\Admin\PageController::add
-
 geo-localidad-editar:
-    path: /admin23111978/localidad/editar/{id}
+    path:
+        es: /admin23111978/localidad/editar/{id}
+        en: /{_locale}/admin23111978/locality/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-localidad-update:
-    path: /admin23111978/localidad/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
 geo-localidad-pause:
-    path: /admin23111978/localidad/pause/{id}
+    path:
+        es: /admin23111978/localidad/pause/{id}
+        en: /{_locale}/admin23111978/locality/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
 geo-localidad-play:
-    path: /admin23111978/localidad/play/{id}
+    path:
+        es: /admin23111978/localidad/play/{id}
+        en: /{_locale}/admin23111978/locality/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
 geo-localidad-remove:
-    path: /admin23111978/localidad/remove/{id}
+    path:
+        es: /admin23111978/localidad/borrar/{id}
+        en: /{_locale}/admin23111978/locality/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
-geo-localidad-idioma:
-    path: /{_locale}/admin23111978/locality
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-localidad-listar-idioma:
-    path: /{_locale}/admin23111978/locality/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-localidad-new-idioma:
-    path: /{_locale}/admin23111978/locality/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-localidad-editar-idioma:
-    path: /{_locale}/admin23111978/locality/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-localidad-update-idioma:
-    path: /{_locale}/admin23111978/locality/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-localidad-pause-idioma:
-    path: /{_locale}/admin23111978/locality/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-localidad-play-idioma:
-    path: /{_locale}/admin23111978/locality/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-localidad-remove-idioma:
-    path: /{_locale}/admin23111978/locality/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 # distrito
 geo-distrito:
-    path: /admin23111978/distrito
+    path:
+        es: /admin23111978/distrito/listar
+        en: /{_locale}/admin23111978/district/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-distrito-listar:
-    path: /admin23111978/distrito/listar
+    path:
+        es: /admin23111978/distrito/listar
+        en: /{_locale}/admin23111978/district/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-distrito-new:
-    path: /admin23111978/distrito/new/{id}
+    path:
+        es: /admin23111978/distrito/nuevo/{id}
+        en: /{_locale}/admin23111978/district/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
-geo-distrito-add:
-    path: /admin23111978/distrito/add/{id}
-    controller: App\Controller\Admin\PageController::add
-
 geo-distrito-editar:
-    path: /admin23111978/distrito/editar/{id}
+    path:
+        es: /admin23111978/distrito/editar/{id}
+        en: /{_locale}/admin23111978/district/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-distrito-update:
-    path: /admin23111978/distrito/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
 geo-distrito-pause:
-    path: /admin23111978/distrito/pause/{id}
+    path:
+        es: /admin23111978/distrito/pause/{id}
+        en: /{_locale}/admin23111978/district/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
 geo-distrito-play:
-    path: /admin23111978/distrito/play/{id}
+    path:
+        es: /admin23111978/distrito/play/{id}
+        en: /{_locale}/admin23111978/district/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
 geo-distrito-remove:
-    path: /admin23111978/distrito/remove/{id}
+    path:
+        es: /admin23111978/distrito/borrar/{id}
+        en: /{_locale}/admin23111978/district/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
-
-geo-distrito-idioma:
-    path: /{_locale}/admin23111978/district
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-distrito-listar-idioma:
-    path: /{_locale}/admin23111978/district/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-distrito-new-idioma:
-    path: /{_locale}/admin23111978/district/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-distrito-editar-idioma:
-    path: /{_locale}/admin23111978/district/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-distrito-update-idioma:
-    path: /{_locale}/admin23111978/district/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-distrito-pause-idioma:
-    path: /{_locale}/admin23111978/district/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-distrito-play-idioma:
-    path: /{_locale}/admin23111978/district/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-distrito-remove-idioma:
-    path: /{_locale}/admin23111978/district/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 # taxonomy
-geo-taxonomia:
-    path: /admin23111978/taxonomia
+geo-taxonomy:
+    path:
+        es: /admin23111978/taxonomia/listar
+        en: /{_locale}/admin23111978/taxonomy/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
-geo-taxonomia-listar:
-    path: /admin23111978/taxonomia/listar
+geo-taxonomy-listar:
+    path:
+        es: /admin23111978/taxonomia/listar
+        en: /{_locale}/admin23111978/taxonomy/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
-geo-taxonomia-new:
-    path: /admin23111978/taxonomia/new/{id}
+geo-taxonomy-new:
+    path:
+        es: /admin23111978/taxonomia/nuevo/{id}
+        en: /{_locale}/admin23111978/taxonomy/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
-geo-taxonomia-editar:
-    path: /admin23111978/taxonomia/editar/{id}
+geo-taxonomy-editar:
+    path:
+        es: /admin23111978/taxonomia/editar/{id}
+        en: /{_locale}/admin23111978/taxonomy/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-taxonomia-update:
-    path: /admin23111978/taxonomia/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-taxonomia-pause:
-    path: /admin23111978/taxonomia/pause/{id}
+geo-taxonomy-pause:
+    path:
+        es: /admin23111978/taxonomia/pause/{id}
+        en: /{_locale}/admin23111978/taxonomy/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
-geo-taxonomia-play:
-    path: /admin23111978/taxonomia/play/{id}
+geo-taxonomy-play:
+    path:
+        es: /admin23111978/taxonomia/play/{id}
+        en: /{_locale}/admin23111978/taxonomy/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
-geo-taxonomia-remove:
-    path: /admin23111978/taxonomia/remove/{id}
+geo-taxonomy-remove:
+    path:
+        es: /admin23111978/taxonomia/borrar/{id}
+        en: /{_locale}/admin23111978/taxonomy/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-taxonomia-idioma:
-    path: /{_locale}/admin23111978/taxonomy
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-taxonomia-new-idioma:
-    path: /{_locale}/admin23111978/taxonomy/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-taxonomia-listar-idioma:
-    path: /{_locale}/admin23111978/taxonomy/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-taxonomia-editar-idioma:
-    path: /{_locale}/admin23111978/taxonomy/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-taxonomia-update-idioma:
-    path: /{_locale}/admin23111978/taxonomy/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-taxonomia-pause-idioma:
-    path: /{_locale}/admin23111978/taxonomy/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-taxonomia-play-idioma:
-    path: /{_locale}/admin23111978/taxonomy/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-taxonomia-remove-idioma:
-    path: /{_locale}/admin23111978/taxonomy/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 
 # taxonomy-group
-geo-taxonomia-grupo:
-    path: /admin23111978/taxonomia-grupo
+geo-taxonomy-group:
+    path:
+        es: /admin23111978/taxonomia-grupo/listar
+        en: /{_locale}/admin23111978/taxonomy-group/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
-geo-taxonomia-grupo-listar:
-    path: /admin23111978/taxonomia-grupo/listar
+geo-taxonomy-group-listar:
+    path:
+        es: /admin23111978/taxonomia-grupo/listar
+        en: /{_locale}/admin23111978/taxonomy-group/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
-geo-taxonomia-grupo-new:
-    path: /admin23111978/taxonomia-grupo/new/{id}
+geo-taxonomy-group-new:
+    path:
+        es: /admin23111978/taxonomia-grupo/nuevo/{id}
+        en: /{_locale}/admin23111978/taxonomy-group/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
-geo-taxonomia-grupo-editar:
-    path: /admin23111978/taxonomia-grupo/editar/{id}
+geo-taxonomy-group-editar:
+    path:
+        es: /admin23111978/taxonomia-grupo/editar/{id}
+        en: /{_locale}/admin23111978/taxonomy-group/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-taxonomia-grupo-update:
-    path: /admin23111978/taxonomia-grupo/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-taxonomia-grupo-pause:
-    path: /admin23111978/taxonomia-grupo/pause/{id}
+geo-taxonomy-group-pause:
+    path:
+        es: /admin23111978/taxonomia-grupo/pause/{id}
+        en: /{_locale}/admin23111978/taxonomy-group/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
-geo-taxonomia-grupo-play:
-    path: /admin23111978/taxonomia-grupo/play/{id}
+geo-taxonomy-group-play:
+    path:
+        es: /admin23111978/taxonomia-grupo/play/{id}
+        en: /{_locale}/admin23111978/taxonomy-group/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
-geo-taxonomia-grupo-remove:
-    path: /admin23111978/taxonomia-grupo/remove/{id}
+geo-taxonomy-group-remove:
+    path:
+        es: /admin23111978/taxonomia-grupo/borrar/{id}
+        en: /{_locale}/admin23111978/taxonomy-group/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
-geo-taxonomia-grupo-idioma:
-    path: /{_locale}/admin23111978/taxonomy-group
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-taxonomia-grupo-new-idioma:
-    path: /{_locale}/admin23111978/taxonomy-group/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-taxonomia-grupo-listar-idioma:
-    path: /{_locale}/admin23111978/taxonomy-group/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-taxonomia-grupo-editar-idioma:
-    path: /{_locale}/admin23111978/taxonomy-group/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-taxonomia-grupo-update-idioma:
-    path: /{_locale}/admin23111978/taxonomy-group/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-taxonomia-grupo-pause-idioma:
-    path: /{_locale}/admin23111978/taxonomy-group/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-taxonomia-grupo-play-idioma:
-    path: /{_locale}/admin23111978/taxonomy-group/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-taxonomia-grupo-remove-idioma:
-    path: /{_locale}/admin23111978/taxonomy-group/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 # paginas
 geo-paginas:
-    path: /admin23111978/paginas
+    path:
+        es: /admin23111978/paginas/listar
+        en: /{_locale}/admin23111978/pages/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-paginas-listar:
-    path: /admin23111978/paginas/listar
+    path:
+        es: /admin23111978/paginas/listar
+        en: /{_locale}/admin23111978/pages/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-paginas-new:
-    path: /admin23111978/paginas/new/{id}
+    path:
+        es: /admin23111978/paginas/nuevo/{id}
+        en: /{_locale}/admin23111978/pages/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
 geo-paginas-editar:
-    path: /admin23111978/paginas/editar/{id}
+    path:
+        es: /admin23111978/paginas/editar/{id}
+        en: /{_locale}/admin23111978/pages/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-paginas-update:
-    path: /admin23111978/paginas/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
 geo-paginas-pause:
-    path: /admin23111978/paginas/pause/{id}
+    path:
+        es: /admin23111978/paginas/pause/{id}
+        en: /{_locale}/admin23111978/pages/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
 geo-paginas-play:
-    path: /admin23111978/paginas/play/{id}
+    path:
+        es: /admin23111978/paginas/play/{id}
+        en: /{_locale}/admin23111978/pages/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
 geo-paginas-remove:
-    path: /admin23111978/paginas/remove/{id}
+    path:
+        es: /admin23111978/paginas/borrar/{id}
+        en: /{_locale}/admin23111978/pages/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
-geo-paginas-idioma:
-    path: /{_locale}/admin23111978/pages
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-paginas-new-idioma:
-    path: /{_locale}/admin23111978/pages/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-paginas-listar-idioma:
-    path: /{_locale}/admin23111978/pages/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-paginas-editar-idioma:
-    path: /{_locale}/admin23111978/pages/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-paginas-update-idioma:
-    path: /{_locale}/admin23111978/pages/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-paginas-pause-idioma:
-    path: /{_locale}/admin23111978/pages/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-paginas-play-idioma:
-    path: /{_locale}/admin23111978/pages/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-paginas-remove-idioma:
-    path: /{_locale}/admin23111978/pages/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 # language
 geo-language:
-    path: /admin23111978/language
+    path:
+        es: /admin23111978/idiomas/listar
+        en: /{_locale}/admin23111978/languages/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-language-listar:
-    path: /admin23111978/language/listar
+    path:
+        es: /admin23111978/idiomas/listar
+        en: /{_locale}/admin23111978/languages/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-language-new:
-    path: /admin23111978/language/new/{id}
+    path:
+        es: /admin23111978/idiomas/nuevo/{id}
+        en: /{_locale}/admin23111978/languages/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
 geo-language-editar:
-    path: /admin23111978/language/editar/{id}
+    path:
+        es: /admin23111978/idiomas/editar/{id}
+        en: /{_locale}/admin23111978/languages/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-language-update:
-    path: /admin23111978/language/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
 geo-language-pause:
-    path: /admin23111978/language/pause/{id}
+    path:
+        es: /admin23111978/idiomas/pause/{id}
+        en: /{_locale}/admin23111978/languages/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
 geo-language-play:
-    path: /admin23111978/language/play/{id}
+    path:
+        es: /admin23111978/idiomas/play/{id}
+        en: /{_locale}/admin23111978/languages/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
 geo-language-remove:
-    path: /admin23111978/language/remove/{id}
+    path:
+        es: /admin23111978/idiomas/borrar/{id}
+        en: /{_locale}/admin23111978/languages/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
+
 
 # pais API
     #geo-api-pais:
