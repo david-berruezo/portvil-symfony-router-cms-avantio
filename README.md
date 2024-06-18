@@ -53,7 +53,7 @@ import sql/insert.sql file into MySQL
 
 ![Screenshot](/screens/pais.jpg)<br>
 
-#### 08.- Detaiil countries and others (Regions, Cities, Localities, Districts)
+#### 08.- Detail countries and others (Regions, Cities, Localities, Districts)
 
 ![Screenshot](/screens/pais_detalle.jpg)<br>
 
@@ -62,7 +62,7 @@ import sql/insert.sql file into MySQL
 
 ![Screenshot](/screens/propiedades.jpg)<br>
 
-#### 08.- Detaiil property
+#### 08.- Detail property
 
 ![Screenshot](/screens/propiedades_detalle.jpg)<br>
 
