@@ -81,8 +81,6 @@ geo-propiedades-avantio-remove:
         en: /{_locale}//admin23111978/avantio-properties/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
-
-
 # pais
 geo-pais:
     path:
@@ -125,92 +123,6 @@ geo-pais-remove:
         es: /admin23111978/pais/borrar/{id}
         en: /{_locale}/admin23111978/country/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
-
-# pais API
-    #geo-api-pais:
-    #path: /api/pais
-    #methods: ['GET']
-    #controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
-
-    #geo-api-pais-listar:
-    #path: /api/pais/listar
-    #methods: ['GET']
-    #controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
-
-    #geo-api-pais-new:
-    #path: /api/pais/new/{id}
-    #methods: ['POST']
-    #controller: App\Controller\Api\PageApiController::newNoIdioma
-
-    #geo-api-pais-add:
-    #path: /api/pais/add/{id}
-    #methods: ['POST']
-    #controller: App\Controller\Api\PageApiController::add
-
-    #geo-api-pais-editar:
-    #path: /api/pais/editar/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::editarNoIdioma
-
-    #geo-api-pais-update:
-    #path: /api/pais/update/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::updateNoIdioma
-
-    #geo-api-pais-pause:
-    #path: /api/pais/pause/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::pauseNoIdioma
-
-    #geo-api-pais-play:
-    #path: /api/pais/play/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::playNoIdioma
-
-    #geo-api-pais-remove:
-    #path: /api/pais/remove/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::removeNoIdioma
-
-    #geo-api-country-idioma:
-    #path: /{_locale}/api/country
-    #methods: ['GET']
-    #controller: App\Controller\Api\PageApiController::segmentGeoIdioma
-
-    #geo-api-country-new-idioma:
-    #path: /{_locale}/api/country/new/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::newIdioma
-
-    #geo-api-country-listar-idioma:
-    #path: /{_locale}/api/country/listar
-    #methods: ['GET']
-    #controller: App\Controller\Api\PageApiController::segmentGeoIdioma
-
-    #geo-api-country-editar-idioma:
-    #path: /{_locale}/api/country/editar/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::editarIdioma
-
-    #geo-api-country-update-idioma:
-    #path: /{_locale}/api/country/update/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::updateIdioma
-
-    #geo-api-country-pause-idioma:
-    #path: /{_locale}/api/country/pause/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::pauseIdioma
-
-    #geo-api-country-play-idioma:
-    #path: /{_locale}/api/country/play/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::playIdioma
-
-    #geo-api-country-remove-idioma:
-    #path: /{_locale}/api/country/remove/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::removeIdioma
 
 
 # region
@@ -491,476 +403,6 @@ geo-distrito-remove-idioma:
     path: /{_locale}/admin23111978/district/remove/{id}
     controller: App\Controller\Admin\PageController::removeIdioma
 
-
-# accion
-geo-accion:
-    path: /admin23111978/accion
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-accion-listar:
-    path: /admin23111978/accion/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-accion-new:
-    path: /admin23111978/accion/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-accion-add:
-    path: /admin23111978/accion/add/{id}
-    controller: App\Controller\Admin\PageController::add
-
-geo-accion-editar:
-    path: /admin23111978/accion/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-accion-update:
-    path: /admin23111978/accion/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-accion-pause:
-    path: /admin23111978/accion/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-accion-play:
-    path: /admin23111978/accion/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-accion-remove:
-    path: /admin23111978/accion/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-accion-idioma:
-    path: /{_locale}/action
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-accion-new-idioma:
-    path: /{_locale}/admin23111978/action/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-accion-listar-idioma:
-    path: /{_locale}/admin23111978/action/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-accion-editar-idioma:
-    path: /{_locale}/admin23111978/action/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-accion-update-idioma:
-    path: /{_locale}/admin23111978/action/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-accion-pause-idioma:
-    path: /{_locale}/admin23111978/action/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-accion-play-idioma:
-    path: /{_locale}/admin23111978/action/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-accion-remove-idioma:
-    path: /{_locale}/admin23111978/action/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-
-# agencia
-geo-agencia:
-    path: /admin23111978/agencia
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-agencia-listar:
-    path: /admin23111978/agencia/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-agencia-new:
-    path: /admin23111978/agencia/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-agencia-editar:
-    path: /admin23111978/agencia/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-agencia-update:
-    path: /admin23111978/agencia/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-agencia-pause:
-    path: /admin23111978/agencia/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-agencia-play:
-    path: /admin23111978/agencia/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-agencia-remove:
-    path: /admin23111978/agencia/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-agencia-idioma:
-    path: /{_locale}/admin23111978/agency
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-agencia-new-idioma:
-    path: /{_locale}/admin23111978/agency/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-agencia-listar-idioma:
-    path: /{_locale}/admin23111978/agency/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-agencia-editar-idioma:
-    path: /{_locale}/admin23111978/agency/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-agencia-update-idioma:
-    path: /{_locale}/admin23111978/agency/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-agencia-pause-idioma:
-    path: /{_locale}/admin23111978/agency/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-agencia-play-idioma:
-    path: /{_locale}/admin23111978/agency/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-agencia-remove-idioma:
-    path: /{_locale}/admin23111978/agency/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-# tarifa
-geo-tarifa:
-    path: /admin23111978/tarifa
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-tarifa-listar:
-    path: /admin23111978/tarifa/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-tarifa-new:
-    path: /admin23111978/tarifa/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-tarifa-editar:
-    path: /admin23111978/tarifa/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-tarifa-update:
-    path: /admin23111978/tarifa/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-tarifa-pause:
-    path: /admin23111978/tarifa/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-tarifa-play:
-    path: /admin23111978/tarifa/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-tarifa-remove:
-    path: /admin23111978/tarifa/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-tarifa-idioma:
-    path: /{_locale}/admin23111978/rate
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-tarifa-new-idioma:
-    path: /{_locale}/admin23111978/rate/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-tarifa-listar-idioma:
-    path: /{_locale}/admin23111978/rate/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-tarifa-editar-idioma:
-    path: /{_locale}/admin23111978/rate/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-tarifa-update-idioma:
-    path: /{_locale}/admin23111978/rate/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-tarifa-pause-idioma:
-    path: /{_locale}/admin23111978/rate/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-tarifa-play-idioma:
-    path: /{_locale}/admin23111978/rate/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-tarifa-remove-idioma:
-    path: /{_locale}/admin23111978/rate/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-# propietario
-geo-propietario:
-    path: /admin23111978/propietario
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-propietario-listar:
-    path: /admin23111978/propietario/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-propietario-new:
-    path: /admin23111978/propietario/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-propietario-editar:
-    path: /admin23111978/propietario/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-propietario-update:
-    path: /admin23111978/propietario/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-propietario-pause:
-    path: /admin23111978/propietario/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-propietario-play:
-    path: /admin23111978/propietario/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-propietario-remove:
-    path: /admin23111978/propietario/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-propietario-idioma:
-    path: /{_locale}/admin23111978/owner
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-propietario-new-idioma:
-    path: /{_locale}/admin23111978/owner/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-propietario-listar-idioma:
-    path: /{_locale}/admin23111978/owner/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-propietario-editar-idioma:
-    path: /{_locale}/admin23111978/owner/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-propietario-update-idioma:
-    path: /{_locale}/admin23111978/owner/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-propietario-pause-idioma:
-    path: /{_locale}/admin23111978/owner/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-propietario-play-idioma:
-    path: /{_locale}/admin23111978/owner/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-propietario-remove-idioma:
-    path: /{_locale}/admin23111978/owner/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-# gobernanta
-geo-gobernanta:
-    path: /admin23111978/gobernanta
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-gobernanta-listar:
-    path: /admin23111978/gobernanta/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-gobernanta-new:
-    path: /admin23111978/gobernanta/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-gobernanta-editar:
-    path: /admin23111978/gobernanta/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-gobernanta-update:
-    path: /admin23111978/gobernanta/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-gobernanta-pause:
-    path: /admin23111978/gobernanta/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-gobernanta-play:
-    path: /admin23111978/gobernanta/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-gobernanta-remove:
-    path: /admin23111978/gobernanta/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-gobernanta-idioma:
-    path: /{_locale}/admin23111978/governess
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-gobernanta-new-idioma:
-    path: /{_locale}/admin23111978/governess/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-gobernanta-listar-idioma:
-    path: /{_locale}/admin23111978/governess/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-gobernanta-editar-idioma:
-    path: /{_locale}/admin23111978/governess/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-gobernanta-update-idioma:
-    path: /{_locale}/admin23111978/governess/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-gobernanta-pause-idioma:
-    path: /{_locale}/admin23111978/governess/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-gobernanta-play-idioma:
-    path: /{_locale}/admin23111978/governess/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-gobernanta-remove-idioma:
-    path: /{_locale}/admin23111978/governess/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-
-# limpiadora
-geo-limpiadora:
-    path: /admin23111978/limpiadora
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-limpiadora-listar:
-    path: /admin23111978/limpiadora/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-limpiadora-new:
-    path: /admin23111978/limpiadora/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-limpiadora-editar:
-    path: /admin23111978/limpiadora/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-limpiadora-update:
-    path: /admin23111978/limpiadora/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-limpiadora-pause:
-    path: /admin23111978/limpiadora/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-limpiadora-play:
-    path: /admin23111978/limpiadora/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-limpiadora-remove:
-    path: /admin23111978/limpiadora/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-limpiadora-idioma:
-    path: /{_locale}/admin23111978/cleaner
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-limpiadora-new-idioma:
-    path: /{_locale}/admin23111978/cleaner/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-limpiadora-listar-idioma:
-    path: /{_locale}/admin23111978/cleaner/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-limpiadora-editar-idioma:
-    path: /{_locale}/admin23111978/cleaner/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-limpiadora-update-idioma:
-    path: /{_locale}/admin23111978/cleaner/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-limpiadora-pause-idioma:
-    path: /{_locale}/admin23111978/cleaner/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-limpiadora-play-idioma:
-    path: /{_locale}/admin23111978/cleaner/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-limpiadora-remove-idioma:
-    path: /{_locale}/admin23111978/cleaner/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-
-# lavanderia
-geo-lavanderia:
-    path: /admin23111978/lavanderia
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-lavanderia-listar:
-    path: /admin23111978/lavanderia/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-lavanderia-new:
-    path: /admin23111978/lavanderia/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-lavanderia-editar:
-    path: /admin23111978/lavanderia/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-lavanderia-update:
-    path: /admin23111978/lavanderia/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-lavanderia-pause:
-    path: /admin23111978/lavanderia/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-lavanderia-play:
-    path: /admin23111978/lavanderia/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-lavanderia-remove:
-    path: /admin23111978/lavanderia/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-lavanderia-idioma:
-    path: /{_locale}/admin23111978/laundry
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-lavanderia-new-idioma:
-    path: /{_locale}/admin23111978/laundry/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-lavanderia-listar-idioma:
-    path: /{_locale}/admin23111978/laundry/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-lavanderia-editar-idioma:
-    path: /{_locale}/admin23111978/laundry/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-lavanderia-update-idioma:
-    path: /{_locale}/admin23111978/laundry/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-lavanderia-pause-idioma:
-    path: /{_locale}/admin23111978/laundry/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-lavanderia-play-idioma:
-    path: /{_locale}/admin23111978/laundry/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-lavanderia-remove-idioma:
-    path: /{_locale}/admin23111978/laundry/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
 # taxonomy
 geo-taxonomia:
     path: /admin23111978/taxonomia
@@ -1092,143 +534,6 @@ geo-taxonomia-grupo-remove-idioma:
     path: /{_locale}/admin23111978/taxonomy-group/remove/{id}
     controller: App\Controller\Admin\PageController::removeIdioma
 
-
-# url-detalle
-geo-url-detalle:
-    path: /admin23111978/url-detalle
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-url-detalle-listar:
-    path: /admin23111978/url-detalle/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-url-detalle-new:
-    path: /admin23111978/url-detalle/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-url-detalle-add:
-    path: /admin23111978/url-detalle/add/{id}
-    controller: App\Controller\Admin\PageController::add
-
-geo-url-detalle-editar:
-    path: /admin23111978/url-detalle/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-url-detalle-update:
-    path: /admin23111978/url-detalle/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-url-detalle-pause:
-    path: /admin23111978/url-detalle/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-url-detalle-play:
-    path: /admin23111978/url-detalle/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-url-detalle-remove:
-    path: /admin23111978/url-detalle/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-url-detalle-idioma:
-    path: /{_locale}/admin23111978/url-detail
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-url-detalle-new-idioma:
-    path: /{_locale}/admin23111978/url-detail/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-url-detalle-listar-idioma:
-    path: /{_locale}/admin23111978/url-detail/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-url-detalle-editar-idioma:
-    path: /{_locale}/admin23111978/url-detail/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-url-detalle-update-idioma:
-    path: /{_locale}/admin23111978/url-detail/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-url-detalle-pause-idioma:
-    path: /{_locale}/admin23111978/url-detail/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-url-detalle-play-idioma:
-    path: /{_locale}/admin23111978/url-detail/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-url-detalle-remove-idioma:
-    path: /{_locale}/admin23111978/url-detail/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-# galeria principal
-geo-galeria-franquicia-principal:
-    path: /admin23111978/galeria-franquicia-principal
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-galeria-franquicia-principal-listar:
-    path: /admin23111978/galeria-franquicia-principal/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-galeria-franquicia-principal-new:
-    path: /admin23111978/galeria-franquicia-principal/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-galeria-franquicia-principal-editar:
-    path: /admin23111978/galeria-franquicia-principal/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-galeria-franquicia-principal-update:
-    path: /admin23111978/galeria-franquicia-principal/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-galeria-franquicia-principal-pause:
-    path: /admin23111978/galeria-franquicia-principal/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-galeria-franquicia-principal-play:
-    path: /admin23111978/galeria-franquicia-principal/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-galeria-franquicia-principal-remove:
-    path: /admin23111978/galeria-franquicia-principal/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-galeria-franquicia-principal-idioma:
-    path: /{_locale}/admin23111978/gallery-main
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-galeria-franquicia-principal-new-idioma:
-    path: /{_locale}/admin23111978/gallery-main/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-galeria-franquicia-principal-listar-idioma:
-    path: /{_locale}/admin23111978/gallery-main/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-galeria-franquicia-principal-editar-idioma:
-    path: /{_locale}/admin23111978/gallery-main/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-galeria-franquicia-principal-update-idioma:
-    path: /{_locale}/admin23111978/gallery-main/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-galeria-franquicia-principal-pause-idioma:
-    path: /{_locale}/admin23111978/gallery-main/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-galeria-franquicia-principal-play-idioma:
-    path: /{_locale}/admin23111978/gallery-main/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-galeria-franquicia-principal-remove-idioma:
-    path: /{_locale}/admin23111978/gallery-main/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
 # paginas
 geo-paginas:
     path: /admin23111978/paginas
@@ -1294,240 +599,6 @@ geo-paginas-remove-idioma:
     path: /{_locale}/admin23111978/pages/remove/{id}
     controller: App\Controller\Admin\PageController::removeIdioma
 
-
-# socios
-geo-socios:
-    path: /admin23111978/socios
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-socios-listar:
-    path: /admin23111978/socios/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-socios-new:
-    path: /admin23111978/socios/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-socios-editar:
-    path: /admin23111978/socios/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-socios-update:
-    path: /admin23111978/socios/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-socios-pause:
-    path: /admin23111978/socios/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-socios-play:
-    path: /admin23111978/socios/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-socios-remove:
-    path: /admin23111978/socios/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-socios-idioma:
-    path: /{_locale}/admin23111978/partners
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-socios-new-idioma:
-    path: /{_locale}/admin23111978/partners/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-socios-listar-idioma:
-    path: /{_locale}/admin23111978/partners/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-socios-editar-idioma:
-    path: /{_locale}/admin23111978/partners/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-socios-update-idioma:
-    path: /{_locale}/admin23111978/partners/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-socios-pause-idioma:
-    path: /{_locale}/admin23111978/partners/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-socios-play-idioma:
-    path: /{_locale}/admin23111978/partners/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-socios-remove-idioma:
-    path: /{_locale}/admin23111978/partners/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-# featured-properties
-geo-propiedades-destacadas:
-    path: /admin23111978/propiedades-destacadas
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-propiedades-destacadas-listar:
-    path: /admin23111978/propiedades-destacadas/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-propiedades-destacadas-new:
-    path: /admin23111978/propiedades-destacadas/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-propiedades-destacadas-editar:
-    path: /admin23111978/propiedades-destacadas/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-propiedades-destacadas-update:
-    path: /admin23111978/propiedades-destacadas/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-propiedades-destacadas-pause:
-    path: /admin23111978/propiedades-destacadas/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-propiedades-destacadas-play:
-    path: /admin23111978/propiedades-destacadas/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-propiedades-destacadas-remove:
-    path: /admin23111978/propiedades-destacadas/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-propiedades-destacadas-idioma:
-    path: /{_locale}/admin23111978/featured-properties
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-propiedades-destacadas-new-idioma:
-    path: /{_locale}/admin23111978/featured-properties/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-propiedades-destacadas-listar-idioma:
-    path: /{_locale}/admin23111978/featured-properties/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-propiedades-destacadas-editar-idioma:
-    path: /{_locale}/admin23111978/featured-properties/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-propiedades-destacadas-update-idioma:
-    path: /{_locale}/admin23111978/featured-properties/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-propiedades-destacadas-pause-idioma:
-    path: /{_locale}/admin23111978/featured-properties/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-propiedades-destacadas-play-idioma:
-    path: /{_locale}/admin23111978/featured-properties/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-propiedades-destacadas-remove-idioma:
-    path: /{_locale}/admin23111978/featured-properties/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-# propietarios
-geo-propietarios:
-    path: /admin23111978/propietario
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-propietarios-listar:
-    path: /admin23111978/propietario/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-propietarios-new:
-    path: /admin23111978/propietario/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-propietarios-editar:
-    path: /admin23111978/propietario/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-propietarios-update:
-    path: /admin23111978/propietario/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-propietarios-pause:
-    path: /admin23111978/propietario/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-propietarios-play:
-    path: /admin23111978/propietario/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-propietarios-remove:
-    path: /admin23111978/propietario/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-propietarios-idioma:
-    path: /{_locale}/action
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-propietarios-new-idioma:
-    path: /{_locale}/admin23111978/owner/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-propietarios-listar-idioma:
-    path: /{_locale}/admin23111978/owner/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-propietarios-editar-idioma:
-    path: /{_locale}/admin23111978/owner/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-propietarios-update-idioma:
-    path: /{_locale}/admin23111978/owner/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-propietarios-pause-idioma:
-    path: /{_locale}/admin23111978/owner/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-propietarios-play-idioma:
-    path: /{_locale}/admin23111978/owner/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-propietarios-remove-idioma:
-    path: /{_locale}/admin23111978/owner/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
-
-
-
-# gallery-blog
-geo-galeria-blog:
-    path: /admin23111978/galeria-blog
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-galeria-blog-listar:
-    path: /admin23111978/galeria-blog/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-galeria-blog-new:
-    path: /admin23111978/galeria-blog/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-galeria-blog-editar:
-    path: /admin23111978/galeria-blog/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-galeria-blog-update:
-    path: /admin23111978/galeria-blog/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-galeria-blog-pause:
-    path: /admin23111978/galeria-blog/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-galeria-blog-play:
-    path: /admin23111978/galeria-blog/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-galeria-blog-remove:
-    path: /admin23111978/galeria-blog/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-
 # language
 geo-language:
     path: /admin23111978/language
@@ -1561,70 +632,88 @@ geo-language-remove:
     path: /admin23111978/language/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
+# pais API
+    #geo-api-pais:
+    #path: /api/pais
+    #methods: ['GET']
+    #controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
 
-# permisos
-geo-permisos:
-    path: /admin23111978/permisos
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+    #geo-api-pais-listar:
+    #path: /api/pais/listar
+    #methods: ['GET']
+    #controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
 
-geo-permisos-listar:
-    path: /admin23111978/permisos/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+    #geo-api-pais-new:
+    #path: /api/pais/new/{id}
+    #methods: ['POST']
+    #controller: App\Controller\Api\PageApiController::newNoIdioma
 
-geo-permisos-new:
-    path: /admin23111978/permisos/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
+    #geo-api-pais-add:
+    #path: /api/pais/add/{id}
+    #methods: ['POST']
+    #controller: App\Controller\Api\PageApiController::add
 
-geo-permisos-editar:
-    path: /admin23111978/permisos/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
+    #geo-api-pais-editar:
+    #path: /api/pais/editar/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::editarNoIdioma
 
-geo-permisos-update:
-    path: /admin23111978/permisos/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
+    #geo-api-pais-update:
+    #path: /api/pais/update/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::updateNoIdioma
 
-geo-permisos-pause:
-    path: /admin23111978/permisos/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
+    #geo-api-pais-pause:
+    #path: /api/pais/pause/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::pauseNoIdioma
 
-geo-permisos-play:
-    path: /admin23111978/permisos/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
+    #geo-api-pais-play:
+    #path: /api/pais/play/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::playNoIdioma
 
-geo-permisos-remove:
-    path: /admin23111978/permisos/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
+    #geo-api-pais-remove:
+    #path: /api/pais/remove/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::removeNoIdioma
 
+    #geo-api-country-idioma:
+    #path: /{_locale}/api/country
+    #methods: ['GET']
+    #controller: App\Controller\Api\PageApiController::segmentGeoIdioma
 
-# preferences
-geo-preferencias:
-    path: /admin23111978/preferencias
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+    #geo-api-country-new-idioma:
+    #path: /{_locale}/api/country/new/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::newIdioma
 
-geo-preferencias-listar:
-    path: /admin23111978/preferencias/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+    #geo-api-country-listar-idioma:
+    #path: /{_locale}/api/country/listar
+    #methods: ['GET']
+    #controller: App\Controller\Api\PageApiController::segmentGeoIdioma
 
-geo-preferencias-new:
-    path: /admin23111978/preferencias/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
+    #geo-api-country-editar-idioma:
+    #path: /{_locale}/api/country/editar/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::editarIdioma
 
-geo-preferencias-editar:
-    path: /admin23111978/preferencias/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
+    #geo-api-country-update-idioma:
+    #path: /{_locale}/api/country/update/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::updateIdioma
 
-geo-preferencias-update:
-    path: /admin23111978/preferencias/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
+    #geo-api-country-pause-idioma:
+    #path: /{_locale}/api/country/pause/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::pauseIdioma
 
-geo-preferencias-pause:
-    path: /admin23111978/preferencias/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
+    #geo-api-country-play-idioma:
+    #path: /{_locale}/api/country/play/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::playIdioma
 
-geo-preferencias-play:
-    path: /admin23111978/preferencias/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-preferencias-remove:
-    path: /admin23111978/preferencias/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
+    #geo-api-country-remove-idioma:
+    #path: /{_locale}/api/country/remove/{id}
+    #methods: ['PUT']
+    #controller: App\Controller\Api\PageApiController::removeIdioma

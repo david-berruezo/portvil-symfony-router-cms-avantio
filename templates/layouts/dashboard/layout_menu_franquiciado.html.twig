@@ -35,6 +35,7 @@
                 <img class="logo2 img-fluid" src="{{ app.request.getBaseURL() }}/assets/themes/findhouse/images/logo.png" alt="header-logo2.png">
                 <span></span>
             </a>
+
             <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
                     {% set url = data["pages_1"~idioma].getTextSlug() ? app.request.getBaseURL() ~ slug_lang ~ data["pages_1"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ data["pages_1"~idioma].getAutoSlug() %}
                     <li><a href="{{url}}">{{'menu_inicio'|trans|capitalize}}</a></li>
@@ -45,16 +46,20 @@
                             {% set url= path('geo-pais-listar') %}
                             {% set titulo = data["pages_39"~idioma].getTextTitle() %}
                             <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
-                            {% set url = data["pages_40"~idioma].getTextSlug() ? app.request.getBaseURL() ~ "/admin23111978" ~ data["pages_40"~idioma].getTextSlug() : app.request.getBaseURL() ~ "/" ~ slug_lang ~ data["pages_40"~idioma].getAutoSlug() %}
+                            {% set url = data["pages_40"~idioma].getTextSlug() ? app.request.getBaseURL() ~ "/admin23111978" ~ data["pages_40"~idioma].getTextSlug() : app.request.getBaseURL()  ~ slug_lang ~ "admin23111978/" ~  data["pages_40"~idioma].getAutoSlug() %}
+                            {% set url= path('geo-region-listar') %}
                             {% set titulo = data["pages_40"~idioma].getTextTitle() %}
                             <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
-                            {% set url = data["pages_41"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_41"~idioma].getTextSlug() : app.request.getBaseURL() ~ "/" ~ slug_lang ~ data["pages_41"~idioma].getAutoSlug() %}
+                            {% set url = data["pages_41"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_41"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ "admin23111978/" ~  data["pages_41"~idioma].getAutoSlug() %}
+                            {% set url= path('geo-ciudad-listar') %}
                             {% set titulo = data["pages_41"~idioma].getTextTitle() %}
                             <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
-                            {% set url = data["pages_42"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_42"~idioma].getTextSlug() : app.request.getBaseURL() ~ "/" ~ slug_lang ~ data["pages_42"~idioma].getAutoSlug() %}
+                            {% set url = data["pages_42"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_42"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ "admin23111978/" ~  data["pages_42"~idioma].getAutoSlug() %}
+                            {% set url= path('geo-localidad-listar') %}
                             {% set titulo = data["pages_42"~idioma].getTextTitle() %}
                             <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
-                            {% set url = data["pages_43"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_43"~idioma].getTextSlug() : app.request.getBaseURL() ~ "/" ~ slug_lang ~ data["pages_43"~idioma].getAutoSlug() %}
+                            {% set url = data["pages_43"~idioma].getTextSlug() ? app.request.getBaseURL() ~  "/admin23111978" ~ data["pages_43"~idioma].getTextSlug() : app.request.getBaseURL() ~ slug_lang ~ "admin23111978/" ~  data["pages_43"~idioma].getAutoSlug() %}
+                            {% set url= path('geo-distrito-listar') %}
                             {% set titulo = data["pages_43"~idioma].getTextTitle() %}
                             <li><a href="{{url}}">{{titulo|capitalize}}</a></li>
                         </ul>
