@@ -54,13 +54,18 @@ class AvantioAccomodationsRepository extends ServiceEntityRepository
         FROM App\Entity\AvantioAccomodations aa
         LEFT JOIN aa.dynamicRooms dt
         WHERE aa.language = $language AND (aa.status = 'ACTIVED' OR aa.status = 'PAUSED' ) AND dt.language = $language AND (dt.status = 'ACTIVED' OR dt.status = 'PAUSED' ) ";
-        */
+
 
         # relation without any association
         $sql = " SELECT aa
         FROM App\Entity\AvantioAccomodations aa 
         JOIN App\Entity\DynamicRooms dt WITH aa.dynamicRooms = dt.dynamicRooms
         WHERE aa.language = $language AND (aa.status = 'ACTIVED' OR aa.status = 'PAUSED' ) AND dt.language = $language AND (dt.status = 'ACTIVED' OR dt.status = 'PAUSED' ) ";
+        */
+
+        $sql = " SELECT aa
+        FROM App\Entity\AvantioAccomodations aa 
+        WHERE aa.language = $language AND (aa.status = 'ACTIVED' OR aa.status = 'PAUSED' ) ";
         $query = $this->em->createQuery($sql);
         $rows = $query->getResult();
 

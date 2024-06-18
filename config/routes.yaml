@@ -36,220 +36,58 @@ dashboard:
     path: /admin23111978/dashboard
     controller: App\Controller\Admin\DashboardController::index
 
-# propiedades portvil y avantio y todas
-# todas multiple tablas
-geo-propiedades:
-    path: /admin23111978/propiedades
-    controller: App\Controller\PropiedadController::segmentGeoNoIdioma
-
-geo-propiedades-listar:
-    path: /admin23111978/propiedades/listar
-    controller: App\Controller\PropiedadController::segmentGeoNoIdioma
-
-geo-propiedades-new:
-    path: /admin23111978/propiedades/new/{id}
-    controller: App\Controller\PropiedadController::newNoIdioma
-
-geo-propiedades-add:
-    path: /admin23111978/propiedades/add/{id}
-    controller: App\Controller\PropiedadController::add
-
-geo-propiedades-editar:
-    path: /admin23111978/propiedades/editar/{id}
-    controller: App\Controller\PropiedadController::editarNoIdioma
-
-geo-propiedades-update:
-    path: /admin23111978/propiedades/update/{id}
-    controller: App\Controller\PropiedadController::updateNoIdioma
-
-geo-propiedades-pause:
-    path: /admin23111978/propiedades/pause/{id}
-    controller: App\Controller\PropiedadController::pauseNoIdioma
-
-geo-propiedades-play:
-    path: /admin23111978/propiedades/play/{id}
-    controller: App\Controller\PropiedadController::playNoIdioma
-
-geo-propiedades-remove:
-    path: /admin23111978/propiedades/remove/{id}
-    controller: App\Controller\PropiedadController::removeNoIdioma
-
-geo-properties-idioma:
-    path: /{_locale}/admin23111978/portvil-properties
-    controller: App\Controller\PropiedadController::segmentGeoIdioma
-
-geo-properties-new-idioma:
-    path: /{_locale}/admin23111978/portvil-properties/new/{id}
-    controller: App\Controller\PropiedadController::newIdioma
-
-geo-properties-listar-idioma:
-    path: /{_locale}/admin23111978/portvil-properties/listar
-    controller: App\Controller\PropiedadController::segmentGeoIdioma
-
-geo-properties-editar-idioma:
-    path: /{_locale}/admin23111978/portvil-properties/editar/{id}
-    controller: App\Controller\PropiedadController::editarIdioma
-
-geo-properties-update-idioma:
-    path: /{_locale}/admin23111978/portvil-properties/update/{id}
-    controller: App\Controller\PropiedadController::updateIdioma
-
-geo-properties-pause-idioma:
-    path: /{_locale}/admin23111978/portvil-properties/pause/{id}
-    controller: App\Controller\PropiedadController::pauseIdioma
-
-geo-properties-play-idioma:
-    path: /{_locale}/admin23111978/portvil-properties/play/{id}
-    controller: App\Controller\PropiedadController::playIdioma
-
-geo-properties-remove-idioma:
-    path: /{_locale}/admin23111978/portvil-properties/remove/{id}
-    controller: App\Controller\PropiedadController::removeIdioma
-
-# propiedades-portvil(extra)
-geo-propiedades-extra:
-    path: /admin23111978/propiedades-extra
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-propiedades-extra-listar:
-    path: /admin23111978/propiedades-extra/listar
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
-
-geo-propiedades-extra-new:
-    path: /admin23111978/propiedades-extra/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-propiedades-extra-add:
-    path: /admin23111978/propiedades-extra/add/{id}
-    controller: App\Controller\Admin\PageController::add
-
-geo-propiedades-extra-editar:
-    path: /admin23111978/propiedades-extra/editar/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
-
-geo-propiedades-extra-update:
-    path: /admin23111978/propiedades-extra/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
-
-geo-propiedades-extra-pause:
-    path: /admin23111978/propiedades-extra/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
-
-geo-propiedades-extra-play:
-    path: /admin23111978/propiedades-extra/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
-
-geo-propiedades-extra-remove:
-    path: /admin23111978/propiedades-extra/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
-
-geo-properties-extra-idioma:
-    path: /{_locale}/admin23111978/extra-properties
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-properties-extra-new-idioma:
-    path: /{_locale}/admin23111978/extra-properties/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-properties-extra-listar-idioma:
-    path: /{_locale}/admin23111978/extra-properties/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-properties-extra-editar-idioma:
-    path: /{_locale}/admin23111978/extra-properties/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-properties-extra-update-idioma:
-    path: /{_locale}/admin23111978/extra-properties/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-properties-extra-pause-idioma:
-    path: /{_locale}/admin23111978/extra-properties/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-properties-extra-play-idioma:
-    path: /{_locale}/admin23111978/extra-properties/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-properties-extra-remove-idioma:
-    path: /{_locale}/admin23111978/extra-properties/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 # propiedades-avantio
 geo-propiedades-avantio:
-    path: /admin23111978/propiedades-avantio
+    path:
+        es: /admin23111978/propiedades-avantio/listar
+        en: /{_locale}/admin23111978/avantio-properties/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-propiedades-avantio-listar:
-    path: /admin23111978/propiedades-avantio/listar
+    path:
+        es: /admin23111978/propiedades-avantio/listar
+        en: /{_locale}/admin23111978/avantio-properties/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
-geo-propiedades-avantio-new:
-    path: /admin23111978/propiedades-avantio/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
-
-geo-propiedades-avantio-add:
-    path: /admin23111978/propiedades-avantio/add/{id}
-    controller: App\Controller\Admin\PageController::add
-
 geo-propiedades-avantio-editar:
-    path: /admin23111978/propiedades-avantio/editar/{id}
+    path:
+        es: /admin23111978/propiedades-avantio/editar/{id}
+        en: /{_locale}//admin23111978/avantioproperties/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-propiedades-avantio-update:
-    path: /admin23111978/propiedades-avantio/update/{id}
-    controller: App\Controller\Admin\PageController::updateNoIdioma
+geo-propiedades-avantio-new:
+    path:
+        es: /admin23111978/propiedades-avantio/new/{id}
+        en: /{_locale}/admin23111978/avantio-properties/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
 
 geo-propiedades-avantio-pause:
-    path: /admin23111978/propiedades-avantio/pause/{id}
+    path:
+        es: /admin23111978/propiedades-avantio/pause/{id}
+        en: /{_locale}/admin23111978/avantio-properties/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
 geo-propiedades-avantio-play:
-    path: /admin23111978/propiedades-avantio/play/{id}
+    path:
+        es: /admin23111978/propiedades-avantio/play/{id}
+        en: /{_locale}/admin23111978/avantio-properties/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
+
 geo-propiedades-avantio-remove:
-    path: /admin23111978/propiedades-avantio/remove/{id}
+    path:
+        es: /admin23111978/propiedades-avantio/borrar/{id}
+        en: /{_locale}//admin23111978/avantio-properties/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
-geo-avantio-properties-idioma:
-    path: /{_locale}/admin23111978/avantio-properties
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
 
-geo-avantio-properties-new-idioma:
-    path: /{_locale}/admin23111978/avantio-properties/new/{id}
-    controller: App\Controller\Admin\PageController::newIdioma
-
-geo-avantio-properties-listar-idioma:
-    path: /{_locale}/admin23111978/avantio-properties/listar
-    controller: App\Controller\Admin\PageController::segmentGeoIdioma
-
-geo-avantio-properties-editar-idioma:
-    path: /{_locale}/admin23111978/avantio-properties/editar/{id}
-    controller: App\Controller\Admin\PageController::editarIdioma
-
-geo-avantio-properties-update-idioma:
-    path: /{_locale}/admin23111978/avantio-properties/update/{id}
-    controller: App\Controller\Admin\PageController::updateIdioma
-
-geo-avantio-properties-pause-idioma:
-    path: /{_locale}/admin23111978/avantio-properties/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseIdioma
-
-geo-avantio-properties-play-idioma:
-    path: /{_locale}/admin23111978/avantio-properties/play/{id}
-    controller: App\Controller\Admin\PageController::playIdioma
-
-geo-avantio-properties-remove-idioma:
-    path: /{_locale}/admin23111978/avantio-properties/remove/{id}
-    controller: App\Controller\Admin\PageController::removeIdioma
 
 # pais
 geo-pais:
     path:
         es: /admin23111978/pais/listar
         en: /{_locale}/admin23111978/country/list
-       #en/admin23111978/country/edit/1222?lang=en
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-pais-listar:
@@ -287,7 +125,6 @@ geo-pais-remove:
         es: /admin23111978/pais/borrar/{id}
         en: /{_locale}/admin23111978/country/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
-
 
 # pais API
     #geo-api-pais:

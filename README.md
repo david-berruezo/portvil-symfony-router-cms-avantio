@@ -49,13 +49,23 @@ http://localhosth/portvil-symfony-router-cms-avantio/public/admin23111978/
 import sql/insert.sql file into MySQL
 ```
 
-#### 07.- List countries and others
+#### 07.- List countries and others (Regions, Cities, Localities, Districts)
 
 ![Screenshot](/screens/pais.jpg)<br>
 
-#### 08.- Detaiil countries and others
+#### 08.- Detaiil countries and others (Regions, Cities, Localities, Districts)
 
 ![Screenshot](/screens/pais_detalle.jpg)<br>
+
+
+#### 07.- List properties
+
+![Screenshot](/screens/propiedades.jpg)<br>
+
+#### 08.- Detaiil property
+
+![Screenshot](/screens/propiedades_detalle.jpg)<br>
+
 
 #### Summary 
 
