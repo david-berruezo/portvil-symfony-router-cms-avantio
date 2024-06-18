@@ -55,7 +55,7 @@ import sql/insert.sql file into MySQL
 
 #### 08.- Detaiil countries and others
 
-![Screenshot](/screens/pais_detalle_.jpg)<br>
+![Screenshot](/screens/pais_detalle.jpg)<br>
 
 #### Summary 
 
