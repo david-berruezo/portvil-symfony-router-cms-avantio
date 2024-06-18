@@ -31,3 +31,17 @@ DATABASE_URL="mysql://root:Berruezin23@127.0.0.1:3306/avantio_cms?serverVersion=
 ```console
 php bin/console doctrine:schema:update --force --dump-sql
 ```
+
+#### 06.- Registration admin user
+
+```console
+http://localhosth/portvil-symfony-router-cms-avantio/public/admin23111978/login
+or
+http://localhosth/portvil-symfony-router-cms-avantio/public/admin23111978/
+```
+
+![Screenshot](/screens/login.jpg)<br>
+
+
+
+
