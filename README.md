@@ -43,5 +43,35 @@ http://localhosth/portvil-symfony-router-cms-avantio/public/admin23111978/
 ![Screenshot](/screens/login.jpg)<br>
 
 
+#### 06.- Import sql Insert file
 
+```console
+import sql/insert.sql file into MySQL
+```
 
+#### 07.- List countries and others
+
+![Screenshot](/screens/pais.jpg)<br>
+
+#### 08.- Detaiil countries and others
+
+![Screenshot](/screens/pais_detalle_.jpg)<br>
+
+#### Summary 
+
+##### 01.- Entities
+##### 02.- Relationship OneToOne, OneToMany, ManyToMany
+##### 03.- Collections
+##### 04.- Forms
+##### 05.- Validations
+##### 06.- Repositories
+##### 07.- Helpers
+##### 08.- Design Patterns , Inheritance , Interfaces , Injection Dependency 
+##### 09.- Crud
+##### 10.- Api , Api Platform Rest
+##### 11.- Security Validation against MySQL authentication
+##### 12.- Twig templates
+##### 13.- Datatables
+##### 14.- cKeditor
+##### 15.- Small Integration 
+##### 16.- PhpUnit Unit Testing
