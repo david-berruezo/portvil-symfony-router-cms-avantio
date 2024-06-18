@@ -53,7 +53,7 @@ geo-propiedades-avantio-listar:
 geo-propiedades-avantio-editar:
     path:
         es: /admin23111978/propiedades-avantio/editar/{id}
-        en: /{_locale}//admin23111978/avantioproperties/edit/{id}
+        en: /{_locale}/admin23111978/avantio-properties/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
 geo-propiedades-avantio-new:
