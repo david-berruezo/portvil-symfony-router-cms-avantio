@@ -70,6 +70,19 @@ import sql/insert.sql file into MySQL
 
 ![Screenshot](/screens/propiedades_detalle.jpg)<br>
 
+#### 08.- Api Platform
+```console
+http://localhost/public/api
+```
+![Screenshot](/screens/api_platform.jpg)<br>
+
+#### 08.- Api Platform | Rest (Get | Post | Put | Delete)
+```console
+http://localhost/public/api/dynamic_geocountries
+```
+![Screenshot](/screens/api_platform_get.jpg)<br>
+
+
 #### Summary 
 
 ##### 01.- Entities
