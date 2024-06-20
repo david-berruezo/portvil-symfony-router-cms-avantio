@@ -1034,7 +1034,6 @@ class AvantioAccomodations
     #[ORM\Column(name: 'update_status_at', type: 'datetime', nullable: true)]
     private ?datetime $updateStatusAt;
 
-
     public function getId(): ?int
     {
         return $this->id;

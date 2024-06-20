@@ -35,9 +35,15 @@ php bin/console doctrine:schema:update --force --dump-sql
 #### 06.- Registration admin user
 
 ```console
-http://localhosth/portvil-symfony-router-cms-avantio/public/admin23111978/login
+http://localhost/public/admin23111978/register
+```
+
+#### 07.- Login admin user
+
+```console
+http://localhost/public/admin23111978/login
 or
-http://localhosth/portvil-symfony-router-cms-avantio/public/admin23111978/
+http://localhost/public/admin23111978/
 ```
 
 ![Screenshot](/screens/login.jpg)<br>
@@ -65,7 +71,6 @@ import sql/insert.sql file into MySQL
 #### 08.- Detail property
 
 ![Screenshot](/screens/propiedades_detalle.jpg)<br>
-
 
 #### Summary 
 
