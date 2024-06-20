@@ -42,8 +42,6 @@ http://localhost/public/admin23111978/register
 
 ```console
 http://localhost/public/admin23111978/login
-or
-http://localhost/public/admin23111978/
 ```
 
 ![Screenshot](/screens/login.jpg)<br>
