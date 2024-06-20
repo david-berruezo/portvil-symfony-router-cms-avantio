@@ -83,7 +83,7 @@ import sql/insert.sql file into MySQL
 ##### 09.- Crud
 ##### 10.- Api , Api Platform Rest
 ##### 11.- Security Validation against MySQL authentication
-##### 12.- Twig templates
+##### 12.- Twig templates (Reflection to read dynamic property objects)
 ##### 13.- Datatables
 ##### 14.- cKeditor
 ##### 15.- Small Integration 
