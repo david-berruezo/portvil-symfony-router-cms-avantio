@@ -512,7 +512,7 @@ class PageController extends SegmentController implements IPagina
         $keys_country = $this->dynamicModel->getKeys();
 
         # creamos table pasandole datatableFactory
-        $table = new Table($this->dataTableFactory , $this->translator , $this->request , $this->dynamicModel);
+        $table = new Table($this->dataTableFactory , $this->translator , $this->request , $this->dynamicModel , $this->urlGenerator);
 
         # pasamos otros datos
         if ($this->segment == "admin23111978"){

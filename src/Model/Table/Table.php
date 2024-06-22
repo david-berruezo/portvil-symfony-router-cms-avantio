@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Omines\DataTablesBundle\DataTable as DataTableOmines;
 
@@ -26,11 +27,11 @@ class Table
     protected Cabecera $cabecera;
     protected Registro $registro;
 
-    public function __construct(DataTableFactory $dataTableFactory , TranslatorInterface $translator , Request $request , DynamicModel $dynamicModel)
+    public function __construct(DataTableFactory $dataTableFactory , TranslatorInterface $translator , Request $request , DynamicModel $dynamicModel , UrlGeneratorInterface $urlGenerator)
     {
         # Instanciación de objetos table
         $this->cabecera = new Cabecera($translator,$request);
-        $this->registro = new Registro($translator,$request);
+        $this->registro = new Registro($translator,$request,$urlGenerator);
         $this->datatable = new Datatable($dataTableFactory);
 
     }
@@ -116,5 +117,5 @@ class Table
     {
         $this->datatable = $datatable;
     }
-    
+
 }
