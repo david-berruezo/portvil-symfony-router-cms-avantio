@@ -68,16 +68,6 @@ class Registro
         # datos acciones
         $this->prepararDatosAcciones();
 
-        /*
-        # datos idioma
-        if (count($this->parametros_idioma) > 0){
-            $this->prepararDatosIdioma();
-        }
-        # datos acciones
-        if (count($this->parametros_borrar) > 0 || count($this->parametros_status) > 0){
-            $this->prepararDatosAcciones();
-        }
-        */
     }
 
 
@@ -88,8 +78,6 @@ class Registro
         $temp_vector = array_column($this->datos,"idioma");
 
         # cogemos la url
-        // $url = $this->url . "/edit/".$this->getSlugTable()."/";
-
         $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPages();
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
 
@@ -122,7 +110,6 @@ class Registro
                         } // end if
                     // no multilanguage
                     }else{
-                        // $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
                         $lang = $this->session->get("lang");
                         if ($this->session->get("lang") != "es"){
                             $url = $this->url .  "/" . $this->session->get("slug_lang") . "admin23111978/" .  $slug . '/edit/' . $valor . '?lang="'.$lang.'"';
@@ -149,7 +136,6 @@ class Registro
         $url = $this->url . "/edit/".$this->getSlugTable()."/";
 
         # delete
-        //$cadena_delete = '<a href="https://www.portvil-intranet.com/dynamic/ddelete/agencia/2" class="btn btn-danger" onclick="return confirm("¿ Quieres eliminar esta entrada permanentemente ?")"><i class="fa fa-trash-o fa-fw"></i></a>';
         $cadena_delete = '';
 
         $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPages();
@@ -163,10 +149,8 @@ class Registro
             foreach ($dato as $index => $valor) {
                 if ($index == $this->translator->trans('theme_title_fotos_acciones')){
                     if ($this->session->get("lang") != "es"){
-                        //$url = $this->url . "/" . $this->session->get("lang"). "/" .  $slug .  "/remove/" . $valor;
                         $url = $this->url . "/" . $this->session->get("lang"). "/admin23111978/" .  $slug .   "/remove/" . $valor;
                     }else{
-                        // $url = $this->url . "/" .$slug .  "/remove/" . $valor;
                         $url = $this->url . "/admin23111978/" .  $slug .  "/borrar/" . $valor;
                     }
                     $cadena_delete = '<a href="'.$url.'" class="btn btn-danger" onclick="return confirm(\'¿ Quieres eliminar esta entrada permanentemente ?\')"><i class="fa fa-trash-o fa-fw"></i></a>&nbsp;';

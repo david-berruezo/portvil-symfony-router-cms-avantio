@@ -47,12 +47,6 @@ class Table
 
         # datatable
         $table = $this->datatable->getTable();
-        /*
-        var_dump($ids);
-        var_dump($labels);
-        var_dump($raws);
-        //die();
-        */
 
         $counter = 0;
         foreach ($labels as $item) {
@@ -65,9 +59,6 @@ class Table
     {
         # datatable
         $table = $this->datatable->getTable();
-
-        // var_dump($this->registro->getDatos());
-        //die();
 
         $table->createAdapter(ArrayAdapter::class , $this->registro->getDatos());
     }
@@ -125,105 +116,5 @@ class Table
     {
         $this->datatable = $datatable;
     }
-
-    /*
-    public function getDatos(): array
-    {
-        return $this->regisro->getDatos();
-    }
-
-
-    public function setDatos(array $datos): void
-    {
-        $this->registro->setDatos($datos);
-    }
-
-
-    public function getLanguages(): array
-    {
-        return $this->languages;
-    }
-
-
-
-    public function setLanguages(array $languages): void
-    {
-        $this->languages = $languages;
-    }
-
-
-    public function getTable():DataTableOmines
-    {
-        return $this->datatable->getTable();
-    }
-
-
-    public function setTable(DataTableOmines $table): void
-    {
-        $this->datatable->setTable($table);
-    }
-
-
-    public function getIsLanguageGroup():bool
-    {
-        return $this->is_language_group;
-    }
-
-
-    public function setIsLanguageGroup(bool $is_language_group): void
-    {
-        $this->is_language_group = $is_language_group;
-    }
-
-
-
-    public function getParametrosIdioma(): array
-    {
-        return $this->registro->getParametrosIdioma();
-    }
-
-
-    public function setParametrosIdioma(array $parametros_idioma): void
-    {
-        $this->registro->setParametrosIdioma($parametros_idioma);
-    }
-
-
-    public function getParametrosStatus(): array
-    {
-        return $this->registro->getParametrosStatus();
-    }
-
-
-    public function setParametrosStatus(array $parametros_status): void
-    {
-        $this->registro->setParametrosStatus($parametros_status);
-    }
-
-
-
-    public function getParametrosBorrar(): array
-    {
-        return $this->registro->getParametrosBorrar();
-    }
-
-
-    public function setParametrosBorrar(array $parametros_borrar): void
-    {
-        $this->registro->setParametrosBorrar($parametros_borrar);
-    }
-
-
-
-    public function getUrl(): string
-    {
-        return $this->url;
-    }
-
-
-    public function setUrl(string $url): void
-    {
-        $this->url = $url;
-    }
-    */
+    
 }
