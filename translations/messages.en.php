@@ -1,6 +1,7 @@
 <?php
 return [
     'page_title'=>'Welcome Page',
+    'titulos_paginas' => 'Listing of',
     'welcome_message'=>'Hi, Welcome to this page',
     'author_information'=>'My name is Sanjay. This blog is mine and we created this post for you to learn.',
     'theme_dashbaord_titulo_propiedades'=>'Poperties',

@@ -198,8 +198,8 @@ class AdminController extends AbstractController
             $this->data["pages_".$page->getId()] = $page;
         }
 
-        //var_dump($this->data);
-        //die();
+        // var_dump($this->data);
+        // die();
 
         /*
         foreach ($languages as $language) {

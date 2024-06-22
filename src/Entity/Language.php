@@ -15,10 +15,10 @@ class Language
     #[ORM\Column(name: 'id', type: 'integer', nullable: false, options: ['comment' => 'Identificador'])]
     private $id;
 
-    #[ORM\Column(name: 'language', type: 'string', length: 45, nullable: false, options: ['comment' => 'Identificador lenguaje'])]
+    #[ORM\Column(name: 'language', type: 'string', length: 45, nullable: true, options: ['comment' => 'Identificador lenguaje'])]
     private $language = "es";
 
-    #[ORM\Column(name: 'text_title', type: 'string', length: 45, nullable: false, options: ['comment' => 'Identificador lenguaje'])]
+    #[ORM\Column(name: 'text_title', type: 'string', length: 45, nullable: true, options: ['comment' => 'Identificador lenguaje'])]
     private $textTitle = "es";
 
     /**
@@ -32,14 +32,14 @@ class Language
      * @var bool
      *
      */
-    #[ORM\Column(name: 'number_actived', type: 'boolean', nullable: false, options: ['comment' => 'Activado'])]
+    #[ORM\Column(name: 'number_actived', type: 'boolean', nullable: true, options: ['comment' => 'Activado'])]
     private $numberActived = '0';
 
     /**
      * @var bool
      *
      */
-    #[ORM\Column(name: 'number_default', type: 'boolean', nullable: false, options: ['comment' => 'Defecto'])]
+    #[ORM\Column(name: 'number_default', type: 'boolean', nullable: true, options: ['comment' => 'Defecto'])]
     private $numberDefault = '0';
 
 
@@ -47,14 +47,14 @@ class Language
      * @var string
      *
      */
-    #[ORM\Column(name: 'text_locale', type: 'string', length: 45, nullable: false, options: ['comment' => 'Local'])]
+    #[ORM\Column(name: 'text_locale', type: 'string', length: 45, nullable: true, options: ['comment' => 'Local'])]
     private $textLocale = '';
 
     /**
      * @var string
      *
      */
-    #[ORM\Column(name: 'text_lang', type: 'string', length: 45, nullable: false, options: ['comment' => 'Texto Idioma'])]
+    #[ORM\Column(name: 'text_lang', type: 'string', length: 45, nullable: true, options: ['comment' => 'Texto Idioma'])]
     private $textLang = '';
 
     #[ORM\Column(name: 'textarea_description', type: 'text',  nullable: true, options: ['comment' => 'Descripción'])]

@@ -2,23 +2,23 @@
 
 namespace App\Repository;
 
-use App\Entity\VariasPruebas;
+use App\Entity\Varias;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<VariasPruebas>
+ * @extends ServiceEntityRepository<Varias>
  *
- * @method VariasPruebas|null find($id, $lockMode = null, $lockVersion = null)
- * @method VariasPruebas|null findOneBy(array $criteria, array $orderBy = null)
- * @method VariasPruebas[]    findAll()
- * @method VariasPruebas[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Varias|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Varias|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Varias[]    findAll()
+ * @method Varias[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class VariasPruebasRepository extends ServiceEntityRepository
+class VariasRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, VariasPruebas::class);
+        parent::__construct($registry, Varias::class);
     }
 
 //    /**

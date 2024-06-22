@@ -6,7 +6,7 @@ use ApiPlatform\Metadata\ApiResource;
 use App\Repository\PruebaRepository;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Entity\VariasPruebas;
+use App\Entity\Varias;
 use ApiPlatform\Metadata\Delete;
 use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\GetCollection;
@@ -37,27 +37,35 @@ class Prueba
     #[ORM\Column(name: 'text_title', type: 'string', length: 255, nullable: true, options: ['comment' => 'Título (máximo 255 caracteres)'])]
     private ?string $textTitle = "";
 
-    /*
-    #[ORM\OneToMany(targetEntity: VariasPruebas::class, mappedBy: 'prueba')]
-    private ?Collection $variasPruebas;
-    */
+    #[ORM\OneToMany(targetEntity: Varias::class, mappedBy: 'prueba',cascade: ['persist', 'remove'])]
+    private ?Collection $varias;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    /*
-    public function getVariasPruebas(): ?Collection
+
+    public function getVarias(): ?iterable
     {
-        return $this->variasPruebas;
+        return $this->varias;
     }
 
-    public function setVariasPruebas(?Collection $variasPruebas): void
+    public function setVarias(?iterable $varias): void
     {
-        $this->variasPruebas = $variasPruebas;
+        $this->varias = $varias;
     }
-    */
+
+    public function addVarias(Varias $varias)
+    {
+
+        # agregamos el nuevo Tag a la coleccion tags
+        $this->varias->add($varias);
+
+        return $this;
+
+    }
+
 
     public function getTextTitle(): ?string
     {

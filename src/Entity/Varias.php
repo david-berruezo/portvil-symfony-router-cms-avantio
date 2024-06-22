@@ -2,14 +2,14 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
-use App\Repository\VariasPruebasRepository;
+use App\Repository\VariasRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Prueba;
 
-#[ORM\Entity(repositoryClass: VariasPruebasRepository::class)]
+#[ORM\Entity(repositoryClass: VariasRepository::class)]
 /*#[ORM\Index(name: "idx_prueba", columns: ["prueba"])]*/
 #[ApiResource]
-class VariasPruebas
+class Varias
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -19,11 +19,9 @@ class VariasPruebas
     #[ORM\Column(name: 'text_title', type: 'string', length: 255, nullable: true, options: ['comment' => 'Título (máximo 255 caracteres)'])]
     private ?string $textTitle = "";
 
-    /*
-    #[ORM\ManyToOne(targetEntity: Prueba::class, inversedBy: 'variasPruebas')]
+    #[ORM\ManyToOne(targetEntity: Prueba::class, inversedBy: 'varias')]
     #[ORM\JoinColumn(name: 'prueba', referencedColumnName: 'id')]
-    private ?Prueba $prueba;
-    */
+    private ?int $prueba;
 
     public function getId(): ?int
     {
@@ -34,17 +32,17 @@ class VariasPruebas
     {
         return $this->textTitle;
     }
-    /*
-    public function getPrueba(): ?\App\Entity\Prueba
+
+    public function getPrueba(): ?int
     {
         return $this->prueba;
     }
 
-    public function setPrueba(?\App\Entity\Prueba $prueba): void
+    public function setPrueba(?int $prueba): void
     {
         $this->prueba = $prueba;
     }
-    */
+
 
     public function setTextTitle(?string $textTitle): void
     {

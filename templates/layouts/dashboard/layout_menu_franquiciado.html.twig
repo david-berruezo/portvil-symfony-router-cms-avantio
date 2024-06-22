@@ -77,18 +77,12 @@
 
                     {% set url = app.request.getBaseURL() ~ "/" ~ "logout" %}
                     <li><a href="{{url}}">{{'menu_salir'|trans|capitalize}}</a></li>
-                    {# { dump(data.pages_all) }} #}
+
                     <li>
                         <a href="#">{{idioma_string}}</a>
                         <ul>
                         {% for key, value in data.pages_all %}
-                            {% set url = key != "es" ? app.request.getBaseURL() ~ "/" ~ key : app.request.getBaseURL() %}
-                            {% if(value.text_slug != "") %}
-                                {% set url = url ~ "/" ~ value.text_slug %}
-                            {% elseif (value.text_slug == "") %}
-                                {% set url = url ~ "/" ~ value.auto_slug  %}
-                            {% endif %}
-                            <li><a href="{{url}}">{{key}}</a></li>
+                            <li><a href="{{value}}">{{key}}</a></li>
                         {% endfor %}
                         </ul>
                     </li>
@@ -97,18 +91,3 @@
         </nav>
    </div>
 </header>
-
-{#{dump(data.pages_all)}#}
-{#{dump(data.pages_all.en)}#}
-{#{data.pages_all.en.auto_slug}#}
-{#{data.pages_all.en.text_slug}#}
-{#{for dato in data}#}
-
-{% for key, value in data.pages_all %}
-    {#% set url = key != "es" ? app.request.getBaseURL() ~ "/" ~ key : app.request.getBaseURL() %#}
-    {#{dump(value)}#}
-    {#{value.text_slug}#}
-    {#{value.auto_slug}#}
-    {#% url ~ value.text_slug ? value.text_slug : value.auto_slug  %#}
-    {#direccion web{{url}}#}
-{% endfor %}

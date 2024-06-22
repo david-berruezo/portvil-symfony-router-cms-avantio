@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller\Admin;
 
+use App\Entity\DynamicAdminPages;
+
 class SegmentController extends AdminController
 {
     # segment variables
@@ -643,8 +645,8 @@ class SegmentController extends AdminController
             ));
             $sql = $consulta->getDQL();
             $result = $consulta->getResult();
-            //var_dump($result);
-            //die();
+            // var_dump($result);
+            // die();
             if (count($result) > 0) {
                 $this->page_id = $result[0]->getId();
                 if (!is_null($result[0]->getTabla()->getTextTitle())){
@@ -665,6 +667,14 @@ class SegmentController extends AdminController
                 var_dump($this->nombre_objeto);
                 die();
                 */
+
+                # page
+                $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                $page = $pages_repository->findBy(array("id" => $this->page_id));
+                if ($page){
+                    $this->data["page"] = $page;
+                }
+
                 $this->gotoUrlPage($data);
                 // header("HTTP/1.1 200 OK");
                 return true;
@@ -699,6 +709,14 @@ class SegmentController extends AdminController
                     if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())) {
                         $this->nombre_objeto = $result[0]->getTabla()->getObjeto()->getTextTitle();
                     }
+
+                    # page
+                    $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                    $page = $pages_repository->findBy(array("id" => $this->page_id));
+                    if ($page){
+                        $this->data["page"] = $page;
+                    }
+
                     $this->gotoUrlPage($data);
                     // header("HTTP/1.1 200 OK");
                     return true;
@@ -726,6 +744,14 @@ class SegmentController extends AdminController
                         if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())) {
                             $this->nombre_objeto = $result[0]->getTabla()->getObjeto()->getTextTitle();
                         }
+
+                        # page
+                        $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                        $page = $pages_repository->findBy(array("id" => $this->page_id));
+                        if ($page){
+                            $this->data["page"] = $page;
+                        }
+
                         $this->gotoUrlPage($data);
                         // header("HTTP/1.1 200 OK");
                         return true;
@@ -735,6 +761,7 @@ class SegmentController extends AdminController
             // return $result;
 
         } // end if chequeamos segmnento por admin23111978
+
     }
 
 
@@ -759,37 +786,39 @@ class SegmentController extends AdminController
         $data["acciones_all"] = array();
         $data["detalle_all"]  = array();
 
-        # query
+        # obtenemos el id de la pagina
+        $id_pagina = str_replace($id_language,"",$this->page_id);
+
+
         # , ds.id , ds.textSlug , ds.autoSlug
-        $sql = " SELECT ds FROM App\Entity\DynamicAdminPages ds WHERE ds.id = :page_id AND ds.status = :status AND ds.language <> :language ";
+        # query de las paginas con diferente idioma
+        $sql = " SELECT ds FROM App\Entity\DynamicAdminPages ds WHERE ds.dynamicAdminPages = :page_id AND ds.status = :status AND ds.language <> :language ";
         $consulta = $entityManager->createQuery($sql);
         $consulta->setParameters(array(
-            'page_id' => $this->page_id,
+            'page_id' => $id_pagina,
             'status'  => 'ACTIVED',
             'language' => $id_language
         ));
         $sql = $consulta->getDQL();
         $result = $consulta->getResult();
 
-        // $languages_vector
-        if (count($result) > 0){
-            /*
-            if (array_key_exists($result[0]->getLanguage(),$this->session->get("languages_vector")) ){
-                $language_vector = $this->session->get("languages_vector");
-                $pagina = array(
-                    $language_vector[$result[0]->getLanguage()] => array(
-                        "auto_slug" => $result[0]->getAutoSlug(),
-                        "text_slug" => $result[0]->getTextSlug(),
-                    ),
-                );
-            } // end if
-            */
-        } // end if
 
-        // p_($pagina);
-        // $data["pages_all"] = $pagina;
-        //p_($this->page_id);
-        //die();
+        # guardamos todas las url de las paginas con diferente idioma
+        $data["pages_all"] = array();
+        if (count($result) > 0){
+            foreach ($result as $row){
+                if (array_key_exists($row->getLanguage(),$this->session->get("languages_vector")) ){
+                    $language_actual = $this->session->get("languages_vector")[$row->getLanguage()];
+                    $temp_url = $this->generateUrl(
+                        $this->request->get("_route"),
+                        array(
+                            '_locale' => $language_actual,
+                        )
+                    );
+                    $data["pages_all"][$language_actual] = $temp_url;
+                }
+            }
+        }
 
         switch($this->page_id){
             case 3:

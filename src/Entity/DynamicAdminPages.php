@@ -39,6 +39,10 @@ class DynamicAdminPages
     #[ORM\Column(name: 'text_title', type: 'string', length: 255, nullable: true, options: ['comment' => 'Título Cabecera'])]
     private $textTitle="";
 
+    #[ORM\Column(name: 'text_title_plural', type: 'string', length: 255, nullable: true, options: ['comment' => 'Título Title Plural'])]
+    private $textTitlePlural="";
+
+
     /**
      * @var string|null
      *
@@ -288,6 +292,16 @@ class DynamicAdminPages
         $this->textTitle = $textTitle;
     }
 
+    public function getTextTitlePlural(): string
+    {
+        return $this->textTitlePlural;
+    }
+
+    public function setTextTitlePlural(string $textTitlePlural): void
+    {
+        $this->textTitlePlural = $textTitlePlural;
+    }
+
     /**
      * @return string|null
      */
@@ -499,7 +513,7 @@ class DynamicAdminPages
     /**
      * @return string
      */
-    public function getTextSlug(): string
+    public function getTextSlug(): ?string
     {
         return $this->textSlug;
     }
@@ -515,7 +529,7 @@ class DynamicAdminPages
     /**
      * @return string
      */
-    public function getAutoSlug(): string
+    public function getAutoSlug(): ?string
     {
         return $this->autoSlug;
     }

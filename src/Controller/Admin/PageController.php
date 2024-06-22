@@ -418,7 +418,7 @@ class PageController extends SegmentController implements IPagina
                 $this->request->get("_route")."-new",
                 array("id" => 0)
             ),
-            "data" => $this->data
+            "data" => $this->data,
         ]);
 
     }

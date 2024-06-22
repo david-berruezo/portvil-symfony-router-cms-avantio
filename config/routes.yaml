@@ -86,12 +86,14 @@ geo-pais:
     path:
         es: /admin23111978/pais/listar
         en: /{_locale}/admin23111978/country/list
+        it: /{_locale}/admin23111978/paise/listato
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-pais-listar:
     path:
         es: /admin23111978/pais/listar
         en: /{_locale}/admin23111978/country/list
+        it: /{_locale}/admin23111978/paise/listato
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
 geo-pais-editar:

@@ -4,18 +4,37 @@
 
 {% block body %}
 
-<br><br>
-<div class="container-fluid">
+<style>
+    h1{
+        font-size:18px;
+    }
+    h2{
+        font-size:16px;
+    }
+    .contenedor-tabla{
+        margin-top:50px;
+    }
+    .contenido-tabla{
+        margin-top:20px;
+    }
+    .column-button-save{
+        margin-top:20px;
+    }
+</style>
+
+{# { dump(data)} #}
+<div class="container-fluid contenedor-tabla">
     <div class="row">
         <div class="col-md-12">
-            <h5>Listado</h5>
+            <h1>{{ 'titulos_paginas'|trans }} {{ data.page[0].textTitlePlural }}</h1>
+            <h2>{{ data.page[0].textSubtitle }}</h2>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 contenido-tabla">
             <!-- Insert this where you want the table to appear -->
             <div id="presidents">Loading...</div>
         </div>
         <div class="col-md-12 column-button-save">
-            <a class="btn btn-lg btn-thm" href="{{ slug }}">Nuevo</a>
+            <a class="btn btn-lg btn-thm" href="{{ slug }}">{{ 'theme_admin_boton_nuevo'|trans }}</a>
         </div>
     </div>
 </div>
