@@ -90,11 +90,6 @@ class Registro
         # cogemos la url
         // $url = $this->url . "/edit/".$this->getSlugTable()."/";
 
-        // p_($this->data["pages_".$this->session->get("lang_id")]);
-        // p_($this->data["pages_".$this->page_id]);
-        // p_($this->page_id);
-        // die();
-
         $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPages();
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
 
@@ -102,7 +97,7 @@ class Registro
         foreach ($this->datos as &$dato) {
             $cadena_idioma = "";
             foreach ($dato as $index => $valor) {
-                if ($index == "idioma"){
+                if ($index == $this->translator->trans('theme_title_fotos_idioma')){
                     // multilanguage
                     if ($this->is_language_group){
                         foreach ($this->languages as $language) {
@@ -138,7 +133,7 @@ class Registro
                     } // end if
                 } // end if
             } // end foreach
-            $dato["idioma"] = $cadena_idioma;
+            $dato[$this->translator->trans('theme_title_fotos_idioma')] = $cadena_idioma;
         } // end foreach
     } // end function
 
@@ -166,7 +161,7 @@ class Registro
             $cadena_idioma = "";
             $primer_valor_id_u_otro = "";
             foreach ($dato as $index => $valor) {
-                if ($index == "acciones"){
+                if ($index == $this->translator->trans('theme_title_fotos_acciones')){
                     if ($this->session->get("lang") != "es"){
                         //$url = $this->url . "/" . $this->session->get("lang"). "/" .  $slug .  "/remove/" . $valor;
                         $url = $this->url . "/" . $this->session->get("lang"). "/admin23111978/" .  $slug .   "/remove/" . $valor;
@@ -209,7 +204,7 @@ class Registro
                     $counter_status_borrar++;
                 } // end if
             } // end foreach
-            $dato["acciones"] = $cadena_delete . $cadena_status;
+            $dato[$this->translator->trans('theme_title_fotos_acciones')] = $cadena_delete . $cadena_status;
         } // end foreach
         
     }

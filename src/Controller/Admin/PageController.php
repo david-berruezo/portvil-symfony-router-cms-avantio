@@ -535,36 +535,35 @@ class PageController extends SegmentController implements IPagina
         $banderas_img = $table->getCabecera()->getBanderas();
         $this->banderas_img = $banderas_img;
         $banderas = "idioma";
-        // var_dump($banderas_img);
 
         if ($this->session->get("grupo") == "gestor-contenidos"){
-            $definicionLabelColumnasCabecera = array("id" , "nombre" , $banderas, "acciones");
+            $definicionLabelColumnasCabecera = array("id" , $this->translator->trans('tienes_alguna_duda_text_nombre') , $banderas, $this->translator->trans('theme_title_fotos_acciones'));
             $table->getCabecera()->setDefinicionLabelColumnasCabecera($definicionLabelColumnasCabecera);
             # id
-            $definicionIdColumnasCabecera = array("id" , "nombre" , "idioma" , "acciones");
+            $definicionIdColumnasCabecera = array("id" , $this->translator->trans('tienes_alguna_duda_text_nombre') , $this->translator->trans('theme_title_fotos_idioma') , $this->translator->trans('theme_title_fotos_acciones'));
             $table->getCabecera()->setDefinicionIdColumnasCabecera($definicionIdColumnasCabecera);
             # raw
             $definicionRawColumnasCabecera = array("false" , "false" , "true" , "true");
             $table->getCabecera()->setDefinicionRawColumnasCabecera($definicionRawColumnasCabecera);
         }else if ($this->session->get("grupo") == "agencia"){
-            $definicionLabelColumnasCabecera = array("id" , "nombre" , $banderas, "acciones");
+            $definicionLabelColumnasCabecera = array("id" , $this->translator->trans('tienes_alguna_duda_text_nombre') , $banderas, $this->translator->trans('theme_title_fotos_acciones'));
             $table->getCabecera()->setDefinicionLabelColumnasCabecera($definicionLabelColumnasCabecera);
             # id
-            $definicionIdColumnasCabecera = array("id" , "nombre" , "idioma" , "acciones");
+            $definicionIdColumnasCabecera = array("id" , $this->translator->trans('tienes_alguna_duda_text_nombre') , $this->translator->trans('theme_title_fotos_idioma') , $this->translator->trans('theme_title_fotos_acciones'));
             $table->getCabecera()->setDefinicionIdColumnasCabecera($definicionIdColumnasCabecera);
             # raw
             $definicionRawColumnasCabecera = array("false" , "false" , "true" , "true");
             $table->getCabecera()->setDefinicionRawColumnasCabecera($definicionRawColumnasCabecera);
         }else if ($this->session->get("grupo") == "propietario"){
-            $definicionLabelColumnasCabecera = array("id" , "nombre" , $banderas, "acciones");
+            $definicionLabelColumnasCabecera = array("id" , $this->translator->trans('tienes_alguna_duda_text_nombre') , $banderas, $this->translator->trans('theme_title_fotos_acciones'));
             $table->getCabecera()->setDefinicionLabelColumnasCabecera($definicionLabelColumnasCabecera);
             # id
-            $definicionIdColumnasCabecera = array("id" , "nombre" , "idioma" , "acciones");
+            $definicionIdColumnasCabecera = array("id" , $this->translator->trans('tienes_alguna_duda_text_nombre') , $this->translator->trans('theme_title_fotos_idioma') , $this->translator->trans('theme_title_fotos_acciones'));
             $table->getCabecera()->setDefinicionIdColumnasCabecera($definicionIdColumnasCabecera);
             # raw
             $definicionRawColumnasCabecera = array("false" , "false" , "true" , "true");
             $table->getCabecera()->setDefinicionRawColumnasCabecera($definicionRawColumnasCabecera);
-        }
+        } // end if
 
         # cremos la columnas cabecera
         $table->crearColumnasCabecera();
@@ -579,9 +578,9 @@ class PageController extends SegmentController implements IPagina
             # guardamos datos
             $dato = array(
                 'id' => $item->getId(),
-                'nombre' => $item->getTextTitle(),
-                'idioma' => $item->getId(),
-                'acciones' => $item->getId(),
+                $this->translator->trans('tienes_alguna_duda_text_nombre') => $item->getTextTitle(),
+                $this->translator->trans('theme_title_fotos_idioma') => $item->getId(),
+                $this->translator->trans('theme_title_fotos_acciones') => $item->getId(),
             );
             array_push($datos,$dato);
         } // end foreach

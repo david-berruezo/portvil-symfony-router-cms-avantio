@@ -26,14 +26,6 @@ class Table
     protected Cabecera $cabecera;
     protected Registro $registro;
 
-    /*
-    # datatable
-    protected DataTableFactory $dataTableFactory;
-    # dynamicModel
-    protected DynamicModel $dynamicModel;
-    */
-
-
     public function __construct(DataTableFactory $dataTableFactory , TranslatorInterface $translator , Request $request , DynamicModel $dynamicModel)
     {
         # Instanciación de objetos table

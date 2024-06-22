@@ -2339,6 +2339,9 @@ return [
 # validación
     'theme_validacion_min_text' => 'Field should to have 2 charactes at least',
     'theme_validacion_max_text' => 'Field should to have less of 10 charactes',
-    'theme_validacion_blanco_text' => 'Field should not be empty'
+    'theme_validacion_blanco_text' => 'Field should not be empty',
+# titulos datatable
+    'theme_title_fotos_acciones' => 'actions',
+    'theme_title_fotos_idioma' => 'language'
 ];
 ?>
