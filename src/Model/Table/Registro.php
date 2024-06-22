@@ -208,7 +208,8 @@ class Registro
                     }else{
                         $url = $this->url . "/admin23111978/" .  $slug .  "/".$slug_ultima_palabra."/" . $valor;
                     }
-                    $cadena_delete = '<a href="'.$url.'" class="btn btn-danger" onclick="return confirm(\'¿ Quieres eliminar esta entrada permanentemente ?\')"><i class="fa fa-trash-o fa-fw"></i></a>&nbsp;';
+                    $mensaje = $this->translator->trans('pregunta-borrar-entrada');
+                    $cadena_delete = '<a href="'.$url.'" class="btn btn-danger" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-trash-o fa-fw"></i></a>&nbsp;';
                     $url = "";
                     if (method_exists(get_class($this->datos_consulta[$counter_status_borrar]),"getStatus") && $this->datos_consulta[$counter_status_borrar]->getStatus() != null && $this->datos_consulta[$counter_status_borrar]->getStatus() == "ACTIVED" ){
                         # obtenemos la última palabra del slug edit | editar o lo que sea
@@ -227,7 +228,8 @@ class Registro
                         }else{
                             $url = $this->url . "/" . "admin23111978/" .  $slug .  "/".$slug_ultima_palabra."/" . $valor;
                         }
-                        $cadena_status = '<a href="'.$url.'" class="btn btn-warning" onclick="return confirm(\' ¿ Quieres pausar esta entrada ? \')"><i class="fa fa-pause fa-fw"></i></a>';
+                        $mensaje = $this->translator->trans('pregunta-pausar-status');
+                        $cadena_status = '<a href="'.$url.'" class="btn btn-warning" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-pause fa-fw"></i></a>';
                     }else if (method_exists(get_class($this->datos_consulta[$counter_status_borrar]),"getStatus") && $this->datos_consulta[$counter_status_borrar]->getStatus() != null && $this->datos_consulta[$counter_status_borrar]->getStatus() == "PAUSED" ) {
                         # obtenemos la última palabra del slug edit | editar o lo que sea
                         $slug_ultima_palabra = $this->urlGenerator->generate(
@@ -245,7 +247,8 @@ class Registro
                         } else {
                             $url = $this->url . "/" . "admin23111978/" . $slug . "/".$slug_ultima_palabra."/" . $valor;
                         }
-                        $cadena_status = '<a href="' . $url . '" class="btn btn-success" onclick="return confirm(\' ¿ Quieres activar esta entrada ? \')"><i class="fa fa-play fa-fw"></i></a>';
+                        $mensaje = $this->translator->trans('pregunta-borrar-entrada');
+                        $cadena_status = '<a href="' . $url . '" class="btn btn-success" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-play fa-fw"></i></a>';
                     }else if (isset($this->datos_consulta[$counter_status_borrar]->status) && $this->datos_consulta[$counter_status_borrar]->status != null && $this->datos_consulta[$counter_status_borrar]->status == "ACTIVED"  ){
                         # obtenemos la última palabra del slug edit | editar o lo que sea
                         $slug_ultima_palabra = $this->urlGenerator->generate(
@@ -262,7 +265,8 @@ class Registro
                         }else{
                             $url = $this->url . "/admin23111978" .  "/" . $slug .  "/".$slug_ultima_palabra."/" . $valor;
                         }
-                        $cadena_status = '<a href="'.$url.'" class="btn btn-warning" onclick="return confirm(\' ¿ Quieres pausar esta entrada ? \')"><i class="fa fa-pause fa-fw"></i></a>';
+                        $mensaje = $this->translator->trans('pregunta-pausar-status');
+                        $cadena_status = '<a href="'.$url.'" class="btn btn-warning" onclick="return confirm(\' '.$mensaje.' ? \')"><i class="fa fa-pause fa-fw"></i></a>';
                     }else if (isset($this->datos_consulta[$counter_status_borrar]->status) && $this->datos_consulta[$counter_status_borrar]->status != null && $this->datos_consulta[$counter_status_borrar]->status == "PAUSED"  ){
                         # obtenemos la última palabra del slug edit | editar o lo que sea
                         $slug_ultima_palabra = $this->urlGenerator->generate(
@@ -279,7 +283,8 @@ class Registro
                         } else {
                             $url = $this->url . "/admin23111978" . "/" . $slug . "/".$slug_ultima_palabra."/" . $valor;
                         }
-                        $cadena_status = '<a href="' . $url . '" class="btn btn-success" onclick="return confirm(\' ¿ Quieres activar esta entrada ? \')"><i class="fa fa-play fa-fw"></i></a>';
+                        $mensaje = $this->translator->trans('pregunta-activar-status');
+                        $cadena_status = '<a href="' . $url . '" class="btn btn-success" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-play fa-fw"></i></a>';
                     } // end if
 
                     $counter_status_borrar++;
