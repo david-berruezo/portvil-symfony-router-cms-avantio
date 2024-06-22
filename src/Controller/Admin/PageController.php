@@ -284,9 +284,9 @@ class PageController extends SegmentController implements IPagina
             //$slug_locale_new = "add";
             $slug_locale_new = "new";
         }else{
-            $slug_locale_update = "update-idioma";
+            $slug_locale_update = "update";
             //$slug_locale_new = "add-idioma";
-            $slug_locale_new = "new-idioma";
+            $slug_locale_new = "new";
         }
 
         # enviamos parametros
@@ -1022,7 +1022,7 @@ class PageController extends SegmentController implements IPagina
         # manejamos el formulario
         $form->handleRequest($request);
 
-        $this->translator->setLocale("es_ES");
+        // $this->translator->setLocale("es_ES");
         // $this->translator->setLocale($this->request->getLocale());
         // echo "valor: " . $this->translator->trans('theme_gobernanta_multiple_rooms');
 

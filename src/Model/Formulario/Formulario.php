@@ -264,9 +264,9 @@ class Formulario
             $this->slug_locale_new = "new";
         }else{
             //$this->slug_locale_update = "update-idioma";
-            $this->slug_locale_update = "editar-idioma";
+            $this->slug_locale_update = "editar";
             //$this->slug_locale_new = "add-idioma";
-            $this->slug_locale_new = "new-idioma";
+            $this->slug_locale_new = "new";
         }
 
         # admin area
@@ -278,32 +278,13 @@ class Formulario
             $this->identificador = $this->filter_2;
         }
 
-        /*
-        echo "segmento: " .$this->segmento. "<br>";
-        echo "slug_locale_update: " .$this->slug_locale_update. "<br>";
-        echo "slug_locale_new: " .$this->slug_locale_new. "<br>";
-        echo "identificador: " . $this->identificador. "<br>";
-        echo "segment: " . $this->segment. "<br>";
-        echo "action: ".$action."<br>";
-        */
-
         if ($action == "new"){
+            $url_temp = $this->request->get("_route");
             $this->action = $this->router->generate(
-                "geo-$this->segmento-".$this->slug_locale_new,
+                $url_temp,
                 array("id" => $this->identificador)
             );
         }else if ($action == "update"){
-            /*
-            $this->action = $this->router->generate(
-                "geo-$this->segmento-".$this->slug_locale_update,
-                array("id" => $this->identificador)
-            );
-
-            "slug" => $this->generateUrl(
-                $this->request->get("_route")."-new",
-                array("id" => 0)
-            ),
-            */
             $url_temp = $this->request->get("_route");
             $this->action = $this->router->generate(
                 $url_temp,

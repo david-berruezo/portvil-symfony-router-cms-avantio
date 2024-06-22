@@ -812,7 +812,7 @@ class SegmentController extends AdminController
         }else{
             $existe_id = false;
         }
-        
+
         if (count($result) > 0){
             foreach ($result as $row){
                 if (array_key_exists($row->getLanguage(),$this->session->get("languages_vector")) ){
