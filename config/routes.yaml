@@ -100,30 +100,35 @@ geo-pais-editar:
     path:
         es: /admin23111978/pais/editar/{id}
         en: /{_locale}/admin23111978/country/edit/{id}
+        it: /{_locale}/admin23111978/paise/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
 geo-pais-new:
     path:
         es: /admin23111978/pais/nuevo/{id}
         en: /{_locale}/admin23111978/country/new/{id}
+        it: /{_locale}/admin23111978/paise/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
 geo-pais-pause:
     path:
         es: /admin23111978/pais/pause/{id}
         en: /{_locale}/admin23111978/country/pause/{id}
+        it: /{_locale}/admin23111978/paise/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
 geo-pais-play:
     path:
         es: /admin23111978/region/play/{id}
         en: /{_locale}/admin23111978/region/play/{id}
+        it: /{_locale}/admin23111978/paise/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
 geo-pais-remove:
     path:
         es: /admin23111978/pais/borrar/{id}
         en: /{_locale}/admin23111978/country/remove/{id}
+        it: /{_locale}/admin23111978/paise/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
 

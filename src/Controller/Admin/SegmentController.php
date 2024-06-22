@@ -802,9 +802,16 @@ class SegmentController extends AdminController
         $sql = $consulta->getDQL();
         $result = $consulta->getResult();
 
-
         # guardamos todas las url de las paginas con diferente idioma
         $data["pages_all"] = array();
+        # comprobamos si existe id
+        $existe_id = false;
+        $id_url = $this->request->get('id');
+        if ($id_url){
+            $existe_id = true;
+        }else{
+            $existe_id = false;
+        }
         if (count($result) > 0){
             foreach ($result as $row){
                 if (array_key_exists($row->getLanguage(),$this->session->get("languages_vector")) ){
@@ -813,6 +820,7 @@ class SegmentController extends AdminController
                         $this->request->get("_route"),
                         array(
                             '_locale' => $language_actual,
+                            'id' => ($existe_id) ? $id_url : ""
                         )
                     );
                     $data["pages_all"][$language_actual] = $temp_url;
