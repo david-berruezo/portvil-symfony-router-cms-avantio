@@ -75,6 +75,19 @@ class Registro
 
     }
 
+    private function crearSlug($slug,$params,$level_explode)
+    {
+        # obtenemos la última palabra del slug edit | editar o lo que sea
+        $slug_ultima_palabra = $this->urlGenerator->generate(
+            $this->request->get("_route")."-".$slug,
+            $params
+        );
+        $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
+        $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-$level_explode];
+
+        return $slug_ultima_palabra;
+    }
+    
 
     private function prepararDatosIdioma()
     {
@@ -105,15 +118,11 @@ class Registro
                                     $valor_es = $valor;
                                 }
                                 # obtenemos la última palabra del slug edit | editar o lo que sea
-                                $slug_ultima_palabra = $this->urlGenerator->generate(
-                                    $this->request->get("_route")."-editar",
-                                    array(
-                                        "_locale" => $language->getLanguage(),
-                                        "id" => $valor_es
-                                    )
+                                $params = array(
+                                    "_locale" => $language->getLanguage(),
+                                    "id" => $valor_es
                                 );
-                                $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                                $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                                $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
                                 $url = $this->url . "/admin23111978/" . $slug . '/'.$slug_ultima_palabra.'/' . $valor_es . '?lang='.$language->getLanguage();
                             # si idioma extrangero
                             }else{
@@ -123,15 +132,11 @@ class Registro
                                     $valor_en = $valor;
                                 }
                                 # obtenemos la última palabra del slug edit | editar o lo que sea
-                                $slug_ultima_palabra = $this->urlGenerator->generate(
-                                    $this->request->get("_route")."-editar",
-                                    array(
-                                        "id" => $valor_es,
-                                        "_locale" => $language->getLanguage()
-                                    )
+                                $params = array(
+                                    "_locale" => $language->getLanguage(),
+                                    "id" => $valor_en
                                 );
-                                $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                                $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                                $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
                                 $url = $this->url .  "/" . $lang . "/admin23111978/" . $slug . '/'.$slug_ultima_palabra.'/' . $valor_en . '?lang='.$language->getLanguage();
                             }
                             $cadena_idioma.= '<a href="'.$url.'" target="_blank"><i class="fa fa-pencil fa-fw"></i></a>';
@@ -141,24 +146,18 @@ class Registro
                         $lang = $this->session->get("lang");
                         if ($this->session->get("lang") != "es"){
                             # obtenemos la última palabra del slug edit | editar o lo que sea
-                            $slug_ultima_palabra = $this->urlGenerator->generate(
-                                $this->request->get("_route")."-editar",
-                                array("id" => $valor)
+                            $params = array(
+                                "id" => $valor
                             );
-                            $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                            $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                            $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
                             $url = $this->url .  "/" . $this->session->get("slug_lang") . "admin23111978/" .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang="'.$lang.'"';
                         }else{
                             # obtenemos la última palabra del slug edit | editar o lo que sea
-                            $slug_ultima_palabra = $this->urlGenerator->generate(
-                                $this->request->get("_route")."-editar",
-                                array(
-                                    "id" => $valor,
-                                    "_locale" => $language->getLanguage()
-                                )
+                            $params = array(
+                                "_locale" => $language->getLanguage(),
+                                "id" => $valor
                             );
-                            $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                            $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                            $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
                             $url = $this->url . "/admin23111978/" .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang="'.$lang.'"';
                         }
                         $cadena_idioma.= '<a href="'.$url.'" target="_blank"><i class="fa fa-pencil fa-fw"></i></a>';
@@ -194,15 +193,13 @@ class Registro
             foreach ($dato as $index => $valor) {
                 if ($index == $this->translator->trans('theme_title_fotos_acciones')){
                     # obtenemos la última palabra del slug edit | editar o lo que sea
-                    $slug_ultima_palabra = $this->urlGenerator->generate(
-                        $this->request->get("_route")."-remove",
-                        array(
-                            "id" => $valor,
-                            "_locale" => $this->session->get("lang")
-                        )
+                    $params = array(
+                        "_locale" => $this->session->get("lang"),
+                        "id" => $valor
                     );
-                    $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                    $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                    $slug_ultima_palabra = $this->crearSlug("remove",$params,2);
+
+
                     if ($this->session->get("lang") != "es"){
                         $url = $this->url . "/" . $this->session->get("lang"). "/admin23111978/" .  $slug .   "/".$slug_ultima_palabra."/" . $valor;
                     }else{
@@ -213,15 +210,11 @@ class Registro
                     $url = "";
                     if (method_exists(get_class($this->datos_consulta[$counter_status_borrar]),"getStatus") && $this->datos_consulta[$counter_status_borrar]->getStatus() != null && $this->datos_consulta[$counter_status_borrar]->getStatus() == "ACTIVED" ){
                         # obtenemos la última palabra del slug edit | editar o lo que sea
-                        $slug_ultima_palabra = $this->urlGenerator->generate(
-                            $this->request->get("_route")."-pause",
-                            array(
-                                "id" => $valor,
-                                "_locale" => $this->session->get("lang")
-                            )
+                        $params = array(
+                            "_locale" => $this->session->get("lang"),
+                            "id" => $valor
                         );
-                        $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                        $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                        $slug_ultima_palabra = $this->crearSlug("pause",$params,2);
 
                         if ($this->session->get("lang") != "es"){
                             $url = $this->url . "/" .  $this->session->get("lang"). "/" . "admin23111978/" .  $slug .    "/".$slug_ultima_palabra."/" . $valor;
@@ -232,15 +225,11 @@ class Registro
                         $cadena_status = '<a href="'.$url.'" class="btn btn-warning" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-pause fa-fw"></i></a>';
                     }else if (method_exists(get_class($this->datos_consulta[$counter_status_borrar]),"getStatus") && $this->datos_consulta[$counter_status_borrar]->getStatus() != null && $this->datos_consulta[$counter_status_borrar]->getStatus() == "PAUSED" ) {
                         # obtenemos la última palabra del slug edit | editar o lo que sea
-                        $slug_ultima_palabra = $this->urlGenerator->generate(
-                            $this->request->get("_route")."-play",
-                            array(
-                                "id" => $valor,
-                                "_locale" => $this->session->get("lang")
-                            )
+                        $params = array(
+                            "_locale" => $this->session->get("lang"),
+                            "id" => $valor
                         );
-                        $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                        $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                        $slug_ultima_palabra = $this->crearSlug("play",$params,2);
 
                         if ($this->session->get("lang") != "es") {
                             $url = $this->url . "/" . $this->session->get("lang") . "/admin23111978/"  . $slug . "/".$slug_ultima_palabra."/" . $valor;
@@ -251,15 +240,12 @@ class Registro
                         $cadena_status = '<a href="' . $url . '" class="btn btn-success" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-play fa-fw"></i></a>';
                     }else if (isset($this->datos_consulta[$counter_status_borrar]->status) && $this->datos_consulta[$counter_status_borrar]->status != null && $this->datos_consulta[$counter_status_borrar]->status == "ACTIVED"  ){
                         # obtenemos la última palabra del slug edit | editar o lo que sea
-                        $slug_ultima_palabra = $this->urlGenerator->generate(
-                            $this->request->get("_route")."-pause",
-                            array(
-                                "id" => $valor,
-                                "_locale" => $this->session->get("lang")
-                            )
+                        $params = array(
+                            "_locale" => $this->session->get("lang"),
+                            "id" => $valor
                         );
-                        $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                        $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                        $slug_ultima_palabra = $this->crearSlug("pause",$params,2);
+
                         if ($this->session->get("lang") != "es"){
                             $url = $this->url  . "/" . $this->session->get("lang"). "/admin23111978/" .  $slug .    "/".$slug_ultima_palabra."/" . $valor;
                         }else{
@@ -269,15 +255,12 @@ class Registro
                         $cadena_status = '<a href="'.$url.'" class="btn btn-warning" onclick="return confirm(\' '.$mensaje.' ? \')"><i class="fa fa-pause fa-fw"></i></a>';
                     }else if (isset($this->datos_consulta[$counter_status_borrar]->status) && $this->datos_consulta[$counter_status_borrar]->status != null && $this->datos_consulta[$counter_status_borrar]->status == "PAUSED"  ){
                         # obtenemos la última palabra del slug edit | editar o lo que sea
-                        $slug_ultima_palabra = $this->urlGenerator->generate(
-                            $this->request->get("_route")."-play",
-                            array(
-                                "id" => $valor,
-                                "_locale" => $this->session->get("lang")
-                            )
+                        $params = array(
+                            "_locale" => $this->session->get("lang"),
+                            "id" => $valor
                         );
-                        $slug_ultima_palabra = explode("/",$slug_ultima_palabra);
-                        $slug_ultima_palabra = $slug_ultima_palabra[count($slug_ultima_palabra)-2];
+                        $slug_ultima_palabra = $this->crearSlug("play",$params,2);
+
                         if ($this->session->get("lang") != "es") {
                             $url = $this->url  .  "/" . $this->session->get("lang") . "/admin23111978/"  . $slug . "/".$slug_ultima_palabra."/" . $valor;
                         } else {
