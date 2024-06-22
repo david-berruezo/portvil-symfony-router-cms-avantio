@@ -807,11 +807,12 @@ class SegmentController extends AdminController
         # comprobamos si existe id
         $existe_id = false;
         $id_url = $this->request->get('id');
-        if ($id_url){
+        if ($id_url || $id_url == 0){
             $existe_id = true;
         }else{
             $existe_id = false;
         }
+        
         if (count($result) > 0){
             foreach ($result as $row){
                 if (array_key_exists($row->getLanguage(),$this->session->get("languages_vector")) ){

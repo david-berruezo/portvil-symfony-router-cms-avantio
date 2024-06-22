@@ -75,6 +75,11 @@ class Registro
 
     }
 
+    /**
+     * Función que genera los slugs de los idiomas y las acciones
+     * como por ejemplo: editar, borrar , pausar , play , edit , remove
+     * @return void
+     */
     private function crearSlug($slug,$params,$level_explode)
     {
         # obtenemos la última palabra del slug edit | editar o lo que sea
@@ -87,8 +92,12 @@ class Registro
 
         return $slug_ultima_palabra;
     }
-    
 
+
+    /**
+     * Mostramos las banderas de los idiomnas en la cabecera
+     * @return void
+     */
     private function prepararDatosIdioma()
     {
         // buscamos por la clave idioma
@@ -172,10 +181,6 @@ class Registro
 
     private function prepararDatosAcciones()
     {
-        # predeterminados | solo para consulta
-        $cadena_status_actived = '<a href="#" class="btn btn-warning" onclick="return confirm("¿ Quieres pausar esta entrada ?")"><i class="fa fa-pause fa-fw"></i></a>';
-        $cadena_status_paused  = '<a href="#" class="btn btn-success" onclick="return confirm("¿ Quieres activar esta entrada ?")"><i class="fa fa-play fa-fw"></i></a>';
-
         # cogemos la url
         $url = $this->url . "/edit/".$this->getSlugTable()."/";
 

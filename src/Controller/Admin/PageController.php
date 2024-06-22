@@ -416,7 +416,10 @@ class PageController extends SegmentController implements IPagina
             'banderas' => $this->banderas_img,
             "slug" => $this->generateUrl(
                 $this->request->get("_route")."-new",
-                array("id" => 0)
+                array(
+                    "id" => 0,
+                    "_locale" => $this->session->get("lang")
+                ),
             ),
             "data" => $this->data,
         ]);
