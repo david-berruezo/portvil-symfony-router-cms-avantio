@@ -426,34 +426,6 @@ class PageController extends SegmentController implements IPagina
 
     }
 
-    
-
-
-    public function segmentGeoCodeigniter(Request $request):?Response
-    {
-        # llamamos a la inicialización admin controller
-        $this->init();
-        $this->checkLanguage();
-
-        # guardamos request
-        $this->request = Request::createFromGlobals();
-
-        // guardamos los segmentos de la ur
-        $this->segment();
-
-        // evaluamos pagina
-        // $this->evaluarPagina();
-        $this->getParametros();
-
-        // creamos la tabla codeigniter
-        $table = $this->listCodeigniter();
-
-        return $this->render('listar/table_codeigniter.html.twig', [
-            'controller_name' => 'GeoController',
-            'table' => $table
-        ]);
-    }
-
 
     private function getSlugTablExceptions()
     {

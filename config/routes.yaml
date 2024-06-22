@@ -81,6 +81,7 @@ geo-propiedades-avantio-remove:
         en: /{_locale}//admin23111978/avantio-properties/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
+
 # pais | la primera es importantisima porque a partir se crean las demás ejemplo: geo-pais a geo-pais-editar | geo-pais-new ....
 geo-pais:
     path:
@@ -474,6 +475,51 @@ geo-language-remove:
     path:
         es: /admin23111978/idiomas/borrar/{id}
         en: /{_locale}/admin23111978/languages/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+
+
+# pais | la primera es importantisima porque a partir se crean las demás ejemplo: geo-pais a geo-pais-editar | geo-pais-new ....
+geo-api-pais:
+    path:
+        es: /admin23111978/pais/listar
+        en: /{_locale}/admin23111978/country/list
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-api-pais-listar:
+    path:
+        es: /admin23111978/pais/listar
+        en: /{_locale}/admin23111978/country/list
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-api-pais-editar:
+    path:
+        es: /admin23111978/pais/editar/{id}
+        en: /{_locale}/admin23111978/country/edit/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-api-pais-new:
+    path:
+        es: /admin23111978/pais/nuevo/{id}
+        en: /{_locale}/admin23111978/country/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-api-pais-pause:
+    path:
+        es: /admin23111978/pais/pause/{id}
+        en: /{_locale}/admin23111978/country/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-api-pais-play:
+    path:
+        es: /admin23111978/region/play/{id}
+        en: /{_locale}/admin23111978/region/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-api-pais-remove:
+    path:
+        es: /admin23111978/pais/borrar/{id}
+        en: /{_locale}/admin23111978/country/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
 

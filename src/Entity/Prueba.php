@@ -24,7 +24,8 @@ use ApiPlatform\Metadata\Put;
         New Put(),
         New Patch(),
         New Delete(),
-    ]
+    ],
+    routePrefix: '/v1'
 )]
 
 class Prueba

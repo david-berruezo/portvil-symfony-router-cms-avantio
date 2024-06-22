@@ -6,9 +6,10 @@ use App\Repository\VariasRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Prueba;
 
+#[ORM\Table(name: 'varias')]
 #[ORM\Entity(repositoryClass: VariasRepository::class)]
 /*#[ORM\Index(name: "idx_prueba", columns: ["prueba"])]*/
-#[ApiResource]
+
 class Varias
 {
     #[ORM\Id]
