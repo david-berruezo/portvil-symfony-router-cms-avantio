@@ -11,6 +11,7 @@ use App\Form\DynamicGeocityType;
 use App\Form\DynamicGeoregionType;
 use App\Form\DynamicGeocountryType;
 use App\Form\AvantioAccomodationsType;
+use App\Form\LanguageType;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -117,6 +118,7 @@ class Formulario
             "DynamicUrlDetalleType",
             "DynamicPropietarioType",
             "DynamicAgenciaType",
+            "LanguageType"
         );
 
         # tambien generamos excepciones para el formulario twig no incluya estos objetos
@@ -205,12 +207,17 @@ class Formulario
                 ),
                 "avantio" => array(),
             );
-        }else if($this->nombreTypeFormulario == "DynamicAgenciaType"){
+        }else if($this->nombreTypeFormulario == "DynamicAgenciaType") {
             $this->twig_excepciones = array(
                 "dynamic" => array(
                     "dynamicAgencia",
                 ),
                 "avantio" => array(),
+            );
+        }else if($this->nombreTypeFormulario == "LanguageType"){
+            $this->twig_excepciones = array(
+                "dynamic" => array(),
+                "avantio" => array()
             );
         } // end if
 
@@ -317,8 +324,10 @@ class Formulario
             $this->form = $this->container->get('form.factory')->create(DynamicUrlDetalleType::class, $this->objeto, $this->parametros_formulario);
         }else if ($this->nombreTypeFormulario == "DynamicPropietarioType"){
             $this->form = $this->container->get('form.factory')->create(DynamicPropietarioType::class, $this->objeto, $this->parametros_formulario);
-        }else if ($this->nombreTypeFormulario == "DynamicAgenciaType"){
+        }else if ($this->nombreTypeFormulario == "DynamicAgenciaType") {
             $this->form = $this->container->get('form.factory')->create(DynamicAgenciaType::class, $this->objeto, $this->parametros_formulario);
+        }else if ($this->nombreTypeFormulario == "LanguageType") {
+            $this->form = $this->container->get('form.factory')->create(LanguageType::class, $this->objeto, $this->parametros_formulario);
         }
     }
 

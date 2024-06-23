@@ -11,6 +11,7 @@ use App\Entity\DynamicGeolocality;
 use App\Entity\DynamicGeoregion;
 use App\Form\AvantioAccomodationsType;
 use App\Form\DynamicGeocountryType;
+use App\Form\LanguageType;
 use App\Model\CodeTable\HtmlTable;
 use App\Model\Formulario\Formulario;
 use App\Model\Pagina\IPagina;
@@ -204,7 +205,14 @@ class PageController extends SegmentController implements IPagina
             $datos = $this->em->getRepository($class_string)->findBy($parameters);
         }
         */
+
+        // Borramos el parametro language que esta como 111 o 222 y la tabla language esta como "es" o "en"
+        if ($this->classString == "App\Entity\Language"){
+            unset($parameters["language"]);
+        }
+
         $datos = $this->em->getRepository($class_string)->findBy($parameters);
+
         return $datos;
     }
 

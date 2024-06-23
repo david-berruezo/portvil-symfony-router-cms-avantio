@@ -161,22 +161,29 @@ class Registro
                         } // end if
                     // no multilanguage
                     }else{
+                        /*
                         $lang = $this->session->get("lang");
+                        if (!$lang)
+                            $lang = "es";
+                        */
+                        $lang = 'es';
                         if ($this->session->get("lang") != "es"){
                             # obtenemos la última palabra del slug edit | editar o lo que sea
+                            $lang = $this->session->get("lang");
                             $params = array(
                                 "id" => $valor
                             );
                             $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
-                            $url = $this->url .  "/" . $this->session->get("slug_lang") . "admin23111978/" .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang="'.$lang.'"';
+                            $url = $this->url .  "/" . $this->session->get("slug_lang") . "admin23111978/" .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang=es"';
                         }else{
                             # obtenemos la última palabra del slug edit | editar o lo que sea
+                            $lang = $this->session->get("lang");
                             $params = array(
                                 "_locale" => $lang,
                                 "id" => $valor
                             );
                             $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
-                            $url = $this->url . "/admin23111978/" .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang="'.$lang.'"';
+                            $url = $this->url . "/admin23111978/" .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang=es"';
                         }
                         $cadena_idioma.= '<a href="'.$url.'" target="_blank"><i class="fa fa-pencil fa-fw"></i></a>';
                     } // end if
