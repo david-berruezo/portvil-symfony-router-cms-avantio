@@ -116,10 +116,20 @@ http://localhost/public/api/v1/dynamic_geocountries
 ![Screenshot](/screens/api_platform_get.jpg)<br>
 
 
-#### 08.- Api Normal (Coming soon)
+#### 08.- Api Restful (Normal)
 ```console
 http://localhost/public/api
 ```
+
+#### 08.- Api Restful GET List Pais , Region , Ciudad , Localidad , Distrito
+```console
+http://localhost/public/api/pais/listar
+http://localhost/public/en/api/country/list
+```
+
+
+#### 08.- Check Postman GET List Pais , Region , Ciudad , Localidad , Distrito endpoint
+![Screenshot](/screens/postman-api-get-list.jpg)<br>
 
 
 #### Summary 

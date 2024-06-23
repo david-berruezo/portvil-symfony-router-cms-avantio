@@ -401,30 +401,22 @@ class PageApiController extends SegmentApiController implements IPagina
         // guardamos los segmentos de la ur
         $this->segment();
 
-
         // creamos la tabla Omines
         $datos = $this->list();
+        $normalizacionDatos = array();
 
-        return new JsonResponse($datos, Response::HTTP_OK);
+        foreach ($datos["datos"] as $objeto) {
+            $temp = array();
+            foreach ($datos["metodos"] as $contador_metodo => $metodo){
+                $temp[$datos["propiedades"][$contador_metodo]] = $objeto->{$metodo}();
+            }
+            array_push($normalizacionDatos, $temp);
+        }
 
-
-        /*
-        return $this->render('listar/table.html.twig', [
-            'controller_name' => 'GeoController',
-            'datatable' => $table,
-            'banderas' => $this->banderas_img,
-            "slug" => $this->generateUrl(
-                $this->request->get("_route")."-new",
-                array(
-                    "id" => 0,
-                    "_locale" => $this->session->get("lang")
-                ),
-            ),
-            "data" => $this->data,
-        ]);
-        */
+        return new JsonResponse($normalizacionDatos, Response::HTTP_OK);
 
     }
+
 
 
     private function getSlugTablExceptions()
@@ -550,6 +542,39 @@ class PageApiController extends SegmentApiController implements IPagina
         # obentemos los datos con los parametros enviados
         $data = $this->getDatos("list");
 
+        # obtenemos el objeto con Reflection | obtenemos columnas con getClassMetadata | normalizamos columnas entre reflexion y getClassMetadata
+        $reflector = new ReflectionClass($this->classString);
+        // $datos_variable = new ReflectionProperty($this->classString,$property->name);
+        # nombre de las columnas de la tabla
+        $nombres_columnas = $this->em->getClassMetadata($this->classString)->getColumnNames();
+        $metodos_getter = array();
+        $propiedades = array();
+        $contador_columnas = 0;
+        foreach ($reflector->getProperties() as $cont_property => $property) {
+            //echo $property->name . "<br>";
+            array_push($propiedades,$property->name);
+            array_push($metodos_getter, "get".ucfirst($property->name));
+            # normalizamos nombre | todo a minusculas y con subguion
+            # buscamos por letras mayúscuñas y devolvemos la posición
+            preg_match_all('/[A-Z]/', $property->name, $matches, PREG_OFFSET_CAPTURE);
+            # remplazamos mayúsculas por _ y cambiamos a minusuculas
+            $propiedad_normalizada = $property->name;
+            $contador_match = 0;
+            foreach($matches[0] as $key_match => $value_match){
+                $propiedad_normalizada = substr($propiedad_normalizada,0,$value_match[1]+$contador_match) . "_" . strtolower(substr($propiedad_normalizada,$value_match[1]+$contador_match,1)) . substr($propiedad_normalizada,$value_match[1]+$contador_match+1,strlen($propiedad_normalizada));
+                $contador_match++;
+            }
+            if ($propiedad_normalizada != $nombres_columnas[$cont_property]){
+                $temp_columnas = array_values($nombres_columnas);
+                for ($j = count($temp_columnas)-1; $j >= $cont_property; $j--) {
+                    $temp_columnas[$j+1] = $temp_columnas[$j];
+                }
+                $temp_columnas[$cont_property] = $propiedad_normalizada;
+                $nombres_columnas = $temp_columnas;
+            } // end if
+            $cont_property++;
+        } // end foreach
+
         /*
         foreach ($data as $item) {
             # guardamos datos
@@ -581,7 +606,14 @@ class PageApiController extends SegmentApiController implements IPagina
         return $table;
         */
 
-        return $data;
+        $respuesta = array(
+            "datos" => $data,
+            "propiedades" => $propiedades,
+            "metodos" => $metodos_getter,
+            "columnas" => $nombres_columnas
+       );
+
+        return $respuesta;
     }
 
     public function listCodeigniter()
