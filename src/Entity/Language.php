@@ -13,34 +13,34 @@ class Language
     #[ORM\Id]
     #[ORM\GeneratedValue(strategy: 'AUTO')]
     #[ORM\Column(name: 'id', type: 'integer', nullable: false, options: ['comment' => 'Identificador'])]
-    private $id;
+    private ?int $id=0;
 
     #[ORM\Column(name: 'language', type: 'string', length: 45, nullable: true, options: ['comment' => 'Identificador lenguaje'])]
-    private $language = "es";
+    private ?string $language = "es";
 
     #[ORM\Column(name: 'text_title', type: 'string', length: 45, nullable: true, options: ['comment' => 'Identificador lenguaje'])]
-    private $textTitle = "es";
+    private ?string $textTitle = "es";
 
     /**
      * @var string|null
      *
      */
     #[ORM\Column(name: 'text_name', type: 'string', length: 45, nullable: true, options: ['comment' => 'Idioma'])]
-    private $textName;
+    private ?string $textName = "";
 
     /**
      * @var bool
      *
      */
     #[ORM\Column(name: 'number_actived', type: 'boolean', nullable: true, options: ['comment' => 'Activado'])]
-    private $numberActived = '0';
+    private ?int $numberActived = 0;
 
     /**
      * @var bool
      *
      */
     #[ORM\Column(name: 'number_default', type: 'boolean', nullable: true, options: ['comment' => 'Defecto'])]
-    private $numberDefault = '0';
+    private ?int $numberDefault = 0;
 
 
     /**
@@ -48,17 +48,17 @@ class Language
      *
      */
     #[ORM\Column(name: 'text_locale', type: 'string', length: 45, nullable: true, options: ['comment' => 'Local'])]
-    private $textLocale = '';
+    private ?string $textLocale = '';
 
     /**
      * @var string
      *
      */
     #[ORM\Column(name: 'text_lang', type: 'string', length: 45, nullable: true, options: ['comment' => 'Texto Idioma'])]
-    private $textLang = '';
+    private ?string $textLang = '';
 
     #[ORM\Column(name: 'textarea_description', type: 'text',  nullable: true, options: ['comment' => 'Descripción'])]
-    private ?string $textareaDescription;
+    private ?string $textareaDescription = "";
 
 
     /**
@@ -66,63 +66,63 @@ class Language
      *
      */
     #[ORM\Column(name: 'text_page_title', type: 'string', length: 120, nullable: true, options: ['comment' => 'Título de la pestaña de la página'])]
-    private ?string $textPageTitle;
+    private ?string $textPageTitle = "";
 
     /**
      * @var string
      *
      */
     #[ORM\Column(name: 'text_slug', type: 'string', length: 255, nullable: true, options: ['comment' => 'Url manual (vacío usará auto slug)'])]
-    private ?string $textSlug;
+    private ?string $textSlug = "";
 
     /**
      * @var string
      *
      */
     #[ORM\Column(name: 'auto_slug', type: 'string', length: 255, nullable: true, options: ['comment' => 'Url corta (auto slug)'])]
-    private ?string $autoSlug;
+    private ?string $autoSlug = "";
 
     /**
      * @var string|null
      *
      */
     #[ORM\Column(name: 'text_meta_keywords', type: 'string', length: 255, nullable: true, options: ['comment' => 'Meta Keywords (máx 255 carácteres)'])]
-    private ?string $textMetaKeywords;
+    private ?string $textMetaKeywords = "";
 
     /**
      * @var string|null
      *
      */
     #[ORM\Column(name: 'text_meta_description', type: 'string', length: 255, nullable: true, options: ['comment' => 'Meta Description (max 255 characters)'])]
-    private ?string $textMetaDescription;
+    private ?string $textMetaDescription = "";
 
     /**
      * @var string|null
      *
      */
     #[ORM\Column(name: 'text_meta_robots', type: 'string', length: 255, nullable: true, options: ['comment' => 'Meta Robots (max 45 characters)'])]
-    private ?string $textMetaRobots;
+    private ?string $textMetaRobots = "";
 
     /**
      * @var string|null
      *
      */
     #[ORM\Column(name: 'textarea_scripts_header', type: 'text',  nullable: true, options: ['comment' => 'Aditional header scripts (Add tags &lt;script&gt;&lt;/script&gt;)'])]
-    private ?string $textareaScriptsHeader;
+    private ?string $textareaScriptsHeader = "";
 
     /**
      * @var string|null
      *
      */
     #[ORM\Column(name: 'textarea_scripts_body', type: 'text',  nullable: true, options: ['comment' => 'Aditional footer scripts (Add tags &lt;script&gt;&lt;/script&gt;)'])]
-    private ?string $textareaScriptsBody;
+    private ?string $textareaScriptsBody = "";
 
     /**
      * @var string|null
      *
      */
     #[ORM\Column(name: 'status', type: 'string', length: 128, nullable: true)]
-    private ?string $status;
+    private ?string $status = "";
 
 
     /**
@@ -144,7 +144,7 @@ class Language
      *
      */
     #[ORM\Column(name: 'position', type: 'integer', nullable: true)]
-    private ?int $position;
+    private ?int $position = 0;
 
     /**
      * @return mixed
@@ -157,17 +157,17 @@ class Language
     /**
      * @param mixed $id
      */
-    public function setId($id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
-    public function getTextTitle(): string
+    public function getTextTitle(): ?string
     {
         return $this->textTitle;
     }
 
-    public function setTextTitle(string $textTitle): void
+    public function setTextTitle(?string $textTitle): void
     {
         $this->textTitle = $textTitle;
     }
@@ -175,7 +175,7 @@ class Language
     /**
      * @return mixed
      */
-    public function getLanguage(): string
+    public function getLanguage(): ?string
     {
         return $this->language;
     }
@@ -183,23 +183,19 @@ class Language
     /**
      * @param mixed $language
      */
-    public function setLanguage(string $language): void
+    public function setLanguage(?string $language): void
     {
         $this->language = $language;
     }
 
 
-    /**
-     * @return Collection
-     */
+    /*
     public function getDynamicGeocountry(): Collection
     {
         return $this->dynamicGeocountry;
     }
 
-    /**
-     * @param Collection $dynamicGeocountry
-     */
+
     public function setDynamicGeocountry(Collection $dynamicGeocountry): void
     {
         $this->dynamicGeocountry = $dynamicGeocountry;
@@ -225,17 +221,13 @@ class Language
     }
 
 
-    /**
-     * @return Collection
-     */
+
     public function getDynamicGeoregion(): Collection
     {
         return $this->dynamicGeoregion;
     }
 
-    /**
-     * @param Collection $dynamicGeoregion
-     */
+
     public function setDynamicGeoregion(Collection $dynamicGeoregion): void
     {
         $this->dynamicGeoregion = $dynamicGeoregion;
@@ -261,17 +253,13 @@ class Language
     }
 
 
-    /**
-     * @return Collection
-     */
+
     public function getDynamicGeocity(): Collection
     {
         return $this->dynamicGeocity;
     }
 
-    /**
-     * @param Collection $dynamicGeocity
-     */
+
     public function setDynamicGeocity(Collection $dynamicGeocity): void
     {
         $this->dynamicGeocity = $dynamicGeocity;
@@ -295,6 +283,7 @@ class Language
         }
         return $this;
     }
+    */
 
     /**
      * @return string|null
@@ -315,7 +304,7 @@ class Language
     /**
      * @return bool|string
      */
-    public function getNumberActived(): bool|string
+    public function getNumberActived(): ?int
     {
         return $this->numberActived;
     }
@@ -323,7 +312,7 @@ class Language
     /**
      * @param bool|string $numberActived
      */
-    public function setNumberActived(bool|string $numberActived): void
+    public function setNumberActived(?int $numberActived): void
     {
         $this->numberActived = $numberActived;
     }
@@ -331,7 +320,7 @@ class Language
     /**
      * @return bool|string
      */
-    public function getNumberDefault(): bool|string
+    public function getNumberDefault(): ?string
     {
         return $this->numberDefault;
     }
@@ -339,7 +328,7 @@ class Language
     /**
      * @param bool|string $numberDefault
      */
-    public function setNumberDefault(bool|string $numberDefault): void
+    public function setNumberDefault(?int $numberDefault): void
     {
         $this->numberDefault = $numberDefault;
     }
@@ -347,7 +336,7 @@ class Language
     /**
      * @return string
      */
-    public function getTextLocale(): string
+    public function getTextLocale(): ?string
     {
         return $this->textLocale;
     }
@@ -355,7 +344,7 @@ class Language
     /**
      * @param string $textLocale
      */
-    public function setTextLocale(string $textLocale): void
+    public function setTextLocale(?string $textLocale): void
     {
         $this->textLocale = $textLocale;
     }
@@ -363,7 +352,7 @@ class Language
     /**
      * @return string
      */
-    public function getTextLang(): string
+    public function getTextLang(): ?string
     {
         return $this->textLang;
     }
@@ -371,7 +360,7 @@ class Language
     /**
      * @param string $textLang
      */
-    public function setTextLang(string $textLang): void
+    public function setTextLang(?string $textLang): void
     {
         $this->textLang = $textLang;
     }

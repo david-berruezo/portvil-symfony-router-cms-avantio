@@ -403,6 +403,8 @@ class PageController extends SegmentController implements IPagina
         # llamamos a la inicialización admin controller
         $this->init();
 
+        // die();
+
         // $this->request->getLocale()
         $this->checkLanguage();
 
@@ -807,6 +809,9 @@ class PageController extends SegmentController implements IPagina
         // var_dump($form->getData());
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //var_dump($form->getData());
+            //die();
+
             # guardamos el formulario para nuevo producto o actualizado
             $form_data = $form->getData();
             $this->em->persist($form_data);
@@ -841,6 +846,8 @@ class PageController extends SegmentController implements IPagina
             // $direccion_url = $this->getUrl();
 
         }else if($form->isSubmitted() && !$form->isValid()){
+            //var_dump($form->getData());
+            //die();
             # guardamos errores de validacion
             $errors = $validator->validate($objeto);
             /*
@@ -1017,33 +1024,40 @@ class PageController extends SegmentController implements IPagina
             //die();
             $this->em->persist($form_data);
             # si el formulario es nuevo guardamos el objeto en los otros idiomas
-            foreach ($this->session->get("languages_vector") as $index => $value) {
-                # clonamos el objeto enviado
-                $objeto_lenguage = clone $form_data;
-                # obtenemos el nombre la propiedad
-                $nombre_clase_actual_vector = explode("\\",$this->nombre_objeto);
-                $nombre_clase_actual = $nombre_clase_actual_vector[count($nombre_clase_actual_vector)-1];
-                $nombre_clase_actual = ucfirst($nombre_clase_actual);
-                $metodo_objeto = "get".$nombre_clase_actual;
-                # obtenemos el valor de la propiedad
-                $id_objeto = $objeto_lenguage->{$metodo_objeto}();
-                if ($index != $this->session->get("lang_id")){
-                    $objeto_lenguage->setId($id_objeto.$index);
-                    $objeto_lenguage->setLanguage($index);
-                    $this->em->persist($objeto_lenguage);
-                } // end if
+            if ($this->classString != "App\Entity\Language"){
+                foreach ($this->session->get("languages_vector") as $index => $value) {
+                    # clonamos el objeto enviado
+                    $objeto_lenguage = clone $form_data;
+                    # obtenemos el nombre la propiedad
+                    $nombre_clase_actual_vector = explode("\\",$this->nombre_objeto);
+                    $nombre_clase_actual = $nombre_clase_actual_vector[count($nombre_clase_actual_vector)-1];
+                    $nombre_clase_actual = ucfirst($nombre_clase_actual);
+                    $metodo_objeto = "get".$nombre_clase_actual;
+                    # obtenemos el valor de la propiedad
+                    $id_objeto = $objeto_lenguage->{$metodo_objeto}();
+                    if ($index != $this->session->get("lang_id")){
+                        $objeto_lenguage->setId($id_objeto.$index);
+                        $objeto_lenguage->setLanguage($index);
+                        $this->em->persist($objeto_lenguage);
+                    } // end if
 
-            } // end foreach
+                } // end foreach
+            }
 
             # realizamos el flush de todos los objetos
             $this->em->flush();
 
             # generamos una url para la redirección
             if ($this->session->get("lang") != "es"){
-                $slug_url = "editar-idioma";
+                $slug_url = "editar";
             }else{
                 $slug_url = "editar";
             }
+
+            $texto_url = $this->request->get("_route");
+            $url = $this->generateUrl($texto_url, array(
+                "id" => (is_array($objeto) && isset($objeto["id"])) ? $objeto["id"] : $objeto->getId(),
+            ));
 
             $url = $this->generateUrl("geo-" . $this->url . "-" . $slug_url ,array(
                 "id" => (is_array($objeto) && isset($objeto["id"])) ? $objeto["id"] : $objeto->getId() ,

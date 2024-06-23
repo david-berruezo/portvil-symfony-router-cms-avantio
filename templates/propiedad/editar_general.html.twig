@@ -128,6 +128,24 @@
                                 {% endif %}
 
                                 <!-- text -->
+                                <!-- only language table -->
+                                {% if nombre_objeto == "language" and  'language' in property.name %}
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label for="label">{{ (nombre_plantilla~nombres_columnas[counter_property])|trans|raw }}</label>
+                                        <input class="form-control" type="text" id="{{nombre_objeto}}_{{property.name}}" name="{{nombre_objeto}}[{{property.name}}]" value="{{ attribute(data_objeto, nombre_propiedad) }}">
+                                    </div>
+                                    <div class="error">
+                                        {% for attr, value in errors %}
+                                            {% if (value.getPropertyPath in property.name) %}
+                                                {{ value.getMessage|trans}}<br>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                                <!-- text -->
                                 <!-- and 'textarea' not in property.name  -->
                                 {% if 'textarea' not in property.name and 'text' in property.name and encontrado_twig_excepcion == false and encontrado_tag == false %}
                                     {% set encontrado_tag = true %}

@@ -133,6 +133,7 @@ class FormularioColecciones
         //die();
 
         # recorremos con reflector las propieaddes del objeto
+        //var_dump($this->reflector->getProperties());
         foreach ($this->reflector->getProperties() as $property){
             if (!in_array($property->name,$this->excepciones["dynamic"]) && !in_array($property->name,$this->excepciones["avantio"]) ){
                 //echo "propiedad: " .$property->name. "<br>";
@@ -186,7 +187,7 @@ class FormularioColecciones
                             $fecha = new DateTime();
                         }
                         $viewData->{$metodo}($fecha);
-                    }else if($property->name != $nombre_clase){
+                    }else if( ($property->name != $nombre_clase && $nombre_clase != "language") || ($nombre_clase == "language")  ){
                         # textTitle
                         if ($property->name == "textTitle"){
                             $textTitle = $forms[$property->name]->getData();
@@ -195,9 +196,12 @@ class FormularioColecciones
                         if ($property->name == "textSlug"){
                             $textSlug = $forms[$property->name]->getData();
                         }
-                        //echo "esta entrando " .$property->name. "<br>";
-                        //var_dump($forms[$property->name]->getData());
-                        $viewData->{$metodo}($forms[$property->name]->getData());
+                        if (isset($forms[$property->name])){
+                            // echo "propiedad: " . $property->name . "valor: " . $forms[$property->name]->getData() . "<br>";
+                            // var_dump($forms[$property->name]->getData());
+                            $viewData->{$metodo}($forms[$property->name]->getData());
+                        }
+
                     } // end if
                 } // end if null variable
 
@@ -217,6 +221,9 @@ class FormularioColecciones
             $viewData->setTextPageTitle($forms["textTitle"]->getData());
         } // end if
 
+        //var_dump($viewData);
+        //die();
+
     } // end function
 
 
@@ -228,16 +235,41 @@ class FormularioColecciones
         $nombre_clase_actual = $nombre_clase_actual_vector[count($nombre_clase_actual_vector)-1];
         $nombre_clase_actual = lcfirst($nombre_clase_actual);
 
-        $query = $this->em->createQuery("SELECT MAX(u.$nombre_clase_actual) FROM $this->nombre_objeto u");
+        //var_dump($this->classString);
+        //die();
+
+        # si clase language cogo id sino cogo campo con nombre clase
+        if ($this->classString == "App\Entity\Language"){
+            $query = $this->em->createQuery("SELECT MAX(u.id) FROM $this->nombre_objeto u");
+        }else{
+            $query = $this->em->createQuery("SELECT MAX(u.$nombre_clase_actual) FROM $this->nombre_objeto u");
+        }
         $count = $query->getSingleScalarResult();
-        $count++;
+
+        # si clase language sumo 111 sino sumo 1
+        if ($this->classString == "App\Entity\Language"){
+            $count+= 111;
+        }else{
+            $count++;
+        }
 
         $metodo_nombre = "set" . ucfirst($nombre_clase_actual);
 
         # guardmaos propiedad del objeto | id objeto | lenguage
-        $viewData->setLanguage($this->session->get("lang_id"));
-        $viewData->setId($count.$this->session->get("lang_id"));
-        $viewData->{$metodo_nombre}($count.$this->session->get("language"));
+        if ($this->classString != "App\Entity\Language"){
+            $viewData->setLanguage($this->session->get("lang_id"));
+            $viewData->setId($count.$this->session->get("lang_id"));
+        }else{
+            $viewData->setId($count);
+        }
+
+        # si clase language guardo 111 mas sino guardo 1 mas el lenguage (111 o 222 o 333)
+        if ($this->classString != "App\Entity\Language"){
+            $viewData->{$metodo_nombre}($count.$this->session->get("language"));
+        }
+
+        //var_dump($viewData);
+        //die();
 
         # creamos la nueva url
         $viewData->setTextPageTitle($forms["textTitle"]->getData());

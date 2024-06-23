@@ -436,43 +436,43 @@ geo-paginas-remove:
 
 
 # language
-geo-language:
+geo-idiomas:
     path:
         es: /admin23111978/idiomas/listar
         en: /{_locale}/admin23111978/languages/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
-geo-language-listar:
+geo-idiomas-listar:
     path:
         es: /admin23111978/idiomas/listar
         en: /{_locale}/admin23111978/languages/list
     controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
 
-geo-language-new:
+geo-idiomas-new:
     path:
         es: /admin23111978/idiomas/nuevo/{id}
         en: /{_locale}/admin23111978/languages/new/{id}
     controller: App\Controller\Admin\PageController::newNoIdioma
 
-geo-language-editar:
+geo-idiomas-editar:
     path:
         es: /admin23111978/idiomas/editar/{id}
         en: /{_locale}/admin23111978/languages/edit/{id}
     controller: App\Controller\Admin\PageController::editarNoIdioma
 
-geo-language-pause:
+geo-idiomas-pause:
     path:
         es: /admin23111978/idiomas/pause/{id}
         en: /{_locale}/admin23111978/languages/pause/{id}
     controller: App\Controller\Admin\PageController::pauseNoIdioma
 
-geo-language-play:
+geo-idiomas-play:
     path:
         es: /admin23111978/idiomas/play/{id}
         en: /{_locale}/admin23111978/languages/play/{id}
     controller: App\Controller\Admin\PageController::playNoIdioma
 
-geo-language-remove:
+geo-idiomas-remove:
     path:
         es: /admin23111978/idiomas/borrar/{id}
         en: /{_locale}/admin23111978/languages/remove/{id}
