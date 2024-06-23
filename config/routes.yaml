@@ -82,7 +82,8 @@ geo-propiedades-avantio-remove:
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
 
-# pais | la primera es importantisima porque a partir se crean las demás ejemplo: geo-pais a geo-pais-editar | geo-pais-new ....
+# pais | la primera es importantisima porque a partir de esta
+# se crean las demás ejemplo: geo-pais a geo-pais-editar | geo-pais-new ....
 geo-pais:
     path:
         es: /admin23111978/pais/listar

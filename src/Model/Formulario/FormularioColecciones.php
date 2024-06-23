@@ -44,18 +44,6 @@ class FormularioColecciones
     private $tipo_de_accion = "";
 
 
-    /*
-    public function __construct(UrlGeneratorInterface $router , ManagerRegistry $registry , Connection $connection , EntityManagerInterface $em , RequestStack $requestStack )
-    {
-        // empty
-        $this->router = $router;
-        $this->em = $em;
-        $this->connection = $connection;
-        $this->requestStack = $requestStack;
-    }
-    */
-
-
     public function crearRelaciones(&$builder, &$options)
     {
         # guardamos el builder form y las options del form
@@ -121,54 +109,10 @@ class FormularioColecciones
                         }
 
                     } else {
-                        /*
-                        if (!in_array($property->name, $excepciones)) {
-                            if ($property->name == "updateStatusAt" || $property->name == "updateAt" || $property->name == "deletedAt"){
-
-                                if ($property->name == "updateAt") {
-                                    $form->add('updateAt', DateTimeType::class, array(
-                                        //'data' => $fecha_generica_string,
-                                    ));
-                                }
-
-                                if ($property->name == "deletedAt"){
-                                    $form->add('deletedAt', DateTimeType::class, array(
-                                        //'data' => $fecha_generica_string,
-                                    ));
-                                }
-
-                                if ($property->name == "updateStatusAt"){
-                                    $form->add('updateStatusAt', DateTimeType::class, array(
-                                        //  'data' => $fecha_generica_string,
-                                    ));
-                                    //$form->get('updateStatusAt')->addEventListener(FormEvents::POST_SUBMIT, function(FormEvent $event) {
-                                    //        $avantioAccomodations = $event->getData();
-                                    //        $avantioAccomodations->setUpdateStatusAt(new DateTime());
-                                    //});
-
-                                }
-                            }else{
-                                $forms->add($property->name);
-                            }
-                            // echo "propiedad: " . $property->name . "<br>";
-                        } // end if !in_array($property->name, $excepciones)
-                        */
+                        // empty
                     } // end if $datos_variable->getType
                 }// end if excepciones
             } // end if getType
-
-            /*
-            // $this->nombre_objeto
-            if ($property->name == "tabla"){
-                $forms->add("tabla",HiddenType::class,[
-                    "mapped" => false
-                ]);
-            }else if(strpos($property->name , "Dynamic") != true){
-                if ($property->name == $nombre_clase_actual){
-                    $forms->add($property->name);
-                }
-            }
-            */
 
         }// end foreach
 
@@ -272,9 +216,6 @@ class FormularioColecciones
             }
             $viewData->setTextPageTitle($forms["textTitle"]->getData());
         } // end if
-
-        //var_dump($viewData);
-        //die();
 
     } // end function
 

@@ -42,12 +42,15 @@ class Registro
     # table slug
     protected string $slugTable;
 
-    public function __construct(TranslatorInterface $translator , Request $request, UrlGeneratorInterface $urlGenerator)
+    protected string $classString;
+
+    public function __construct(TranslatorInterface $translator , Request $request, UrlGeneratorInterface $urlGenerator , $classString)
     {
         $this->translator = $translator;
         $this->request = $request;
         $this->session = $request->getSession();
         $this->urlGenerator = $urlGenerator;
+        $this->classString = $classString;
     }
 
 
@@ -109,12 +112,18 @@ class Registro
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
 
         $counter_columns = 0;
+        /*
+        var_dump($this->datos);
+        var_dump($this->classString);
+        die();
+        */
+
         foreach ($this->datos as &$dato) {
             $cadena_idioma = "";
             foreach ($dato as $index => $valor) {
                 if ($index == $this->translator->trans('theme_title_fotos_idioma')){
                     // multilanguage
-                    if ($this->is_language_group){
+                    if ($this->is_language_group && $this->classString != "App\Entity\Language"){
                         foreach ($this->languages as $language) {
                             # obtenemos el slug por idioma
                             $slug = ($this->data["pages_".$id_pagina.$language->getId()]->getTextSlug()) ? $this->data["pages_".$id_pagina.$language->getId()]->getTextSlug() : $this->data["pages_".$id_pagina.$language->getId()]->getAutoSlug() ;
@@ -163,7 +172,7 @@ class Registro
                         }else{
                             # obtenemos la última palabra del slug edit | editar o lo que sea
                             $params = array(
-                                "_locale" => $language->getLanguage(),
+                                "_locale" => $lang,
                                 "id" => $valor
                             );
                             $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
