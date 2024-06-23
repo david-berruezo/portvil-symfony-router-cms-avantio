@@ -57,30 +57,69 @@ import sql/insert.sql file into MySQL
 
 ![Screenshot](/screens/pais.jpg)<br>
 
+```console
+http://localhost/public/admin23111978/pais/listar
+http://localhost/public/en/admin23111978/country/list
+
+http://localhost/public/admin23111978/region/listar
+http://localhost/public/admin23111978/en/region/list
+
+http://localhost/public/admin23111978/ciudad/listar
+http://localhost/public/en/admin23111978/city/list
+
+http://localhost/public/admin23111978/localidad/listar
+http://localhosth/public/en/admin23111978/locality/list
+
+http://localhost/public/admin23111978/distrito/listar
+http://localhost/public/en/admin23111978/district/list
+```
+
 #### 08.- Detail countries and others (Regions, Cities, Localities, Districts)
 
 ![Screenshot](/screens/pais_detalle.jpg)<br>
 
+```console
+http://localhost/public/admin23111978/pais/editar/1111?lang=es
+http://localhost/public/en/admin23111978/country/edit/1222?lang=en
+```
 
 #### 07.- List properties
 
 ![Screenshot](/screens/propiedades.jpg)<br>
 
+```console
+http://localhost/public/admin23111978/propiedades-avantio/listar
+http://localhost/public/en/admin23111978/avantio-properties/list
+
+```
+
 #### 08.- Detail property
 
 ![Screenshot](/screens/propiedades_detalle.jpg)<br>
 
+```console
+http://localhost/public/admin23111978/propiedades-avantio/editar/371247111?lang=es
+http://localhost/public/en/admin23111978/avantio-properties/edit/371247222?lang=en
+```
+
 #### 08.- Api Platform
 ```console
-http://localhost/public/api
+http://localhost/public/api/v1
 ```
 ![Screenshot](/screens/api_platform.jpg)<br>
 
 #### 08.- Api Platform | Rest (Get | Post | Put | Delete)
 ```console
-http://localhost/public/api/dynamic_geocountries
+http://localhost/public/api/v1/dynamic_geocountries
 ```
+
 ![Screenshot](/screens/api_platform_get.jpg)<br>
+
+
+#### 08.- Api Normal (Coming soon)
+```console
+http://localhost/public/api
+```
 
 
 #### Summary 

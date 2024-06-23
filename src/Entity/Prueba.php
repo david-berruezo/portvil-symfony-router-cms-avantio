@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
@@ -25,7 +24,7 @@ use ApiPlatform\Metadata\Put;
         New Patch(),
         New Delete(),
     ],
-    routePrefix: '/v1'
+    normalizationContext: ['groups' => ['prueba']]
 )]
 
 class Prueba
@@ -39,6 +38,7 @@ class Prueba
     private ?string $textTitle = "";
 
     #[ORM\OneToMany(targetEntity: Varias::class, mappedBy: 'prueba',cascade: ['persist', 'remove'])]
+    #[Groups('prueba',['read', 'write'])]
     private ?Collection $varias;
 
     public function getId(): ?int

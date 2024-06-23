@@ -482,45 +482,45 @@ geo-language-remove:
 # pais | la primera es importantisima porque a partir se crean las demás ejemplo: geo-pais a geo-pais-editar | geo-pais-new ....
 geo-api-pais:
     path:
-        es: /admin23111978/pais/listar
-        en: /{_locale}/admin23111978/country/list
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+        es: /api/pais/listar
+        en: /{_locale}/api/country/list
+    controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
 
 geo-api-pais-listar:
     path:
-        es: /admin23111978/pais/listar
-        en: /{_locale}/admin23111978/country/list
-    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+        es: /api/pais/listar
+        en: /{_locale}/api/country/list
+    controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
 
 geo-api-pais-editar:
     path:
-        es: /admin23111978/pais/editar/{id}
-        en: /{_locale}/admin23111978/country/edit/{id}
-    controller: App\Controller\Admin\PageController::editarNoIdioma
+        es: /api/pais/editar/{id}
+        en: /{_locale}/api/country/edit/{id}
+    controller: App\Controller\Api\PageApiController::editarNoIdioma
 
 geo-api-pais-new:
     path:
-        es: /admin23111978/pais/nuevo/{id}
-        en: /{_locale}/admin23111978/country/new/{id}
-    controller: App\Controller\Admin\PageController::newNoIdioma
+        es: /api/pais/nuevo/{id}
+        en: /{_locale}/api/country/new/{id}
+    controller: App\Controller\Api\PageApiController::newNoIdioma
 
 geo-api-pais-pause:
     path:
-        es: /admin23111978/pais/pause/{id}
-        en: /{_locale}/admin23111978/country/pause/{id}
-    controller: App\Controller\Admin\PageController::pauseNoIdioma
+        es: /api/pais/pause/{id}
+        en: /{_locale}/api/country/pause/{id}
+    controller: App\Controller\Api\PageApiController::pauseNoIdioma
 
 geo-api-pais-play:
     path:
-        es: /admin23111978/region/play/{id}
-        en: /{_locale}/admin23111978/region/play/{id}
-    controller: App\Controller\Admin\PageController::playNoIdioma
+        es: /api/region/play/{id}
+        en: /{_locale}/api/region/play/{id}
+    controller: App\Controller\Api\PageApiController::playNoIdioma
 
 geo-api-pais-remove:
     path:
-        es: /admin23111978/pais/borrar/{id}
-        en: /{_locale}/admin23111978/country/remove/{id}
-    controller: App\Controller\Admin\PageController::removeNoIdioma
+        es: /api/pais/borrar/{id}
+        en: /{_locale}/api/country/remove/{id}
+    controller: App\Controller\Admin\PageApiController::removeNoIdioma
 
 
 # pais API

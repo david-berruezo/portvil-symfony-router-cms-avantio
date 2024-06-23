@@ -26,8 +26,8 @@
 <div class="container-fluid contenedor-tabla">
     <div class="row">
         <div class="col-md-12">
-            <h1>{{ 'titulos_paginas'|trans }} {{ data.page[0].textTitlePlural }}</h1>
-            <h2>{{ data.page[0].textSubtitle }}</h2>
+            <h1>{{ 'titulos_paginas'|trans }} {{ (data.page[0].textTitlePlural is empty) ? "" : data.page[0].textTitlePlural }}</h1>
+            <h2>{{ (data.page[0].textSubtitle is empty) ? "" : data.page[0].textSubtitle }}</h2>
         </div>
         <div class="col-md-12 contenido-tabla">
             <!-- Insert this where you want the table to appear -->

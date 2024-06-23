@@ -292,12 +292,12 @@ class DynamicAdminPages
         $this->textTitle = $textTitle;
     }
 
-    public function getTextTitlePlural(): string
+    public function getTextTitlePlural(): ?string
     {
         return $this->textTitlePlural;
     }
 
-    public function setTextTitlePlural(string $textTitlePlural): void
+    public function setTextTitlePlural(?string $textTitlePlural): void
     {
         $this->textTitlePlural = $textTitlePlural;
     }

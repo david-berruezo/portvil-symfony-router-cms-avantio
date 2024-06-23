@@ -38,8 +38,8 @@ class AvantioAccomodations
     #[ORM\Column(name: 'id', type: 'integer', nullable: false)]
     private ?int $id = 0;
 
-    #[ORM\Column(name: 'avantio_accomodations', type: 'integer', nullable: false)]
-    private ?int $avantioAccomodations;
+    #[ORM\Column(name: 'avantio_accomodations', type: 'integer', nullable: true)]
+    private ?int $avantioAccomodations=0;
 
     /*
     #[ORM\Column(name: 'avantio_accomodations_nearest_places', type: 'integer', nullable: false)]
@@ -1073,6 +1073,7 @@ class AvantioAccomodations
     {
         $this->textTitle = $textTitle;
     }
+
 
     public function getTextReferencia(): ?string
     {

@@ -2,6 +2,12 @@
 namespace App\Entity;
 
 use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use ApiPlatform\Metadata\Put;
 use App\Repository\VariasRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Prueba;
@@ -9,7 +15,18 @@ use App\Entity\Prueba;
 #[ORM\Table(name: 'varias')]
 #[ORM\Entity(repositoryClass: VariasRepository::class)]
 /*#[ORM\Index(name: "idx_prueba", columns: ["prueba"])]*/
-
+#[ApiResource(
+    description: 'Una prueba',
+    operations: [
+        new Get(),
+        new GetCollection(),
+        New Post(),
+        New Put(),
+        New Patch(),
+        New Delete(),
+    ],
+    normalizationContext: ['groups' => ['prueba']]
+)]
 class Varias
 {
     #[ORM\Id]
@@ -22,7 +39,8 @@ class Varias
 
     #[ORM\ManyToOne(targetEntity: Prueba::class, inversedBy: 'varias')]
     #[ORM\JoinColumn(name: 'prueba', referencedColumnName: 'id')]
-    private ?int $prueba;
+    #[Groups('prueba',['read', 'write'])]
+    private ?Prueba $prueba;
 
     public function getId(): ?int
     {
@@ -39,7 +57,7 @@ class Varias
         return $this->prueba;
     }
 
-    public function setPrueba(?int $prueba): void
+    public function setPrueba(?Prueba $prueba): void
     {
         $this->prueba = $prueba;
     }
