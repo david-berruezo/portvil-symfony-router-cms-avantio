@@ -11,7 +11,7 @@ class Language
 {
 
     #[ORM\Id]
-    #[ORM\GeneratedValue(strategy: 'AUTO')]
+    #[ORM\GeneratedValue(strategy: 'NONE')]
     #[ORM\Column(name: 'id', type: 'integer', nullable: false, options: ['comment' => 'Identificador'])]
     private ?int $id=0;
 

@@ -248,7 +248,7 @@ class FormularioColecciones
 
         # si clase language sumo 111 sino sumo 1
         if ($this->classString == "App\Entity\Language"){
-            $count+= 111;
+            $total = $count + 111;
         }else{
             $count++;
         }
@@ -260,7 +260,7 @@ class FormularioColecciones
             $viewData->setLanguage($this->session->get("lang_id"));
             $viewData->setId($count.$this->session->get("lang_id"));
         }else{
-            $viewData->setId($count);
+            $viewData->setId($total);
         }
 
         # si clase language guardo 111 mas sino guardo 1 mas el lenguage (111 o 222 o 333)
