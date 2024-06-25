@@ -53,7 +53,7 @@ http://localhost/public/admin23111978/login
 import sql/insert.sql file into MySQL
 ```
 
-#### 07.- List countries and others (Regions, Cities, Localities, Districts)
+#### 07.- List countries and others (Regions, Cities, Localities, Districts) (BACKEND)
 
 ![Screenshot](/screens/pais.jpg)<br>
 
@@ -72,6 +72,11 @@ http://localhosth/public/en/admin23111978/locality/list
 
 http://localhost/public/admin23111978/distrito/listar
 http://localhost/public/en/admin23111978/district/list
+```
+#### 07.1.- List countries (FRONTEND)
+```console
+http://localhost/public/pais/listar
+http://localhost/public/en/country/list
 ```
 
 #### 08.- Detail countries and others (Regions, Cities, Localities, Districts)
