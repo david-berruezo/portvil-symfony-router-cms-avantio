@@ -112,21 +112,21 @@ class Registro
         $temp_vector = array();
         $temp_vector = array_column($this->datos,"idioma");
 
+        # guardamos el nobmre de la carpeta backend o no
+        $folder = "";
+
         # cogemos la url
         if ($this->seccionFrontBack == 1) {
             $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPage();
+            $folder = "/admin23111978/";
         }else{
             $id_pagina = $this->data["pages_".$this->page_id]->getDynamicPage();
+            $folder = "/";
         }
 
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
 
         $counter_columns = 0;
-        /*
-        var_dump($this->datos);
-        var_dump($this->classString);
-        die();
-        */
 
         foreach ($this->datos as &$dato) {
             $cadena_idioma = "";
@@ -151,7 +151,7 @@ class Registro
                                     "id" => $valor_es
                                 );
                                 $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
-                                $url = $this->url . "/admin23111978/" . $slug . '/'.$slug_ultima_palabra.'/' . $valor_es . '?lang='.$language->getLanguage();
+                                $url = $this->url . $folder . $slug . '/'.$slug_ultima_palabra.'/' . $valor_es . '?lang='.$language->getLanguage();
                             # si idioma extrangero
                             }else{
                                 if ($this->session->get("lang") != $lang){
@@ -165,7 +165,7 @@ class Registro
                                     "id" => $valor_en
                                 );
                                 $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
-                                $url = $this->url .  "/" . $lang . "/admin23111978/" . $slug . '/'.$slug_ultima_palabra.'/' . $valor_en . '?lang='.$language->getLanguage();
+                                $url = $this->url .  "/" . $lang . $folder . $slug . '/'.$slug_ultima_palabra.'/' . $valor_en . '?lang='.$language->getLanguage();
                             }
                             $cadena_idioma.= '<a href="'.$url.'" target="_blank"><i class="fa fa-pencil fa-fw"></i></a>';
                         } // end if
@@ -184,7 +184,7 @@ class Registro
                                 "id" => $valor
                             );
                             $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
-                            $url = $this->url .  "/" . $this->session->get("slug_lang") . "admin23111978/" .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang=es"';
+                            $url = $this->url .  "/" . $this->session->get("slug_lang") . $folder .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang=es"';
                         }else{
                             # obtenemos la última palabra del slug edit | editar o lo que sea
                             $lang = $this->session->get("lang");
@@ -193,7 +193,7 @@ class Registro
                                 "id" => $valor
                             );
                             $slug_ultima_palabra = $this->crearSlug("editar",$params,2);
-                            $url = $this->url . "/admin23111978/" .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang=es"';
+                            $url = $this->url . $folder .  $slug . '/'.$slug_ultima_palabra.'/' . $valor . '?lang=es"';
                         }
                         $cadena_idioma.= '<a href="'.$url.'" target="_blank"><i class="fa fa-pencil fa-fw"></i></a>';
                     } // end if
@@ -213,10 +213,15 @@ class Registro
         # delete
         $cadena_delete = '';
 
+        # guardamos el nobmre de la carpeta backend o no
+        $folder = "";
+
         if ($this->seccionFrontBack == 1) {
             $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPage();
+            $folder = "/admin23111978/";
         }else{
             $id_pagina = $this->data["pages_".$this->page_id]->getDynamicPage();
+            $folder = "/";
         }
 
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
@@ -235,11 +240,10 @@ class Registro
                     );
                     $slug_ultima_palabra = $this->crearSlug("remove",$params,2);
 
-
                     if ($this->session->get("lang") != "es"){
-                        $url = $this->url . "/" . $this->session->get("lang"). "/admin23111978/" .  $slug .   "/".$slug_ultima_palabra."/" . $valor;
+                        $url = $this->url . "/" . $this->session->get("lang"). $folder .  $slug .   "/".$slug_ultima_palabra."/" . $valor;
                     }else{
-                        $url = $this->url . "/admin23111978/" .  $slug .  "/".$slug_ultima_palabra."/" . $valor;
+                        $url = $this->url . $folder .  $slug .  "/".$slug_ultima_palabra."/" . $valor;
                     }
                     $mensaje = $this->translator->trans('pregunta-borrar-entrada');
                     $cadena_delete = '<a href="'.$url.'" class="btn btn-danger" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-trash-o fa-fw"></i></a>&nbsp;';
@@ -253,9 +257,9 @@ class Registro
                         $slug_ultima_palabra = $this->crearSlug("pause",$params,2);
 
                         if ($this->session->get("lang") != "es"){
-                            $url = $this->url . "/" .  $this->session->get("lang"). "/" . "admin23111978/" .  $slug .    "/".$slug_ultima_palabra."/" . $valor;
+                            $url = $this->url . "/" .  $this->session->get("lang") . $folder .  $slug .  "/" . $slug_ultima_palabra."/" . $valor;
                         }else{
-                            $url = $this->url . "/" . "admin23111978/" .  $slug .  "/".$slug_ultima_palabra."/" . $valor;
+                            $url = $this->url . $folder .  $slug .  "/" . $slug_ultima_palabra . "/" . $valor;
                         }
                         $mensaje = $this->translator->trans('pregunta-pausar-status');
                         $cadena_status = '<a href="'.$url.'" class="btn btn-warning" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-pause fa-fw"></i></a>';
@@ -268,9 +272,9 @@ class Registro
                         $slug_ultima_palabra = $this->crearSlug("play",$params,2);
 
                         if ($this->session->get("lang") != "es") {
-                            $url = $this->url . "/" . $this->session->get("lang") . "/admin23111978/"  . $slug . "/".$slug_ultima_palabra."/" . $valor;
+                            $url = $this->url . "/" . $this->session->get("lang") . $folder  . $slug . "/".$slug_ultima_palabra."/" . $valor;
                         } else {
-                            $url = $this->url . "/" . "admin23111978/" . $slug . "/".$slug_ultima_palabra."/" . $valor;
+                            $url = $this->url . $folder . $slug . "/".$slug_ultima_palabra."/" . $valor;
                         }
                         $mensaje = $this->translator->trans('pregunta-borrar-entrada');
                         $cadena_status = '<a href="' . $url . '" class="btn btn-success" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-play fa-fw"></i></a>';
@@ -283,9 +287,9 @@ class Registro
                         $slug_ultima_palabra = $this->crearSlug("pause",$params,2);
 
                         if ($this->session->get("lang") != "es"){
-                            $url = $this->url  . "/" . $this->session->get("lang"). "/admin23111978/" .  $slug .    "/".$slug_ultima_palabra."/" . $valor;
+                            $url = $this->url  . "/" . $this->session->get("lang"). $folder .  $slug . "/" . $slug_ultima_palabra . "/" . $valor;
                         }else{
-                            $url = $this->url . "/admin23111978" .  "/" . $slug .  "/".$slug_ultima_palabra."/" . $valor;
+                            $url = $this->url . $folder . $slug .  "/" . $slug_ultima_palabra . "/" . $valor;
                         }
                         $mensaje = $this->translator->trans('pregunta-pausar-status');
                         $cadena_status = '<a href="'.$url.'" class="btn btn-warning" onclick="return confirm(\' '.$mensaje.' ? \')"><i class="fa fa-pause fa-fw"></i></a>';
@@ -298,9 +302,9 @@ class Registro
                         $slug_ultima_palabra = $this->crearSlug("play",$params,2);
 
                         if ($this->session->get("lang") != "es") {
-                            $url = $this->url  .  "/" . $this->session->get("lang") . "/admin23111978/"  . $slug . "/".$slug_ultima_palabra."/" . $valor;
+                            $url = $this->url  .  "/" . $this->session->get("lang") . $folder  . $slug . "/".$slug_ultima_palabra."/" . $valor;
                         } else {
-                            $url = $this->url . "/admin23111978" . "/" . $slug . "/".$slug_ultima_palabra."/" . $valor;
+                            $url = $this->url . $folder . $slug . "/" . $slug_ultima_palabra . "/" . $valor;
                         }
                         $mensaje = $this->translator->trans('pregunta-activar-status');
                         $cadena_status = '<a href="' . $url . '" class="btn btn-success" onclick="return confirm(\' '.$mensaje.' \')"><i class="fa fa-play fa-fw"></i></a>';
