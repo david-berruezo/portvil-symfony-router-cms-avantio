@@ -108,7 +108,7 @@ class Registro
         $temp_vector = array_column($this->datos,"idioma");
 
         # cogemos la url
-        $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPages();
+        $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPage();
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
 
         $counter_columns = 0;
@@ -203,7 +203,7 @@ class Registro
         # delete
         $cadena_delete = '';
 
-        $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPages();
+        $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPage();
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
 
         # primero agregamos el borrar

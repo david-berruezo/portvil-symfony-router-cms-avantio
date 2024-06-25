@@ -8,34 +8,42 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\RequestStack;
 # entity
-use App\Entity\DynamicPages;
+use App\Entity\DynamicPage;
 use Symfony\Component\Translation\LocaleSwitcher;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 
 /**
- * @extends ServiceEntityRepository<DynamicPages>
+ * @extends ServiceEntityRepository<DynamicPage>
  *
- * @method DynamicPages|null find($id, $lockMode = null, $lockVersion = null)
- * @method DynamicPages|null findOneBy(array $criteria, array $orderBy = null)
- * @method DynamicPages[]    findAll()
- * @method DynamicPages[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method DynamicPage|null find($id, $lockMode = null, $lockVersion = null)
+ * @method DynamicPage|null findOneBy(array $criteria, array $orderBy = null)
+ * @method DynamicPage[]    findAll()
+ * @method DynamicPage[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DynamicPagesRepository extends ServiceEntityRepository
+class DynamicPageRepository extends ServiceEntityRepository
 {
+    protected $connection;
+
     private $em;
 
-    public function __construct(ManagerRegistry $registry, EntityManagerInterface $em)
-    {
-        parent::__construct($registry, DynamicPages::class);
+    private $requestStack;
 
+    private $session;
+
+    public function __construct(ManagerRegistry $registry , Connection $connection , EntityManagerInterface $em , RequestStack $requestStack)
+    {
+        parent::__construct($registry, DynamicPage::class);
+
+        $this->connection = $connection;
         $this->em = $em;
+        $this->requestStack = $requestStack;
     }
 
     public function getList($language)
     {
 
-        $sql = " SELECT u FROM App\Entity\DynamicPages as u WHERE u.language = $language AND (u.status = 'ACTIVED' OR u.status = 'PAUSED' )  ";
+        $sql = " SELECT u FROM App\Entity\DynamicPage as u WHERE u.language = $language AND (u.status = 'ACTIVED' OR u.status = 'PAUSED' )  ";
         $query = $this->em->createQuery($sql);
         $rows = $query->getResult();
 
@@ -45,7 +53,7 @@ class DynamicPagesRepository extends ServiceEntityRepository
     public function findRegionsByLanguage($language)
     {
         # obtenemos pais y todas las regiones
-        $dynamicGeocountry = $this->em->getRepository("App\Entity\DynamicPages")->findBy(array("language" => $language));
+        $dynamicGeocountry = $this->em->getRepository("App\Entity\DynamicPage")->findBy(array("language" => $language));
         //echo "Nos encontramos todos las regiones <br>";
         foreach ($dynamicGeocountry as $item) {
             $dynamicGeoregion = $item->getDynamicGeoregion();
@@ -64,7 +72,7 @@ class DynamicPagesRepository extends ServiceEntityRepository
         return $dynamicGeoregion;
     }
 
-    public function add(DynamicPages $entity, bool $flush = false): void
+    public function add(DynamicPage $entity, bool $flush = false): void
     {
         $this->em->persist($entity);
 
@@ -73,7 +81,7 @@ class DynamicPagesRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(DynamicPages $entity, bool $flush = false): void
+    public function remove(DynamicPage $entity, bool $flush = false): void
     {
         $this->em->remove($entity);
 

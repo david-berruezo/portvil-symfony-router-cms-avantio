@@ -15,11 +15,11 @@ class Tabla
     #[ORM\GeneratedValue(strategy: 'NONE')]
     private ?int $id = null;
 
-    #[ORM\OneToMany(targetEntity: DynamicPages::class, mappedBy: 'tabla')]
-    private ?Collection $dynamicPages;
+    #[ORM\OneToMany(targetEntity: DynamicPage::class, mappedBy: 'tabla')]
+    private ?Collection $dynamicPage;
 
-    #[ORM\OneToMany(targetEntity: DynamicAdminPages::class, mappedBy: 'tabla')]
-    private ?Collection $dynamicAdminPages;
+    #[ORM\OneToMany(targetEntity: DynamicAdminPage::class, mappedBy: 'tabla')]
+    private ?Collection $dynamicAdminPage;
 
     #[ORM\OneToOne(targetEntity: Objeto::class)]
     #[ORM\JoinColumn(name: 'objeto_id', referencedColumnName: 'id')]
@@ -131,7 +131,7 @@ class Tabla
     public function __construct()
     {
         # initialize collections
-        $this->dynamicPages = new ArrayCollection();
+        $this->dynamicPage = new ArrayCollection();
     }
 
 
@@ -162,33 +162,33 @@ class Tabla
     /**
      * @return Collection
      */
-    public function getDynamicPages(): Collection
+    public function getDynamicPage(): Collection
     {
-        return $this->dynamicPages;
+        return $this->dynamicPage;
     }
 
     /**
      * @param Collection $dynamicGeocity
      */
-    public function setDynamicPages(?Collection $dynamicPages): void
+    public function setDynamicPage(?Collection $dynamicPage): void
     {
-        $this->dynamicPages = $dynamicPages;
+        $this->dynamicPage = $dynamicPage;
     }
 
-    public function addDynamicPages(DynamicPages $dynamicPages): self
+    public function addDynamicPage(DynamicPage $dynamicPage): self
     {
-        if (!$this->dynamicPages->contains($dynamicPages)) {
-            $this->dynamicPages[] = $dynamicPages;
+        if (!$this->dynamicPage->contains($dynamicPage)) {
+            $this->dynamicPage[] = $dynamicPage;
             //$dynamicGeocity->setDynamicGeoregion($this);
         }
         return $this;
     }
 
 
-    public function removeDynamicPages(DynamicPages $dynamicPages): self
+    public function removeDynamicPage(DynamicPage $dynamicPage): self
     {
-        if (!$this->dynamicPages->contains($dynamicPages)) {
-            $this->dynamicPages->removeElement($dynamicPages);
+        if (!$this->dynamicPage->contains($dynamicPage)) {
+            $this->dynamicPage->removeElement($dynamicPage);
         }
         return $this;
     }

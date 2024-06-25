@@ -36,7 +36,7 @@ use PHPUnit\Framework\TestCase;
 
 # table codeigniter
 # php libararies
-class PageApiController extends TestCase implements IPagina
+class PageApiControllerTest extends TestCase implements IPagina
 {
 
     # objeto a consultar

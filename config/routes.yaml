@@ -1,8 +1,9 @@
-#controllers:
-#resource: ../src/Controller/
-#type: attribute
+# controllers:
+# resource: ../src/Controller/
+# type: attribute
 
 # authentication
+# reset password
 reset-password:
     path: /admin23111978/reset-password
     controller: App\Controller\Admin\ResetPasswordController::request
@@ -15,6 +16,7 @@ reset-password-uno:
     path: /admin23111978/reset-password/{$slug}
     controller: App\Controller\Admin\ResetPasswordController::request
 
+# login
 login:
     path: /admin23111978/login
     controller: App\Controller\Admin\SecurityController::login
@@ -32,6 +34,7 @@ forget:
     path: /admin23111978/forget
     controller: App\Controller\Admin\SecurityController::forget
 
+# dashboard
 dashboard:
     path: /admin23111978/dashboard
     controller: App\Controller\Admin\DashboardController::index
@@ -391,7 +394,51 @@ geo-taxonomy-group-remove:
     controller: App\Controller\Admin\PageController::removeNoIdioma
 
 
-# paginas
+# paginas-admin
+geo-paginas-admin:
+    path:
+        es: /admin23111978/paginas-admin/listar
+        en: /{_locale}/admin23111978/pages-admin/list
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-paginas-admin-listar:
+    path:
+        es: /admin23111978/paginas-admin/listar
+        en: /{_locale}/admin23111978/pages-admin/list
+    controller: App\Controller\Admin\PageController::segmentGeoNoIdioma
+
+geo-paginas-admin-new:
+    path:
+        es: /admin23111978/paginas-admin/nuevo/{id}
+        en: /{_locale}/admin23111978/pages-admin/new/{id}
+    controller: App\Controller\Admin\PageController::newNoIdioma
+
+geo-paginas-admin-editar:
+    path:
+        es: /admin23111978/paginas-admin/editar/{id}
+        en: /{_locale}/admin23111978/pages-admin/edit/{id}
+    controller: App\Controller\Admin\PageController::editarNoIdioma
+
+geo-paginas-admin-pause:
+    path:
+        es: /admin23111978/paginas-admin/pause/{id}
+        en: /{_locale}/admin23111978/pages-admin/pause/{id}
+    controller: App\Controller\Admin\PageController::pauseNoIdioma
+
+geo-paginas-admin-play:
+    path:
+        es: /admin23111978/paginas-admin/play/{id}
+        en: /{_locale}/admin23111978/pages-admin/play/{id}
+    controller: App\Controller\Admin\PageController::playNoIdioma
+
+geo-paginas-admin-remove:
+    path:
+        es: /admin23111978/paginas-admin/borrar/{id}
+        en: /{_locale}/admin23111978/pages-admin/remove/{id}
+    controller: App\Controller\Admin\PageController::removeNoIdioma
+
+
+# paginas-front
 geo-paginas:
     path:
         es: /admin23111978/paginas/listar
@@ -433,7 +480,6 @@ geo-paginas-remove:
         es: /admin23111978/paginas/borrar/{id}
         en: /{_locale}/admin23111978/pages/remove/{id}
     controller: App\Controller\Admin\PageController::removeNoIdioma
-
 
 # language
 geo-idiomas:
@@ -522,90 +568,3 @@ geo-api-pais-remove:
         es: /api/pais/borrar/{id}
         en: /{_locale}/api/country/remove/{id}
     controller: App\Controller\Admin\PageApiController::removeNoIdioma
-
-
-# pais API
-    #geo-api-pais:
-    #path: /api/pais
-    #methods: ['GET']
-    #controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
-
-    #geo-api-pais-listar:
-    #path: /api/pais/listar
-    #methods: ['GET']
-    #controller: App\Controller\Api\PageApiController::segmentGeoNoIdioma
-
-    #geo-api-pais-new:
-    #path: /api/pais/new/{id}
-    #methods: ['POST']
-    #controller: App\Controller\Api\PageApiController::newNoIdioma
-
-    #geo-api-pais-add:
-    #path: /api/pais/add/{id}
-    #methods: ['POST']
-    #controller: App\Controller\Api\PageApiController::add
-
-    #geo-api-pais-editar:
-    #path: /api/pais/editar/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::editarNoIdioma
-
-    #geo-api-pais-update:
-    #path: /api/pais/update/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::updateNoIdioma
-
-    #geo-api-pais-pause:
-    #path: /api/pais/pause/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::pauseNoIdioma
-
-    #geo-api-pais-play:
-    #path: /api/pais/play/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::playNoIdioma
-
-    #geo-api-pais-remove:
-    #path: /api/pais/remove/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::removeNoIdioma
-
-    #geo-api-country-idioma:
-    #path: /{_locale}/api/country
-    #methods: ['GET']
-    #controller: App\Controller\Api\PageApiController::segmentGeoIdioma
-
-    #geo-api-country-new-idioma:
-    #path: /{_locale}/api/country/new/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::newIdioma
-
-    #geo-api-country-listar-idioma:
-    #path: /{_locale}/api/country/listar
-    #methods: ['GET']
-    #controller: App\Controller\Api\PageApiController::segmentGeoIdioma
-
-    #geo-api-country-editar-idioma:
-    #path: /{_locale}/api/country/editar/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::editarIdioma
-
-    #geo-api-country-update-idioma:
-    #path: /{_locale}/api/country/update/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::updateIdioma
-
-    #geo-api-country-pause-idioma:
-    #path: /{_locale}/api/country/pause/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::pauseIdioma
-
-    #geo-api-country-play-idioma:
-    #path: /{_locale}/api/country/play/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::playIdioma
-
-    #geo-api-country-remove-idioma:
-    #path: /{_locale}/api/country/remove/{id}
-    #methods: ['PUT']
-    #controller: App\Controller\Api\PageApiController::removeIdioma

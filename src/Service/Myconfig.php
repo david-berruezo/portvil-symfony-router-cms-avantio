@@ -11,7 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 # entity
 use App\Entity\DynamicAdvantages;
 use App\Entity\DynamicTesimonials;
-use App\Entity\DynamicPages;
+use App\Entity\DynamicPage;
 use App\Entity\DynamicTaxonomy;
 use App\Entity\DynamicTaxonomyGroup;
 use App\Entity\DynamicTaxonomyCity;

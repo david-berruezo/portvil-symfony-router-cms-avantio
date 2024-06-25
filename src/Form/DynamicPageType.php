@@ -3,7 +3,7 @@ namespace App\Form;
 
 use App\Entity\DynamicGeocountry;
 use App\Entity\DynamicGeoregion;
-use App\Entity\DynamicPages;
+use App\Entity\DynamicPage;
 use App\Entity\Language;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\DataMapperInterface;
@@ -15,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class DynamicPagesType extends AbstractType implements DataMapperInterface
+class DynamicPageType extends AbstractType implements DataMapperInterface
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -43,7 +43,7 @@ class DynamicPagesType extends AbstractType implements DataMapperInterface
             "mapped" => false
         ]);
 
-        $builder->add('dynamicPages',HiddenType::class,[
+        $builder->add('dynamicPage',HiddenType::class,[
             "required" => false,'attr' => array(
                 'class' => 'form-control'
             )

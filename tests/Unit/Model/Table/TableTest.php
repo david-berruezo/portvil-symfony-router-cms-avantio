@@ -22,12 +22,22 @@ class TableTest extends TestCase
     {
         $classname = 'App\Model\Table\Table';
 
+        $table = $this->getMockBuilder($classname)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        var_dump($table);
+
+        /*
         // Get mock, without the constructor being called
         $mock = $this->getMockBuilder($classname)
             ->disableOriginalConstructor()
             ->getMock();
 
-        /*
+        var_dump($mock->getCabecera());
+        var_dump($mock);
+
+
         // set expectations for constructor calls
         $mock->expects($this->once())
             ->method('setDoors')

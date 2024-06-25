@@ -1,8 +1,8 @@
 <?php
 namespace App\Controller\Api;
 
-use App\Entity\DynamicAdminPages;
-use App\Entity\DynamicPages;
+use App\Entity\DynamicAdminPage;
+use App\Entity\DynamicPage;
 use App\Entity\Language;
 use App\Model\DynamicModel\DynamicModel;
 use App\Model\Table\Table;
@@ -187,7 +187,7 @@ class AdminApiController extends AbstractController
         $this->data["languages"] = $languages;
 
         # pages
-        $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+        $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
         $pages = $pages_repository->findAll();
         // $this->data["pages"] = $pages;
 

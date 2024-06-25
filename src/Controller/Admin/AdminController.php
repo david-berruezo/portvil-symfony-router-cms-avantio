@@ -1,8 +1,8 @@
 <?php
 namespace App\Controller\Admin;
 
-use App\Entity\DynamicAdminPages;
-use App\Entity\DynamicPages;
+use App\Entity\DynamicAdminPage;
+use App\Entity\DynamicPage;
 use App\Entity\Language;
 use App\Model\DynamicModel\DynamicModel;
 use App\Model\Table\Table;
@@ -185,7 +185,7 @@ class AdminController extends AbstractController
         $this->data["languages"] = $languages;
 
         # obtenemos pages
-        $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+        $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
         $pages = $pages_repository->findAll();
 
         # guardamos pages en data

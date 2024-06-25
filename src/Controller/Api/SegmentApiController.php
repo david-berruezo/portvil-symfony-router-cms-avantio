@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller\Api;
 
-use App\Entity\DynamicAdminPages;
+use App\Entity\DynamicAdminPage;
 
 class SegmentApiController extends AdminApiController
 {
@@ -669,7 +669,7 @@ class SegmentApiController extends AdminApiController
                 */
 
                 # page
-                $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
                 $page = $pages_repository->findBy(array("id" => $this->page_id));
                 if ($page){
                     $this->data["page"] = $page;
@@ -711,7 +711,7 @@ class SegmentApiController extends AdminApiController
                     }
 
                     # page
-                    $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                    $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
                     $page = $pages_repository->findBy(array("id" => $this->page_id));
                     if ($page){
                         $this->data["page"] = $page;
@@ -746,7 +746,7 @@ class SegmentApiController extends AdminApiController
                         }
 
                         # page
-                        $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                        $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
                         $page = $pages_repository->findBy(array("id" => $this->page_id));
                         if ($page){
                             $this->data["page"] = $page;

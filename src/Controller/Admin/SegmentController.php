@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller\Admin;
 
-use App\Entity\DynamicAdminPages;
+use App\Entity\DynamicAdminPage;
 
 class SegmentController extends AdminController
 {
@@ -523,7 +523,7 @@ class SegmentController extends AdminController
 
         # query mismo idioma pagina
         $sql = " SELECT distinct ds , t , o  
-        FROM App\Entity\DynamicPages ds 
+        FROM App\Entity\DynamicPage ds 
         LEFT JOIN ds.tabla t
         LEFT JOIN t.objeto o
         WHERE (ds.textSlug = :filter OR ds.autoSlug = :filter) AND ds.status = :status AND ds.language = :language ";
@@ -545,12 +545,18 @@ class SegmentController extends AdminController
             if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())){
                 $this->nombre_objeto = $result[0]->getTabla()->getObjeto()->getTextTitle();
             }
-            /*
+            if (!is_null($result[0]->getTextSlug())){
+                $this->url = $result[0]->getTextSlug();
+            }
+            if (!is_null($result[0]->getAutoSlug())){
+                $this->url = $result[0]->getAutoSlug();
+            }
+
             var_dump($this->page_id);
             var_dump($this->nombre_tabla);
             var_dump($this->nombre_objeto);
             die();
-            */
+
             $this->gotoUrlPage($data);
             // header("HTTP/1.1 200 OK");
             return true;
@@ -564,7 +570,7 @@ class SegmentController extends AdminController
         }else{
              # query mismo idioma pagina
              $sql = " SELECT distinct ds , t , o 
-        FROM App\Entity\DynamicPages ds 
+        FROM App\Entity\DynamicPage ds 
         LEFT JOIN ds.tabla t
         LEFT JOIN t.objeto o
         WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language = :language ";
@@ -592,7 +598,7 @@ class SegmentController extends AdminController
             }else{
                  # query mismo idioma pagina
                  $sql = " SELECT distinct ds , t , o 
-        FROM App\Entity\DynamicPages ds 
+        FROM App\Entity\DynamicPage ds 
         LEFT JOIN ds.tabla t
         LEFT JOIN t.objeto o
         WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language <> :language ";
@@ -625,15 +631,12 @@ class SegmentController extends AdminController
 
     private function checkUrlsAdminPages(&$data){
 
-        // var_dump($this->filter);
-        // die();
-
         # chequeamos segmnento por admin23111978
         if ($this->segment == "admin23111978"){
             $id_language = $this->session->get("lang_id");
             # query mismo idioma pagina
             $sql = " SELECT distinct ds , t , o  
-        FROM App\Entity\DynamicAdminPages ds 
+        FROM App\Entity\DynamicAdminPage ds 
         LEFT JOIN ds.tabla t
         LEFT JOIN t.objeto o
         WHERE (ds.textSlug = :filter OR ds.autoSlug = :filter) AND ds.status = :status AND ds.language = :language ";
@@ -661,6 +664,7 @@ class SegmentController extends AdminController
                 if (!is_null($result[0]->getAutoSlug())){
                     $this->url = $result[0]->getAutoSlug();
                 }
+
                 /*
                 var_dump($this->page_id);
                 var_dump($this->nombre_tabla);
@@ -669,7 +673,7 @@ class SegmentController extends AdminController
                 */
 
                 # page
-                $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
                 $page = $pages_repository->findBy(array("id" => $this->page_id));
                 if ($page){
                     $this->data["page"] = $page;
@@ -688,7 +692,7 @@ class SegmentController extends AdminController
             }else{
                 # query mismo idioma pagina
                 $sql = " SELECT distinct ds , t , o 
-        FROM App\Entity\DynamicAdminPages ds 
+        FROM App\Entity\DynamicAdminPage ds 
         LEFT JOIN ds.tabla t
         LEFT JOIN t.objeto o
         WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language = :language ";
@@ -711,7 +715,7 @@ class SegmentController extends AdminController
                     }
 
                     # page
-                    $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                    $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
                     $page = $pages_repository->findBy(array("id" => $this->page_id));
                     if ($page){
                         $this->data["page"] = $page;
@@ -724,7 +728,7 @@ class SegmentController extends AdminController
                 }else{
                     # query mismo idioma pagina
                     $sql = " SELECT distinct ds , t , o 
-        FROM App\Entity\DynamicAdminPages ds 
+        FROM App\Entity\DynamicAdminPage ds 
         LEFT JOIN ds.tabla t
         LEFT JOIN t.objeto o
         WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language <> :language ";
@@ -746,7 +750,7 @@ class SegmentController extends AdminController
                         }
 
                         # page
-                        $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
+                        $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
                         $page = $pages_repository->findBy(array("id" => $this->page_id));
                         if ($page){
                             $this->data["page"] = $page;
@@ -792,7 +796,7 @@ class SegmentController extends AdminController
 
         # , ds.id , ds.textSlug , ds.autoSlug
         # query de las paginas con diferente idioma
-        $sql = " SELECT ds FROM App\Entity\DynamicAdminPages ds WHERE ds.dynamicAdminPages = :page_id AND ds.status = :status AND ds.language <> :language ";
+        $sql = " SELECT ds FROM App\Entity\DynamicAdminPage ds WHERE ds.dynamicAdminPage = :page_id AND ds.status = :status AND ds.language <> :language ";
         $consulta = $entityManager->createQuery($sql);
         $consulta->setParameters(array(
             'page_id' => $id_pagina,

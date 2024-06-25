@@ -1,17 +1,17 @@
 <?php
 namespace App\Entity;
 
-use App\Repository\DynamicPagesRepository;
+use App\Repository\DynamicAdminPageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Tabla;
 
 /**
- * DynamicPages
+ * DynamicPage
  *
  */
-#[ORM\Table(name: 'dynamic_pages')]
-#[ORM\Entity(repositoryClass: DynamicPagesRepository::class)]
-class DynamicPages
+#[ORM\Table(name: 'dynamic_admin_page')]
+#[ORM\Entity(repositoryClass: DynamicAdminPageRepository::class)]
+class DynamicAdminPage
 {
     /**
      * @var int
@@ -22,15 +22,15 @@ class DynamicPages
     #[ORM\GeneratedValue(strategy: 'NONE')]
     private ?int $id=0;
 
-    #[ORM\Column(name: 'language', type: 'integer', nullable: false)]
-    private ?int $language = 111;
+    #[ORM\Column(name: 'language', type: 'integer', nullable: true)]
+    private ?int $language=111;
 
-    #[ORM\ManyToOne(targetEntity: Tabla::class, inversedBy: 'dynamicPages')]
+    #[ORM\ManyToOne(targetEntity: Tabla::class, inversedBy: 'dynamicAdminPage')]
     #[ORM\JoinColumn(name: 'tabla_id', referencedColumnName: 'id')]
     private ?Tabla $tabla = null;
 
-    #[ORM\Column(name: 'dynamic_pages', type: 'integer', nullable: false)]
-    private ?int $dynamicPages = 0;
+    #[ORM\Column(name: 'dynamic_admin_page', type: 'integer', nullable: true)]
+    private ?int $dynamicAdminPage=0;
 
     /**
      * @var string|null
@@ -38,6 +38,10 @@ class DynamicPages
      */
     #[ORM\Column(name: 'text_title', type: 'string', length: 255, nullable: true, options: ['comment' => 'Título Cabecera'])]
     private $textTitle="";
+
+    #[ORM\Column(name: 'text_title_plural', type: 'string', length: 255, nullable: true, options: ['comment' => 'Título Title Plural'])]
+    private $textTitlePlural="";
+
 
     /**
      * @var string|null
@@ -65,7 +69,7 @@ class DynamicPages
      * @var string|null
      *
      */
-    #[ORM\Column(name: 'textarea_ddescription_1', type: 'text', nullable: true, options: ['comment' => 'Descripción 1'])]
+    #[ORM\Column(name: 'textarea_ddescription_1', type: 'text',  nullable: true, options: ['comment' => 'Descripción 1'])]
     private $textareaDdescription1="";
 
     /**
@@ -87,7 +91,7 @@ class DynamicPages
      * @var string|null
      *
      */
-    #[ORM\Column(name: 'textarea_ddescription_2', type: 'text', nullable: true, options: ['comment' => 'Descripción 2'])]
+    #[ORM\Column(name: 'textarea_ddescription_2', type: 'text',  nullable: true, options: ['comment' => 'Descripción 2'])]
     private $textareaDdescription2="";
 
     /**
@@ -109,21 +113,21 @@ class DynamicPages
      * @var string|null
      *
      */
-    #[ORM\Column(name: 'textarea_ddescription_3', type: 'text', nullable: true, options: ['comment' => 'Descripción 3'])]
+    #[ORM\Column(name: 'textarea_ddescription_3', type: 'text',  nullable: true, options: ['comment' => 'Descripción 3'])]
     private $textareaDdescription3="";
 
     /**
      * @var string|null
      *
      */
-    #[ORM\Column(name: 'textarea_description_inferior', type: 'text', nullable: true, options: ['comment' => 'Contenido de la página Inferior'])]
+    #[ORM\Column(name: 'textarea_description_inferior', type: 'text',  nullable: true, options: ['comment' => 'Contenido de la página Inferior'])]
     private $textareaDescriptionInferior="";
 
     /**
      * @var string|null
      *
      */
-    #[ORM\Column(name: 'textarea_description_home', type: 'text', nullable: true, options: ['comment' => 'Descripción 2'])]
+    #[ORM\Column(name: 'textarea_description_home', type: 'text',  nullable: true, options: ['comment' => 'Descripción 2'])]
     private $textareaDescriptionHome="";
 
     /**
@@ -172,14 +176,14 @@ class DynamicPages
      * @var string|null
      *
      */
-    #[ORM\Column(name: 'textarea_scripts_header', type: 'text', nullable: true, options: ['comment' => 'Aditional header scripts (Add tags &lt;script&gt;&lt;/script&gt;)'])]
+    #[ORM\Column(name: 'textarea_scripts_header', type: 'text',  nullable: true, options: ['comment' => 'Aditional header scripts (Add tags &lt;script&gt;&lt;/script&gt;)'])]
     private $textareaScriptsHeader="";
 
     /**
      * @var string|null
      *
      */
-    #[ORM\Column(name: 'textarea_scripts_body', type: 'text', nullable: true, options: ['comment' => 'Aditional footer scripts (Add tags &lt;script&gt;&lt;/script&gt;)'])]
+    #[ORM\Column(name: 'textarea_scripts_body', type: 'text',  nullable: true, options: ['comment' => 'Aditional footer scripts (Add tags &lt;script&gt;&lt;/script&gt;)'])]
     private $textareaScriptsBody="";
 
     /**
@@ -193,8 +197,9 @@ class DynamicPages
      * @var int
      *
      */
-    #[ORM\Column(name: 'position', type: 'integer', nullable: false)]
+    #[ORM\Column(name: 'position', type: 'integer', nullable: true)]
     private $position=1;
+
 
 
     /**
@@ -229,26 +234,36 @@ class DynamicPages
         $this->language = $language;
     }
 
-    /**
-     * @return int|null
-     */
-    public function getDynamicPages(): ?int
+    public function getDynamicAdminPage(): ?int
     {
-        return $this->dynamicPages;
+        return $this->dynamicAdminPage;
+    }
+
+    public function setDynamicAdminPage(?int $dynamicAdminPage): void
+    {
+        $this->dynamicAdminPage = $dynamicAdminPage;
     }
 
     /**
-     * @param int|null $dynamicPages
+     * @return int|null
      */
-    public function setDynamicPages(?int $dynamicPages): void
+    public function getDynamicPage(): ?int
     {
-        $this->dynamicPages = $dynamicPages;
+        return $this->dynamicPage;
+    }
+
+    /**
+     * @param int|null $dynamicPage
+     */
+    public function setDynamicPage(?int $dynamicPage): void
+    {
+        $this->dynamicPage = $dynamicPage;
     }
 
     /**
      * @return null
      */
-    public function getTabla(): ?Tabla
+    public function getTabla():?Tabla
     {
         return $this->tabla;
     }
@@ -275,6 +290,16 @@ class DynamicPages
     public function setTextTitle(?string $textTitle): void
     {
         $this->textTitle = $textTitle;
+    }
+
+    public function getTextTitlePlural(): ?string
+    {
+        return $this->textTitlePlural;
+    }
+
+    public function setTextTitlePlural(?string $textTitlePlural): void
+    {
+        $this->textTitlePlural = $textTitlePlural;
     }
 
     /**
@@ -488,7 +513,7 @@ class DynamicPages
     /**
      * @return string
      */
-    public function getTextSlug(): string
+    public function getTextSlug(): ?string
     {
         return $this->textSlug;
     }
@@ -504,7 +529,7 @@ class DynamicPages
     /**
      * @return string
      */
-    public function getAutoSlug(): string
+    public function getAutoSlug(): ?string
     {
         return $this->autoSlug;
     }
@@ -677,6 +702,5 @@ class DynamicPages
         $this->deletedAt = $deletedAt;
     }
 
+
 }
-
-
