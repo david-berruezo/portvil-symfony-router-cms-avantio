@@ -101,6 +101,7 @@ class AdminControllerTest extends TestCase
     protected $localSwitcher;
     protected $languages;
 
+    /*
     public function __construct(
         DataTableFactory $dataTableFactory, EntityManagerInterface $em , Connection $connection , ManagerRegistry $doctrine , RequestStack $requestStack , TranslatorInterface $translator,
         LocaleSwitcher $localeSwitcher , UrlGeneratorInterface $urlGenerator
@@ -132,7 +133,7 @@ class AdminControllerTest extends TestCase
         $this->urlGenerator = $urlGenerator;
 
     }
-
+    */
 
     protected function init()
     {

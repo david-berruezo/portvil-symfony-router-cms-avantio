@@ -25,6 +25,7 @@ use PHPUnit\Framework\TestCase;
 class SecurityControllerTest extends TestCase
 {
 
+    /*
     public function __construct(
         DataTableFactory $dataTableFactory, EntityManagerInterface $em , Connection $connection , ManagerRegistry $doctrine , RequestStack $requestStack , TranslatorInterface $translator,
         LocaleSwitcher $localeSwitcher , UrlGeneratorInterface $urlGenerator
@@ -56,7 +57,7 @@ class SecurityControllerTest extends TestCase
 
         $this->urlGenerator = $urlGenerator;
     }
-
+    */
 
     public function login(AuthenticationUtils $authenticationUtils): Response
     {

@@ -24,12 +24,13 @@ class ResetPasswordControllerTest extends TestCase
 {
     use ResetPasswordControllerTrait;
 
+    /*
     public function __construct(
         private ResetPasswordHelperInterface $resetPasswordHelper,
         private EntityManagerInterface $entityManager
     ) {
     }
-
+    */
 
     public function request(Request $request, MailerInterface $mailer, TranslatorInterface $translator): Response
     {
