@@ -1,0 +1,233 @@
+{% extends 'layouts/dashboard/layout.html.twig' %}
+
+{% block title %}Hello GeoController!{% endblock %}
+
+{% block body %}
+
+<style>
+    h1{
+        font-size:18px;
+    }
+    h2{
+        font-size:16px;
+    }
+    .contenedor-tabla{
+        margin-top:50px;
+    }
+    .contenido-tabla{
+        margin-top:20px;
+    }
+    .column-button-save{
+        margin-top:20px;
+    }
+</style>
+
+{# { dump(data)} #}
+<div class="container-fluid contenedor-tabla">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>{{ 'titulos_paginas'|trans }} {{ (data.page[0].textTitlePlural is empty) ? "" : data.page[0].textTitlePlural }}</h1>
+            <h2>{{ (data.page[0].textSubtitle is empty) ? "" : data.page[0].textSubtitle }}</h2>
+        </div>
+        <div class="col-md-12 contenido-tabla">
+            <!-- Insert this where you want the table to appear -->
+            <div id="presidents">Loading...</div>
+        </div>
+        <div class="col-md-12 column-button-save">
+            <a class="btn btn-lg btn-thm" target="_blank" href="{{ slug }}">{{ 'theme_admin_boton_nuevo'|trans }}</a>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    let tabla = "";
+
+    function getLanguage() {
+
+        var langMap = {
+            en: {
+                path: 'English',
+                mods: {
+                    LengthMenu: "Display _MENU_ records per page - custom test"
+                }
+            },
+            es: {
+                path: 'Spanish',
+                mods: {
+                    LengthMenu: "Mostrar _MENU_ registros - algo muy especial..."
+                }
+            }
+        };
+
+        var lang = $('html').attr('lang');
+        var path = 'https://cdn.datatables.net/plug-ins/1.10.13/i18n/';
+        var result = null;
+
+        $.ajax({
+            async: false,
+            url: path + langMap[lang].path + '.json',
+            success: function(obj) {
+                result = $.extend({}, obj, langMap[lang].mods)
+            }
+        })
+        
+        return result;
+    }
+
+    $(function() {
+        //alert("cargado");
+        creamosOminesNormal();
+        // creamosDatatableNormal();
+        // creamosOminesPredeterminado();
+    });
+
+    function creamosOminesPredeterminado()
+    {
+        $('#presidents').initDataTables({{ datatable_settings(datatable) }});        
+    }
+
+    
+    function creamosOminesNormal()
+    {
+        let banderas = '{{ banderas|raw }}';
+           
+        // creamos la datatable
+        $('#presidents').initDataTables({{ datatable_settings(datatable) }},
+            {
+                "columnDefs": [
+                    { "width": "25%", "targets": 0 , "orderable": true },
+                    { "width": "25%", "targets": 1 , "orderable": true },
+                    { "width": "25%", "targets": 2 , "title": banderas, "orderable": true },
+                    { "width": "25%", "targets": 3, "orderable": true },
+                ],
+                "dom": '<"top"lf>rt<"bottom"ip><"clear">',
+                "bInfo":true,
+                "searching": true,
+                "order": [[ 0, "asc" ],[ 1, "asc" ],[ 2, "asc" ],[ 3, "asc" ]],
+                "lengthMenu": [10, 20, 50 , 100, "Todos"],
+                "pageLength": 10,
+                "paging": true,
+                "paginate": 10,
+                "length": 10,
+                "language": getLanguage(),
+            }).then(function(dt) {
+            // dt contains the initialized instance of DataTables
+            dt.on('draw', function() {
+                //cambairIconos();
+            })
+        });
+
+    }    
+
+
+    function creamosOminesAnterior()
+    {
+        let banderas = '{{ banderas|raw }}';
+
+        // creamos la datatable
+        $('#presidents').initDataTables({{ datatable_settings(datatable) }},
+            {
+                "pageLength":10,
+                dom: '<"top"lf>rt<"bottom"ip><"clear">',
+                "columnDefs": [
+                    { "width": "25%", "targets": 0 },
+                    { "width": "25%", "targets": 1 },
+                    {
+                      "width": "25%",
+                      "targets": 2 ,
+                      "title": banderas,
+                      /*
+                      "render": function ( data, type, row, meta ) {
+
+                        let datos = data.split(",");
+                        let cadena = '';
+                        for (let index = 0; index <  datos.length; index++) {
+                            const element =  datos[index];
+                            cadena+= '<a href="'+element+'" target="_blank"><i class="fa fa-pencil fa-fw"></i></a>';
+                        }
+                        console.log(data);
+                        return cadena;
+
+                      }
+                      */
+                    },
+                    { 
+                        "width": "25%", 
+                        "targets": 3,
+                        /*
+                        "render": function ( data, type, row, meta ) {
+                            let vector_data = data.split(",");
+                            let boton_uno = "";
+                            let boton_dos = "";
+                            if (vector_data[0]){
+                                 boton_uno = '<a href="'+vector_data[0]+'" class="btn button_to_book_small" target="_blank"><i class="fa fa-search"></i></a>';
+                            }
+                            if (vector_data[1]){
+                                 boton_dos = '<a href="'+vector_data[1]+'" class="btn btn-warning" target="_blank">Confirmar</a>';
+                            }
+                            let cadena = boton_uno + "&nbsp;" + boton_dos;
+                            return cadena
+                        }
+                        */
+                    },
+                ], "initComplete": function(){
+                    //console.log("cargado");
+                },
+                "order": [[ 3, "desc" ]],
+                "lengthMenu": [10, 20, 50 , 100, "Todos"],
+                // "language": getLanguage(),
+                "bLengthChange" : true, //thought this line could hide the LengthMenu
+                "bInfo":true,
+                "searching": true,
+                // "language": getLanguage(),
+            }).then(function(dt) {
+            // dt contains the initialized instance of DataTables
+            dt.on('draw', function() {
+                //cambairIconos();
+
+            })
+        });
+    }
+
+
+    function creamosDatatableNormal()
+    {
+        tabla = $('#presidents').initDataTables({{ datatable_settings(datatable) }},{
+            "columnDefs": [
+                { "width": "25%", "targets": 0 },
+                { "width": "25%", "targets": 1 },
+                { "width": "25%", "targets": 2 },
+                { "width": "25%", "targets": 3 },
+            ],
+            "pageLength":20,
+            "paging":false,
+            //"order": [[ 4, "desc" ]],
+            "lengthMenu": [[10, 20, 50 , 100, 200, 300 , 500 , 1000], [10, 20, 50 , 100, 200, 300, 500 , 1000,  "Todos"]],
+            //"language": getLanguage(),
+            "bLengthChange" : false, //thought this line could hide the LengthMenu
+            "bInfo":true,
+            "searching": true,
+            "aaSorting": [],
+            "paging":false,
+            //"language": getLanguage(),
+        });
+    }
+
+    function cambiarIconos()
+    {
+       // obtenemos la cabecera idioma
+       let banderas = $('#presidents th:nth-child(3)').text();
+       banderas = banderas.split(",");
+       let img = "";
+       for (let index = 0; index < banderas.length; index++) {
+           const element = banderas[index];
+           img+= '<img src="{{ app.request.getBaseURL() }}/assets/themes/sbadmin2/flags/blank.png" class="'+element+'" style="margin-left:5px" ';
+       }
+       //img = img.slice(1, -1);
+       $('#presidents th:nth-child(3)').text(img)
+    }
+
+</script>
+
+{% endblock %}

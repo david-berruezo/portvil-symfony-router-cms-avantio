@@ -34,6 +34,7 @@ forget:
     path: /admin23111978/forget
     controller: App\Controller\Admin\SecurityController::forget
 
+# BACKEND
 # dashboard
 dashboard:
     path: /admin23111978/dashboard
@@ -525,7 +526,52 @@ geo-idiomas-remove:
     controller: App\Controller\Admin\AdminPageController::removeNoIdioma
 
 
+# FRONTEND
+# pais | la primera es importantisima porque a partir de esta
+# se crean las demás ejemplo: geo-pais a geo-pais-editar | geo-pais-new ....
+front-pais:
+    path:
+        es: /pais/listar
+        en: /{_locale}/country/list
+    controller: App\Controller\Front\FrontPageController::segmentGeoNoIdioma
 
+front-pais-listar:
+    path:
+        es: /pais/listar
+        en: /{_locale}/country/list
+    controller: App\Controller\Front\FrontPageController::segmentGeoNoIdioma
+
+front-pais-editar:
+    path:
+        es: /pais/editar/{id}
+        en: /{_locale}/country/edit/{id}
+    controller: App\Controller\Front\FrontPageController::editarNoIdioma
+
+front-pais-new:
+    path:
+        es: /pais/nuevo/{id}
+        en: /{_locale}/country/new/{id}
+    controller: App\Controller\Front\FrontPageController::newNoIdioma
+
+front-pais-pause:
+    path:
+        es: /pais/pause/{id}
+        en: /{_locale}/country/pause/{id}
+    controller: App\Controller\Front\FrontPageController::pauseNoIdioma
+
+front-pais-play:
+    path:
+        es: /region/play/{id}
+        en: /{_locale}/region/play/{id}
+    controller: App\Controller\Front\FrontPageController::playNoIdioma
+
+front-pais-remove:
+    path:
+        es: /pais/borrar/{id}
+        en: /{_locale}/country/remove/{id}
+    controller: App\Controller\Front\FrontPageController::removeNoIdioma
+
+# API
 # pais | la primera es importantisima porque a partir se crean las demás ejemplo: geo-pais a geo-pais-editar | geo-pais-new ....
 geo-api-pais:
     path:

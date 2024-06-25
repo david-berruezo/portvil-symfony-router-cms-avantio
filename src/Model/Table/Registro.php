@@ -44,13 +44,18 @@ class Registro
 
     protected string $classString;
 
-    public function __construct(TranslatorInterface $translator , Request $request, UrlGeneratorInterface $urlGenerator , $classString)
+    # seccion = 1 BACK , 2 FRONT
+    protected $seccionFrontBack = 1;
+
+
+    public function __construct(TranslatorInterface $translator , Request $request, UrlGeneratorInterface $urlGenerator , $classString , $seccionFrontBack)
     {
         $this->translator = $translator;
         $this->request = $request;
         $this->session = $request->getSession();
         $this->urlGenerator = $urlGenerator;
         $this->classString = $classString;
+        $this->seccionFrontBack = $seccionFrontBack;
     }
 
 
@@ -108,7 +113,12 @@ class Registro
         $temp_vector = array_column($this->datos,"idioma");
 
         # cogemos la url
-        $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPage();
+        if ($this->seccionFrontBack == 1) {
+            $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPage();
+        }else{
+            $id_pagina = $this->data["pages_".$this->page_id]->getDynamicPage();
+        }
+
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
 
         $counter_columns = 0;
@@ -197,13 +207,18 @@ class Registro
 
     private function prepararDatosAcciones()
     {
-        # cogemos la url
+        # url de prueba luego pasamos el slug dinamicamente
         $url = $this->url . "/edit/".$this->getSlugTable()."/";
 
         # delete
         $cadena_delete = '';
 
-        $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPage();
+        if ($this->seccionFrontBack == 1) {
+            $id_pagina = $this->data["pages_".$this->page_id]->getDynamicAdminPage();
+        }else{
+            $id_pagina = $this->data["pages_".$this->page_id]->getDynamicPage();
+        }
+
         $slug = ($this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug()) ? $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getTextSlug() : $this->data["pages_".$id_pagina.$this->session->get("lang_id")]->getAutoSlug() ;
 
         # primero agregamos el borrar

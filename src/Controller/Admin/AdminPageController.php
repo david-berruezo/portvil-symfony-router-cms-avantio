@@ -343,7 +343,7 @@ class AdminPageController extends AdminSegmentController implements IPagina
         $num_pagina = str_replace($this->session->get("lang_id"),"",$this->page_id);
 
         // vistas especificas
-        $view = "propiedad/editar_general.html.twig";
+        $view = "admin/propiedad/editar_general.html.twig";
 
         return $view;
     }
@@ -422,7 +422,7 @@ class AdminPageController extends AdminSegmentController implements IPagina
             return $table->getResponse();
         }
 
-        return $this->render('listar/table.html.twig', [
+        return $this->render('admin/listar/table.html.twig', [
             'controller_name' => 'GeoController',
             'datatable' => $table,
             'banderas' => $this->banderas_img,
@@ -499,7 +499,7 @@ class AdminPageController extends AdminSegmentController implements IPagina
         $keys_country = $this->dynamicModel->getKeys();
 
         # creamos table pasandole datatableFactory
-        $table = new Table($this->dataTableFactory , $this->translator , $this->request , $this->dynamicModel , $this->urlGenerator, $this->classString);
+        $table = new Table($this->dataTableFactory , $this->translator , $this->request , $this->dynamicModel , $this->urlGenerator, $this->classString,1);
 
         # pasamos otros datos
         if ($this->segment == "admin23111978"){
@@ -1006,7 +1006,7 @@ class AdminPageController extends AdminSegmentController implements IPagina
         // $this->inicializar($reflector);
 
         # creamos la vista
-        $vista = 'propiedad/editar_general.html.twig';
+        $vista = 'admin/propiedad/editar_general.html.twig';
 
         # manejamos el formulario
         $form->handleRequest($request);

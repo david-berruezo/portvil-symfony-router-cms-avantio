@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller\Front;
 
+use App\Entity\DynamicPage;
 use App\Entity\DynamicAdminPage;
 
 class FrontSegmentController extends FrontController
@@ -555,6 +556,14 @@ class FrontSegmentController extends FrontController
             die();
             */
 
+            # page
+            $pages_repository = $this->em->getRepository(DynamicPage::class);
+            $page = $pages_repository->findBy(array("id" => $this->page_id));
+            if ($page){
+                $this->data["page"] = $page;
+            }
+
+
             $this->gotoUrlPage($data);
             // header("HTTP/1.1 200 OK");
             return true;
@@ -654,7 +663,7 @@ class FrontSegmentController extends FrontController
 
         # , ds.id , ds.textSlug , ds.autoSlug
         # query de las paginas con diferente idioma
-        $sql = " SELECT ds FROM App\Entity\DynamicAdminPage ds WHERE ds.dynamicAdminPage = :page_id AND ds.status = :status AND ds.language <> :language ";
+        $sql = " SELECT ds FROM App\Entity\DynamicPage ds WHERE ds.dynamicPage = :page_id AND ds.status = :status AND ds.language <> :language ";
         $consulta = $entityManager->createQuery($sql);
         $consulta->setParameters(array(
             'page_id' => $id_pagina,

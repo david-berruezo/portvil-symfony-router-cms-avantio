@@ -343,7 +343,7 @@ class FrontPageController extends FrontSegmentController implements IPagina
         $num_pagina = str_replace($this->session->get("lang_id"),"",$this->page_id);
 
         // vistas especificas
-        $view = "propiedad/editar_general.html.twig";
+        $view = "front/propiedad/editar_general.html.twig";
 
         return $view;
     }
@@ -377,7 +377,7 @@ class FrontPageController extends FrontSegmentController implements IPagina
     public function segmentGeoIdioma(TranslatorInterface $translator , Request $request , DataTableFactory $dataTableFactory): ?Response
     {
         # validamos tengamos permisos
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         return $this->segmentGeo($request , $dataTableFactory);
 
@@ -387,7 +387,7 @@ class FrontPageController extends FrontSegmentController implements IPagina
     public function segmentGeoNoIdioma(TranslatorInterface $translator , Request $request , DataTableFactory $dataTableFactory):?Response
     {
         # validamos tengamos permisos
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        // $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         return $this->segmentGeo($request , $dataTableFactory);
 
@@ -405,8 +405,6 @@ class FrontPageController extends FrontSegmentController implements IPagina
         # llamamos a la inicialización admin controller
         $this->init();
 
-        // die();
-
         // $this->request->getLocale()
         $this->checkLanguage();
 
@@ -422,7 +420,7 @@ class FrontPageController extends FrontSegmentController implements IPagina
             return $table->getResponse();
         }
 
-        return $this->render('listar/table.html.twig', [
+        return $this->render('front/listar/table.html.twig', [
             'controller_name' => 'GeoController',
             'datatable' => $table,
             'banderas' => $this->banderas_img,
@@ -499,7 +497,7 @@ class FrontPageController extends FrontSegmentController implements IPagina
         $keys_country = $this->dynamicModel->getKeys();
 
         # creamos table pasandole datatableFactory
-        $table = new Table($this->dataTableFactory , $this->translator , $this->request , $this->dynamicModel , $this->urlGenerator, $this->classString);
+        $table = new Table($this->dataTableFactory , $this->translator , $this->request , $this->dynamicModel , $this->urlGenerator, $this->classString,2);
 
         # pasamos otros datos
         if ($this->segment == "admin23111978"){
@@ -1006,7 +1004,7 @@ class FrontPageController extends FrontSegmentController implements IPagina
         // $this->inicializar($reflector);
 
         # creamos la vista
-        $vista = 'propiedad/editar_general.html.twig';
+        $vista = 'front/propiedad/editar_general.html.twig';
 
         # manejamos el formulario
         $form->handleRequest($request);

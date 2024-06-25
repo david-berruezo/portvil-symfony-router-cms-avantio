@@ -27,13 +27,12 @@ class Table
     protected Cabecera $cabecera;
     protected Registro $registro;
 
-    public function __construct(DataTableFactory $dataTableFactory , TranslatorInterface $translator , Request $request , DynamicModel $dynamicModel , UrlGeneratorInterface $urlGenerator , $classString)
+    public function __construct(DataTableFactory $dataTableFactory , TranslatorInterface $translator , Request $request , DynamicModel $dynamicModel , UrlGeneratorInterface $urlGenerator , $classString , $seccionFrontBack)
     {
         # Instanciación de objetos table
         $this->cabecera = new Cabecera($translator,$request);
-        $this->registro = new Registro($translator,$request,$urlGenerator,$classString);
+        $this->registro = new Registro($translator,$request,$urlGenerator,$classString,$seccionFrontBack);
         $this->datatable = new Datatable($dataTableFactory);
-
     }
 
     
