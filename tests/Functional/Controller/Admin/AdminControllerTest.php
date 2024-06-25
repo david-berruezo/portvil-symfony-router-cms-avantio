@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller\Admin;
+namespace App\Tests\Functional\Controller\Admin;
 
 use App\Entity\DynamicAdminPages;
 use App\Entity\DynamicPages;
@@ -21,10 +21,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Translation\LocaleSwitcher;
 use Symfony\Contracts\Translation\TranslatorInterface;
-
+use PHPUnit\Framework\TestCase;
 
 # php libararies
-class AdminController extends AbstractController
+class AdminControllerTest extends TestCase
 {
     # config cache queries  , sessions , languages
     protected $config;

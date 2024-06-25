@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller\Admin;
+namespace App\Tests\Functional\Controller\Api;
 
 use App\Entity\DynamicAdminPages;
 use App\Entity\DynamicPages;
@@ -21,10 +21,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Translation\LocaleSwitcher;
 use Symfony\Contracts\Translation\TranslatorInterface;
-
+use PHPUnit\Framework\TestCase;
 
 # php libararies
-class AdminController extends AbstractController
+class AdminApiControllerTest extends TestCase
 {
     # config cache queries  , sessions , languages
     protected $config;
@@ -106,6 +106,8 @@ class AdminController extends AbstractController
         LocaleSwitcher $localeSwitcher , UrlGeneratorInterface $urlGenerator
     )
     {
+        // echo "construimos constructor admin <br>";
+
         // guardamos los parametros
         $this->em = $em;
         $this->connection = $connection;
@@ -179,20 +181,42 @@ class AdminController extends AbstractController
         // $acciones = $this->connection->fetchAllAssociative(" SELECT * FROM languages " );
         // print_r($acciones);
 
-        # obtenemos languages
+        # languages
         $languages_repository = $this->em->getRepository(Language::class);
         $languages = $languages_repository->findAll();
         $this->data["languages"] = $languages;
 
-        # obtenemos pages
+        # pages
         $pages_repository = $this->em->getRepository(DynamicAdminPages::class);
         $pages = $pages_repository->findAll();
+        // $this->data["pages"] = $pages;
 
-        # guardamos pages en data
         foreach ($pages as $page) {
+            //if (!isset($this->data["pages_".$page->getLanguage()]))
+            //$this->data["pages_".$page->getLanguage()] = array();
             $this->data["pages_".$page->getId()] = array();
             $this->data["pages_".$page->getId()] = $page;
         }
+
+        // var_dump($this->data);
+        // die();
+
+        /*
+        foreach ($languages as $language) {
+            foreach ($pages as $page) {
+                //if ($page->getLanguage() == $language->getId()){
+                    if (!isset($this->data["pages_".$language->getLanguage()])){
+                        $this->data["pages_".$language->getLanguage()] = array();
+                        $this->data["pages_".$language->getLanguage()][$page->getId()] = array();
+                    }
+                    array_push($this->data["pages_".$language->getLanguage()][$page->getId()],$page);
+                //}
+            }
+        }
+        */
+
+        //var_dump($this->data);
+        //die();
 
         $this->session->set("grupo" , "gestor-contenidos");
 
@@ -412,7 +436,6 @@ class AdminController extends AbstractController
         foreach ($languages as $language) {
             $languages_vector[$language->getId()] = $language->getLanguage();
         } // end foreach
-
         # save languages
         $this->session->set("languages" , $languages);
         $this->session->set("languages_vector" , $languages_vector);
@@ -422,7 +445,15 @@ class AdminController extends AbstractController
         foreach ($languages as $lang){
             $my_lang = $lang->getLanguage();
             if ($my_lang != "es"){
+                // echo $lang->getTextLocale();
                 if($my_lang == $locale){
+                    /*
+                    $lang_cache = $cache->getItem('lang');
+                    $lang_slug_lang = $cache->getItem('slug_lang');
+                    $lang_cache->set($request->getLocale());
+                    $lang_slug_lang->set($request->getLocale()."/");
+                    $cache->save($lang_cache);
+                    */
                     $this->session->set("lang" , $my_lang);
                     $this->session->set("slug_lang" , $my_lang . "/");
                     $this->session->set("lang_id" , $lang->getId());
@@ -437,10 +468,28 @@ class AdminController extends AbstractController
         } // end foreach
 
         if(!$find_language){
+            /*
+            $lang_cache = $cache->getItem('lang');
+            $lang_slug_lang = $cache->getItem('slug_lang');
+            $lang_cache->set(1);
+            $lang_slug_lang->set("es/");
+            $cache->save($lang_cache);
+            */
             $this->session->set("lang" , "es");
             $this->session->set("slug_lang" ,"/");
             $this->session->set("lang_id" , 111);
         }// end if
+
+
+        /*
+        p_($this->session->get("lang"));
+        p_($this->session->get("slug_lang"));
+        p_($this->session->get("lang_id"));
+        die();
+        */
+
+        // $session->set("lang" , "es");
+        // $session->set("slug_lang" , "/");
 
     }
 

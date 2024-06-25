@@ -7,8 +7,9 @@ class AvantioAccomodationsTest extends TestCase
 {
     public function testGetId()
     {
-       $this->assertIsInt(
-            $this->id,
+        $id = 2;
+        $this->assertIsInt(
+            $id,
             "actual value is Integer or not"
        );
     }

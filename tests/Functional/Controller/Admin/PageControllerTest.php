@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller\Admin;
+namespace App\Tests\Functional\Controller\Admin;
 
 use App\Controller\DynamicRooms;
 use App\Entity\DynamicAgencia;
@@ -33,11 +33,11 @@ use Symfony\Component\HttpKernel\Profiler\Profile;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-
+use PHPUnit\Framework\TestCase;
 
 # table codeigniter
 # php libararies
-class PageController extends SegmentController implements IPagina
+class PageControllerTest extends TestCase implements IPagina
 {
 
     # objeto a consultar

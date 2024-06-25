@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller\Admin;
+namespace App\Tests\Functional\Controller\Api;
 
 use App\Controller\DynamicRooms;
 use App\Entity\DynamicAgencia;
@@ -11,7 +11,6 @@ use App\Entity\DynamicGeolocality;
 use App\Entity\DynamicGeoregion;
 use App\Form\AvantioAccomodationsType;
 use App\Form\DynamicGeocountryType;
-use App\Form\LanguageType;
 use App\Model\CodeTable\HtmlTable;
 use App\Model\Formulario\Formulario;
 use App\Model\Pagina\IPagina;
@@ -27,17 +26,17 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Profiler\Profile;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-
+use PHPUnit\Framework\TestCase;
 
 # table codeigniter
 # php libararies
-class PageController extends SegmentController implements IPagina
+class PageApiController extends TestCase implements IPagina
 {
 
     # objeto a consultar
@@ -91,7 +90,7 @@ class PageController extends SegmentController implements IPagina
         }
     }
 
-    
+
     private function getParametrosList($num_pagina , $lang)
     {
         // guardamos el parametro consulta por idioma
@@ -107,7 +106,7 @@ class PageController extends SegmentController implements IPagina
                 $this->parametros_idioma = array("id");
                 $this->parametros_status = array("id");
                 $this->parametros_borrar = array("id");
-            break;
+                break;
             // todos irán por el default
             default:
                 $this->parametros_idioma = array("id");
@@ -141,13 +140,13 @@ class PageController extends SegmentController implements IPagina
                 $this->parametros_idioma = array("id");
                 $this->parametros_status = array("id");
                 $this->parametros_borrar = array("id");
-            break;
+                break;
             // todos irán por el default
             default:
                 $this->parametros_idioma = array("id");
                 $this->parametros_status = array("id");
                 $this->parametros_borrar = array("id");
-            break;
+                break;
         } // end switch
     }
 
@@ -161,11 +160,11 @@ class PageController extends SegmentController implements IPagina
             switch ($num_pagina){
                 case 1:
                     $data = $this->getGeo($this->classString , $this->parametrosConsulta);
-                break;
+                    break;
                 default:
                     $data = $this->getGeo($this->classString , $this->parametrosConsulta);
-                break;
-           } // end switch
+                    break;
+            } // end switch
         }else if ($pagina == "edit") {
             switch ($num_pagina) {
                 case 1:
@@ -206,18 +205,11 @@ class PageController extends SegmentController implements IPagina
             $datos = $this->em->getRepository($class_string)->findBy($parameters);
         }
         */
-
-        // Borramos el parametro language que esta como 111 o 222 y la tabla language esta como "es" o "en"
-        if ($this->classString == "App\Entity\Language"){
-            unset($parameters["language"]);
-        }
-
         $datos = $this->em->getRepository($class_string)->findBy($parameters);
-
         return $datos;
     }
 
-    
+
     private function getUrl()
     {
         # evaluamos los parámetros
@@ -363,21 +355,12 @@ class PageController extends SegmentController implements IPagina
         return $slug_table;
     }
 
-    private function habilitarDeshabilitarProfile(Profile $profiler, $option)
-    {
-        # deshabilitamos el profiler
-        // $profiler won't be set if your environment doesn't have the profiler (like prod, by default)
-        if (null !== $profiler) {
-            // if it exists, disable the profiler for this particular controller action
-            $profiler->disable();
-        }
-    }
 
     #[Route('/{_locale}/{slug}/{one}/{two}/{three}/{four}', name: 'segment_idioma' , methods:["GET","POST"])]
     public function segmentGeoIdioma(TranslatorInterface $translator , Request $request , DataTableFactory $dataTableFactory): ?Response
     {
         # validamos tengamos permisos
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         return $this->segmentGeo($request , $dataTableFactory);
 
@@ -387,7 +370,7 @@ class PageController extends SegmentController implements IPagina
     public function segmentGeoNoIdioma(TranslatorInterface $translator , Request $request , DataTableFactory $dataTableFactory):?Response
     {
         # validamos tengamos permisos
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         return $this->segmentGeo($request , $dataTableFactory);
 
@@ -395,17 +378,22 @@ class PageController extends SegmentController implements IPagina
 
 
     #[Route('/{slug}/{one}/{two}/{three}/{four}', name: 'segment' , methods:["GET","POST"])]
-    public function segmentGeo(Request $request , DataTableFactory $dataTableFactory):?Response
+    public function segmentGeo(Request $request):?JsonResponse
     {
+        /*
+        # deshabilitamos el profiler
+        // $profiler won't be set if your environment doesn't have the profiler (like prod, by default)
+        if (null !== $profiler) {
+            // if it exists, disable the profiler for this particular controller action
+            $profiler->disable();
+        }
+        */
 
         # peticion http
         $this->request = $request;
-        $this->dataTableFactory = $dataTableFactory;
 
         # llamamos a la inicialización admin controller
         $this->init();
-
-        // die();
 
         // $this->request->getLocale()
         $this->checkLanguage();
@@ -414,39 +402,31 @@ class PageController extends SegmentController implements IPagina
         $this->segment();
 
         // creamos la tabla Omines
-        $table = $this->list();
+        $datos = $this->list();
+        $normalizacionDatos = array();
 
-        $table->handleRequest($request);
-
-        if ($table->isCallback()) {
-            return $table->getResponse();
+        foreach ($datos["datos"] as $objeto) {
+            $temp = array();
+            foreach ($datos["metodos"] as $contador_metodo => $metodo){
+                $temp[$datos["propiedades"][$contador_metodo]] = $objeto->{$metodo}();
+            }
+            array_push($normalizacionDatos, $temp);
         }
 
-        return $this->render('listar/table.html.twig', [
-            'controller_name' => 'GeoController',
-            'datatable' => $table,
-            'banderas' => $this->banderas_img,
-            "slug" => $this->generateUrl(
-                $this->request->get("_route")."-new",
-                array(
-                    "id" => 0,
-                    "_locale" => $this->session->get("lang")
-                ),
-            ),
-            "data" => $this->data,
-        ]);
+        return new JsonResponse($normalizacionDatos, Response::HTTP_OK);
 
     }
+
 
 
     private function getSlugTablExceptions()
     {
         $exceptions = array(
-              "dynamic_taxonomygroup" => "dynamic_taxonomy_group",
-              "dynamic_urldetalle" => "dynamic_url_detalle",
-              "galleryfranquiciaprincipal" => "dynamic_url_detalle",
-              "dynamic_propiedadesdestacadas" => "dynamic_propiedades_destacadas",
-              "galleryblog" => "gallery_blog",
+            "dynamic_taxonomygroup" => "dynamic_taxonomy_group",
+            "dynamic_urldetalle" => "dynamic_url_detalle",
+            "galleryfranquiciaprincipal" => "dynamic_url_detalle",
+            "dynamic_propiedadesdestacadas" => "dynamic_propiedades_destacadas",
+            "galleryblog" => "gallery_blog",
 
         );
 
@@ -498,8 +478,9 @@ class PageController extends SegmentController implements IPagina
         // $languages_vector = $this->data["languages"];
         $keys_country = $this->dynamicModel->getKeys();
 
+        /*
         # creamos table pasandole datatableFactory
-        $table = new Table($this->dataTableFactory , $this->translator , $this->request , $this->dynamicModel , $this->urlGenerator, $this->classString);
+        $table = new Table($this->dataTableFactory , $this->translator , $this->request , $this->dynamicModel , $this->urlGenerator);
 
         # pasamos otros datos
         if ($this->segment == "admin23111978"){
@@ -554,13 +535,47 @@ class PageController extends SegmentController implements IPagina
 
         # cremos la columnas cabecera
         $table->crearColumnasCabecera();
-
+        */
         # consulta datos segun slug
         $data = ""; $datos = array();
 
         # obentemos los datos con los parametros enviados
         $data = $this->getDatos("list");
 
+        # obtenemos el objeto con Reflection | obtenemos columnas con getClassMetadata | normalizamos columnas entre reflexion y getClassMetadata
+        $reflector = new ReflectionClass($this->classString);
+        // $datos_variable = new ReflectionProperty($this->classString,$property->name);
+        # nombre de las columnas de la tabla
+        $nombres_columnas = $this->em->getClassMetadata($this->classString)->getColumnNames();
+        $metodos_getter = array();
+        $propiedades = array();
+        $contador_columnas = 0;
+        foreach ($reflector->getProperties() as $cont_property => $property) {
+            //echo $property->name . "<br>";
+            array_push($propiedades,$property->name);
+            array_push($metodos_getter, "get".ucfirst($property->name));
+            # normalizamos nombre | todo a minusculas y con subguion
+            # buscamos por letras mayúscuñas y devolvemos la posición
+            preg_match_all('/[A-Z]/', $property->name, $matches, PREG_OFFSET_CAPTURE);
+            # remplazamos mayúsculas por _ y cambiamos a minusuculas
+            $propiedad_normalizada = $property->name;
+            $contador_match = 0;
+            foreach($matches[0] as $key_match => $value_match){
+                $propiedad_normalizada = substr($propiedad_normalizada,0,$value_match[1]+$contador_match) . "_" . strtolower(substr($propiedad_normalizada,$value_match[1]+$contador_match,1)) . substr($propiedad_normalizada,$value_match[1]+$contador_match+1,strlen($propiedad_normalizada));
+                $contador_match++;
+            }
+            if ($propiedad_normalizada != $nombres_columnas[$cont_property]){
+                $temp_columnas = array_values($nombres_columnas);
+                for ($j = count($temp_columnas)-1; $j >= $cont_property; $j--) {
+                    $temp_columnas[$j+1] = $temp_columnas[$j];
+                }
+                $temp_columnas[$cont_property] = $propiedad_normalizada;
+                $nombres_columnas = $temp_columnas;
+            } // end if
+            $cont_property++;
+        } // end foreach
+
+        /*
         foreach ($data as $item) {
             # guardamos datos
             $dato = array(
@@ -589,7 +604,16 @@ class PageController extends SegmentController implements IPagina
         $table = $table->getDatatable()->getTable();
 
         return $table;
+        */
 
+        $respuesta = array(
+            "datos" => $data,
+            "propiedades" => $propiedades,
+            "metodos" => $metodos_getter,
+            "columnas" => $nombres_columnas
+       );
+
+        return $respuesta;
     }
 
     public function listCodeigniter()
@@ -811,9 +835,6 @@ class PageController extends SegmentController implements IPagina
         // var_dump($form->getData());
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //var_dump($form->getData());
-            //die();
-
             # guardamos el formulario para nuevo producto o actualizado
             $form_data = $form->getData();
             $this->em->persist($form_data);
@@ -848,8 +869,6 @@ class PageController extends SegmentController implements IPagina
             // $direccion_url = $this->getUrl();
 
         }else if($form->isSubmitted() && !$form->isValid()){
-            //var_dump($form->getData());
-            //die();
             # guardamos errores de validacion
             $errors = $validator->validate($objeto);
             /*
@@ -1026,40 +1045,33 @@ class PageController extends SegmentController implements IPagina
             //die();
             $this->em->persist($form_data);
             # si el formulario es nuevo guardamos el objeto en los otros idiomas
-            if ($this->classString != "App\Entity\Language"){
-                foreach ($this->session->get("languages_vector") as $index => $value) {
-                    # clonamos el objeto enviado
-                    $objeto_lenguage = clone $form_data;
-                    # obtenemos el nombre la propiedad
-                    $nombre_clase_actual_vector = explode("\\",$this->nombre_objeto);
-                    $nombre_clase_actual = $nombre_clase_actual_vector[count($nombre_clase_actual_vector)-1];
-                    $nombre_clase_actual = ucfirst($nombre_clase_actual);
-                    $metodo_objeto = "get".$nombre_clase_actual;
-                    # obtenemos el valor de la propiedad
-                    $id_objeto = $objeto_lenguage->{$metodo_objeto}();
-                    if ($index != $this->session->get("lang_id")){
-                        $objeto_lenguage->setId($id_objeto.$index);
-                        $objeto_lenguage->setLanguage($index);
-                        $this->em->persist($objeto_lenguage);
-                    } // end if
+            foreach ($this->session->get("languages_vector") as $index => $value) {
+                # clonamos el objeto enviado
+                $objeto_lenguage = clone $form_data;
+                # obtenemos el nombre la propiedad
+                $nombre_clase_actual_vector = explode("\\",$this->nombre_objeto);
+                $nombre_clase_actual = $nombre_clase_actual_vector[count($nombre_clase_actual_vector)-1];
+                $nombre_clase_actual = ucfirst($nombre_clase_actual);
+                $metodo_objeto = "get".$nombre_clase_actual;
+                # obtenemos el valor de la propiedad
+                $id_objeto = $objeto_lenguage->{$metodo_objeto}();
+                if ($index != $this->session->get("lang_id")){
+                    $objeto_lenguage->setId($id_objeto.$index);
+                    $objeto_lenguage->setLanguage($index);
+                    $this->em->persist($objeto_lenguage);
+                } // end if
 
-                } // end foreach
-            }
+            } // end foreach
 
             # realizamos el flush de todos los objetos
             $this->em->flush();
 
             # generamos una url para la redirección
             if ($this->session->get("lang") != "es"){
-                $slug_url = "editar";
+                $slug_url = "editar-idioma";
             }else{
                 $slug_url = "editar";
             }
-
-            $texto_url = $this->request->get("_route");
-            $url = $this->generateUrl($texto_url, array(
-                "id" => (is_array($objeto) && isset($objeto["id"])) ? $objeto["id"] : $objeto->getId(),
-            ));
 
             $url = $this->generateUrl("geo-" . $this->url . "-" . $slug_url ,array(
                 "id" => (is_array($objeto) && isset($objeto["id"])) ? $objeto["id"] : $objeto->getId() ,
