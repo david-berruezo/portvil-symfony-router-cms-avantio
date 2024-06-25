@@ -1,9 +1,9 @@
 <?php
-namespace App\Controller\Admin;
+namespace App\Controller\Front;
 
 use App\Entity\DynamicAdminPage;
 
-class SegmentController extends AdminController
+class FrontSegmentController extends FrontController
 {
     # segment variables
     protected $segment;
@@ -103,7 +103,7 @@ class SegmentController extends AdminController
         // actualizamos indices
         $segments = array_values($segments);
         //p_($segments);
-        
+
         # cogemos todos los segmentos excepto el 0 que no contiene ningún dato
         $segment = $filter = $filter_2 = $filter_3 = $filter_4 = null;
         if (isset($segments[1]))
@@ -164,13 +164,9 @@ class SegmentController extends AdminController
         if (!$find_it)
             $find_it = $this->checkUrlsTheme($data);
 
-        # backend pages
-        if (!$find_it)
-            $find_it = $this->checkUrlsAdminPages($data);
-
         # front end pages | prioridad ante theme
-        // if (!$find_it)
-            // $find_it = $this->checkUrlsPages($data);
+        if (!$find_it)
+            $find_it = $this->checkUrlsPages($data);
 
     }
 
@@ -552,10 +548,12 @@ class SegmentController extends AdminController
                 $this->url = $result[0]->getAutoSlug();
             }
 
+            /*
             var_dump($this->page_id);
             var_dump($this->nombre_tabla);
             var_dump($this->nombre_objeto);
             die();
+            */
 
             $this->gotoUrlPage($data);
             // header("HTTP/1.1 200 OK");
@@ -565,146 +563,51 @@ class SegmentController extends AdminController
             // header("HTTP/1.0 404 Not Found");
             $this->show_404();
             return true;
-        # comrprobamos si estamos en segmento
-        # query mismo idioma pagina como parametro
+            # comrprobamos si estamos en segmento
+            # query mismo idioma pagina como parametro
         }else{
-             # query mismo idioma pagina
-             $sql = " SELECT distinct ds , t , o 
+            # query mismo idioma pagina
+            $sql = " SELECT distinct ds , t , o 
         FROM App\Entity\DynamicPage ds 
         LEFT JOIN ds.tabla t
         LEFT JOIN t.objeto o
         WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language = :language ";
-             $consulta = $this->em->createQuery($sql);
-             $consulta->setParameters(array(
-                 'filter' => $this->segment,
-                 'status'  => 'ACTIVED',
-                 'language' => $id_language
-             ));
-             $sql = $consulta->getDQL();
-             $result = $consulta->getResult();
-
-             if (count($result) > 0) {
-                 $this->page_id = $result[0]->getId();
-                 if (!is_null($result[0]->getTabla()->getTextTitle())) {
-                     $this->nombre_tabla = $result[0]->getTabla()->getObjeto()->getTextTitle();
-                 }
-                 if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())) {
-                     $this->nombre_objeto = $result[0]->getTabla()->getObjeto()->getTextTitle();
-                 }
-                 $this->gotoUrlPage($data);
-                 // header("HTTP/1.1 200 OK");
-                 return true;
-            # query diferente idioma pagina como parametro
-            }else{
-                 # query mismo idioma pagina
-                 $sql = " SELECT distinct ds , t , o 
-        FROM App\Entity\DynamicPage ds 
-        LEFT JOIN ds.tabla t
-        LEFT JOIN t.objeto o
-        WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language <> :language ";
-                 $consulta = $this->em->createQuery($sql);
-                 $consulta->setParameters(array(
-                     'filter' => $this->segment,
-                     'status'  => 'ACTIVED',
-                     'language' => $id_language
-                 ));
-                 $sql = $consulta->getDQL();
-                 $result = $consulta->getResult();
-                 if (count($result) > 0) {
-                     $this->page_id = $result[0]->getId();
-                     if (!is_null($result[0]->getTabla()->getTextTitle())) {
-                         $this->nombre_tabla = $result[0]->getTabla()->getObjeto()->getTextTitle();
-                     }
-                     if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())) {
-                         $this->nombre_objeto = $result[0]->getTabla()->getObjeto()->getTextTitle();
-                     }
-                     $this->gotoUrlPage($data);
-                     // header("HTTP/1.1 200 OK");
-                     return true;
-                 }
-            } // end if
-        } // end if
-        // return $result;
-
-    }
-
-
-    private function checkUrlsAdminPages(&$data){
-
-        # chequeamos segmnento por admin23111978
-        if ($this->segment == "admin23111978"){
-            $id_language = $this->session->get("lang_id");
-            # query mismo idioma pagina
-            $sql = " SELECT distinct ds , t , o  
-        FROM App\Entity\DynamicAdminPage ds 
-        LEFT JOIN ds.tabla t
-        LEFT JOIN t.objeto o
-        WHERE (ds.textSlug = :filter OR ds.autoSlug = :filter) AND ds.status = :status AND ds.language = :language ";
             $consulta = $this->em->createQuery($sql);
             $consulta->setParameters(array(
-                'filter' => $this->filter,
+                'filter' => $this->segment,
                 'status'  => 'ACTIVED',
                 'language' => $id_language
             ));
             $sql = $consulta->getDQL();
             $result = $consulta->getResult();
-            // var_dump($result);
-            // die();
+
             if (count($result) > 0) {
                 $this->page_id = $result[0]->getId();
-                if (!is_null($result[0]->getTabla()->getTextTitle())){
-                    $this->nombre_tabla = $result[0]->getTabla()->getTextTitle();
+                if (!is_null($result[0]->getTabla()->getTextTitle())) {
+                    $this->nombre_tabla = $result[0]->getTabla()->getObjeto()->getTextTitle();
                 }
-                if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())){
+                if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())) {
                     $this->nombre_objeto = $result[0]->getTabla()->getObjeto()->getTextTitle();
                 }
-                if (!is_null($result[0]->getTextSlug())){
-                    $this->url = $result[0]->getTextSlug();
-                }
-                if (!is_null($result[0]->getAutoSlug())){
-                    $this->url = $result[0]->getAutoSlug();
-                }
-
-                /*
-                var_dump($this->page_id);
-                var_dump($this->nombre_tabla);
-                var_dump($this->nombre_objeto);
-                die();
-                */
-
-                # page
-                $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
-                $page = $pages_repository->findBy(array("id" => $this->page_id));
-                if ($page){
-                    $this->data["page"] = $page;
-                }
-
                 $this->gotoUrlPage($data);
                 // header("HTTP/1.1 200 OK");
                 return true;
-            }else if (count($result) > 0 ){
-                // p_("404 Not Found");
-                // header("HTTP/1.0 404 Not Found");
-                $this->show_404();
-                return true;
-                # comrprobamos si estamos en segmento
-                # query mismo idioma pagina como parametro
+                # query diferente idioma pagina como parametro
             }else{
                 # query mismo idioma pagina
                 $sql = " SELECT distinct ds , t , o 
-        FROM App\Entity\DynamicAdminPage ds 
+        FROM App\Entity\DynamicPage ds 
         LEFT JOIN ds.tabla t
         LEFT JOIN t.objeto o
-        WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language = :language ";
+        WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language <> :language ";
                 $consulta = $this->em->createQuery($sql);
                 $consulta->setParameters(array(
-                    'filter' => $this->filter_2,
+                    'filter' => $this->segment,
                     'status'  => 'ACTIVED',
                     'language' => $id_language
                 ));
                 $sql = $consulta->getDQL();
                 $result = $consulta->getResult();
-
                 if (count($result) > 0) {
                     $this->page_id = $result[0]->getId();
                     if (!is_null($result[0]->getTabla()->getTextTitle())) {
@@ -713,58 +616,13 @@ class SegmentController extends AdminController
                     if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())) {
                         $this->nombre_objeto = $result[0]->getTabla()->getObjeto()->getTextTitle();
                     }
-
-                    # page
-                    $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
-                    $page = $pages_repository->findBy(array("id" => $this->page_id));
-                    if ($page){
-                        $this->data["page"] = $page;
-                    }
-
                     $this->gotoUrlPage($data);
                     // header("HTTP/1.1 200 OK");
                     return true;
-                    # query diferente idioma pagina como parametro
-                }else{
-                    # query mismo idioma pagina
-                    $sql = " SELECT distinct ds , t , o 
-        FROM App\Entity\DynamicAdminPage ds 
-        LEFT JOIN ds.tabla t
-        LEFT JOIN t.objeto o
-        WHERE (ds.textSlug = :segment OR ds.autoSlug = :segment) AND ds.status = :status AND ds.language <> :language ";
-                    $consulta = $this->em->createQuery($sql);
-                    $consulta->setParameters(array(
-                        'filter' => $this->segment,
-                        'status'  => 'ACTIVED',
-                        'language' => $id_language
-                    ));
-                    $sql = $consulta->getDQL();
-                    $result = $consulta->getResult();
-                    if (count($result) > 0) {
-                        $this->page_id = $result[0]->getId();
-                        if (!is_null($result[0]->getTabla()->getTextTitle())) {
-                            $this->nombre_tabla = $result[0]->getTabla()->getObjeto()->getTextTitle();
-                        }
-                        if (!is_null($result[0]->getTabla()->getObjeto()->getTextTitle())) {
-                            $this->nombre_objeto = $result[0]->getTabla()->getObjeto()->getTextTitle();
-                        }
-
-                        # page
-                        $pages_repository = $this->em->getRepository(DynamicAdminPage::class);
-                        $page = $pages_repository->findBy(array("id" => $this->page_id));
-                        if ($page){
-                            $this->data["page"] = $page;
-                        }
-
-                        $this->gotoUrlPage($data);
-                        // header("HTTP/1.1 200 OK");
-                        return true;
-                    }
-                } // end if
+                }
             } // end if
-            // return $result;
-
-        } // end if chequeamos segmnento por admin23111978
+        } // end if
+        // return $result;
 
     }
 

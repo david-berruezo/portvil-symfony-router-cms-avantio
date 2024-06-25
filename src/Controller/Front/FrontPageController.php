@@ -1,5 +1,5 @@
 <?php
-namespace App\Controller\Admin;
+namespace App\Controller\Front;
 
 use App\Controller\DynamicRooms;
 use App\Entity\DynamicAgencia;
@@ -37,7 +37,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 # table codeigniter
 # php libararies
-class PageController extends SegmentController implements IPagina
+class FrontPageController extends FrontSegmentController implements IPagina
 {
 
     # objeto a consultar
@@ -91,7 +91,7 @@ class PageController extends SegmentController implements IPagina
         }
     }
 
-    
+
     private function getParametrosList($num_pagina , $lang)
     {
         // guardamos el parametro consulta por idioma
@@ -107,7 +107,7 @@ class PageController extends SegmentController implements IPagina
                 $this->parametros_idioma = array("id");
                 $this->parametros_status = array("id");
                 $this->parametros_borrar = array("id");
-            break;
+                break;
             // todos irán por el default
             default:
                 $this->parametros_idioma = array("id");
@@ -141,13 +141,13 @@ class PageController extends SegmentController implements IPagina
                 $this->parametros_idioma = array("id");
                 $this->parametros_status = array("id");
                 $this->parametros_borrar = array("id");
-            break;
+                break;
             // todos irán por el default
             default:
                 $this->parametros_idioma = array("id");
                 $this->parametros_status = array("id");
                 $this->parametros_borrar = array("id");
-            break;
+                break;
         } // end switch
     }
 
@@ -161,11 +161,11 @@ class PageController extends SegmentController implements IPagina
             switch ($num_pagina){
                 case 1:
                     $data = $this->getGeo($this->classString , $this->parametrosConsulta);
-                break;
+                    break;
                 default:
                     $data = $this->getGeo($this->classString , $this->parametrosConsulta);
-                break;
-           } // end switch
+                    break;
+            } // end switch
         }else if ($pagina == "edit") {
             switch ($num_pagina) {
                 case 1:
@@ -217,7 +217,7 @@ class PageController extends SegmentController implements IPagina
         return $datos;
     }
 
-    
+
     private function getUrl()
     {
         # evaluamos los parámetros
@@ -442,11 +442,11 @@ class PageController extends SegmentController implements IPagina
     private function getSlugTablExceptions()
     {
         $exceptions = array(
-              "dynamic_taxonomygroup" => "dynamic_taxonomy_group",
-              "dynamic_urldetalle" => "dynamic_url_detalle",
-              "galleryfranquiciaprincipal" => "dynamic_url_detalle",
-              "dynamic_propiedadesdestacadas" => "dynamic_propiedades_destacadas",
-              "galleryblog" => "gallery_blog",
+            "dynamic_taxonomygroup" => "dynamic_taxonomy_group",
+            "dynamic_urldetalle" => "dynamic_url_detalle",
+            "galleryfranquiciaprincipal" => "dynamic_url_detalle",
+            "dynamic_propiedadesdestacadas" => "dynamic_propiedades_destacadas",
+            "galleryblog" => "gallery_blog",
 
         );
 
